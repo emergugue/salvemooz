@@ -576,6 +576,64 @@ dd {
   margin-bottom: 0px !important;
   margin-top: 20px;
 }
+a.btn-donar {
+  padding: 15px 60px !important;
+  font-size: 24px !important;
+  background: #007bc3 !important;
+}
+footer .copyright, footer .redes-sociales{
+  padding: 10px 15px;
+  overflow: auto;
+}
+footer.footer-sz{
+  background: #007bc3;
+  color: #fff;
+  font-size: 14px;
+  padding: 10px 0 0 0;
+}
+footer.footer-sz p{
+  float: left;
+}
+footer.footer-sz ul{
+  padding: 0px;
+  margin: 0px;
+}
+footer.footer-sz ul li{
+  display: inline-block;
+}
+footer.footer-sz a {
+  display: block;
+  width: 26px;
+  height: 26px;
+  opacity: 0.8;
+  transition: all 0.5s ease;
+  margin: 0 5px;
+}
+footer.footer-sz a:hover{
+  opacity: 1;
+}
+footer.footer-sz a.fb{
+  background: url(images/fb.png) no-repeat;
+  background-size: contain;
+  text-indent: -9999px
+}
+footer.footer-sz a.tw{
+  background: url(images/tw.png) no-repeat;
+  background-size: contain;
+  text-indent: -9999px
+}
+#fb-root {
+    display: none;
+}
+
+/* To fill the container and nothing else */
+
+.fb_iframe_widget, .fb_iframe_widget span, .fb_iframe_widget span iframe[style] {
+    width: 100% !important;
+}
+div#secondary {
+  margin: 50px 0 50px 0;
+}
 @media (min-width: 768px) {
   .dl-horizontal dt {
     float: left;
@@ -3790,7 +3848,11 @@ input, textarea {
   padding: 8px;
   border: 1px solid #bbb;
   font-size: 14px;
-  color: #555; }
+  color: #555;
+  width: 100%; }
+input.wpcf7-acceptance{
+  width: inherit;
+}
 
 /* =Header
 -------------------------------------------------------------- */

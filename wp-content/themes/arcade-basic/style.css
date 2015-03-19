@@ -591,17 +591,31 @@ footer.footer-sz{
   font-size: 14px;
   padding: 10px 0 0 0;
 }
-footer.footer-sz p{
-  float: left;
+footer.footer-sz .redes-sociales{
+  text-align: center;
+}
+footer.footer-sz .copyright p{
+  text-align: center;
+}
+footer .copyright a{
+  color: #b5e3ff
+}
+footer .copyright a:hover{
+  color: #fff;
+}
+footer.footer-sz .redes-sociales p{
+  display: inline-block;
+  vertical-align: text-bottom;
 }
 footer.footer-sz ul{
   padding: 0px;
   margin: 0px;
+  display: inline-block;
 }
 footer.footer-sz ul li{
   display: inline-block;
 }
-footer.footer-sz a {
+footer.footer-sz .redes-sociales a {
   display: block;
   width: 26px;
   height: 26px;
@@ -609,15 +623,15 @@ footer.footer-sz a {
   transition: all 0.5s ease;
   margin: 0 5px;
 }
-footer.footer-sz a:hover{
+footer.footer-sz .redes-sociales a:hover{
   opacity: 1;
 }
-footer.footer-sz a.fb{
+footer.footer-sz .redes-sociales a.fb{
   background: url(images/fb.png) no-repeat;
   background-size: contain;
   text-indent: -9999px
 }
-footer.footer-sz a.tw{
+footer.footer-sz .redes-sociales a.tw{
   background: url(images/tw.png) no-repeat;
   background-size: contain;
   text-indent: -9999px
@@ -635,6 +649,12 @@ div#secondary {
   margin: 50px 0 50px 0;
 }
 @media (min-width: 768px) {
+  footer.footer-sz .copyright p{
+    text-align: left;
+  }
+  footer.footer-sz .redes-sociales {
+    text-align: right;
+  }
   .dl-horizontal dt {
     float: left;
     width: 160px;

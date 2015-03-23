@@ -648,6 +648,33 @@ footer.footer-sz .redes-sociales a.tw{
 div#secondary {
   margin: 50px 0 50px 0;
 }
+.widget_wysija{
+  margin: 25px 0 0 0;
+}
+div.boletin-home .widget_wysija{
+  margin: 0 0 0 0;
+}
+.widget_wysija_cont label{
+  font-weight: normal !important;
+  color: #gray !important;
+}
+div.boletin-home .widget_wysija_cont label{
+  font-weight: normal !important;
+  color: #fff !important;
+}
+input.wysija-submit.wysija-submit-field {
+  border: none;
+  background: #007BC3;
+  border-radius: 0px;
+  color: #fff;
+  padding: 15px;
+}
+input.wysija-submit.wysija-submit-field:hover{
+  background: #0267A1;
+}
+.vc_btn-sky:hover, a.vc_btn-sky:hover, button.vc_btn-sky:hover{
+  background: #0267A1 !important;
+}
 @media (min-width: 768px) {
   footer.footer-sz .copyright p{
     text-align: left;
@@ -4285,7 +4312,7 @@ input.wpcf7-acceptance{
   overflow: hidden; }
 
 #primary {
-  margin: 50px 0; }
+  margin: 50px 0 0px 0px; }
   #primary.centered {
     float: none !important;
     margin-left: auto;

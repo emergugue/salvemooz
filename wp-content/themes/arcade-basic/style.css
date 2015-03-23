@@ -675,7 +675,27 @@ input.wysija-submit.wysija-submit-field:hover{
 .vc_btn-sky:hover, a.vc_btn-sky:hover, button.vc_btn-sky:hover{
   background: #0267A1 !important;
 }
+a.btn-adoptar {
+  padding: 15px 15px !important;
+  font-size: 24px !important;
+  background: #007bc3 !important;
+  color: #fff !important;
+  display: block;
+  margin: 30px auto;
+  text-decoration: none;
+  text-align: center;
+  width: 70%;
+  webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+}
+a.btn-adoptar:hover{
+  background: #0267A1 !important
+}
 @media (min-width: 768px) {
+  a.btn-adoptar{
+    width: 40%;
+  }
   footer.footer-sz .copyright p{
     text-align: left;
   }

@@ -692,6 +692,21 @@ a.btn-adoptar {
 a.btn-adoptar:hover{
   background: #0267A1 !important
 }
+a.logo-portada{
+  display: block;
+  background: url(images/logo-salvemooz-portada.png) no-repeat center center;
+  background-size: contain;
+  width: 100px;
+  height: 160px;
+  margin: 0 0 0 15px;
+}
+@media (min-width: 992px) {
+  a.logo-portada{
+    width: 130px;
+    margin: 0 0 0 40px;
+  }
+}
+
 @media (min-width: 768px) {
   a.btn-adoptar{
     width: 40%;
@@ -3934,11 +3949,29 @@ input.wpcf7-acceptance{
   z-index: 1;
   width: 100%;
   display: table;
-  text-align: center; }
+  text-align: left; }
   .title-card > img.header-img {
     position: absolute;
     z-index: 0;
     left: -9999px; }
+div.sombra{
+  width: 30%;
+  height: 100%;
+ background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwMDAwMCIgc3RvcC1vcGFjaXR5PSIwLjc0Ii8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMDAwMDAiIHN0b3Atb3BhY2l0eT0iMCIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+background: -moz-linear-gradient(left,  rgba(0,0,0,0.74) 0%, rgba(0,0,0,0) 100%);
+background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(0,0,0,0.74)), color-stop(100%,rgba(0,0,0,0)));
+background: -webkit-linear-gradient(left,  rgba(0,0,0,0.74) 0%,rgba(0,0,0,0) 100%);
+background: -o-linear-gradient(left,  rgba(0,0,0,0.74) 0%,rgba(0,0,0,0) 100%);
+background: -ms-linear-gradient(left,  rgba(0,0,0,0.74) 0%,rgba(0,0,0,0) 100%);
+background: linear-gradient(to right,  rgba(0,0,0,0.74) 0%,rgba(0,0,0,0) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bd000000', endColorstr='#00000000',GradientType=1 );
+
+  position: absolute;
+  z-index: 1;
+}
+a.logo-portada h1{
+  text-indent: -9999px;
+}
 
 #site-meta {
   display: table-cell;

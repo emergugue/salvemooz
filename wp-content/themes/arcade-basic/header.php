@@ -61,22 +61,9 @@ $space_class = '';
 
 			 <div class="title-card-wrapper">
                 <div class="title-card">
+                	<div class="sombra"></div>
     				<div id="site-meta">
-    					<h1 id="site-title">
-    						<a href="<?php echo esc_url( home_url() ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
-    					</h1>
-
-    					<?php if ( $bavotasan_theme_options['header_icon'] ) { ?>
-    					<i class="fa <?php echo $bavotasan_theme_options['header_icon']; ?>"></i>
-    					<?php } else {
-    						$space_class = ' class="margin-top"';
-    					} ?>
-
-    					<h2 id="site-description"<?php echo $space_class; ?>>
-    						<?php bloginfo( 'description' ); ?>
-    					</h2>
-
-    					<!-- <a href="#" id="more-site" class="btn btn-default btn-lg"><?php _e( 'See More', 'arcade' ); ?></a> -->
+    					<a class="logo-portada" href="<?php echo esc_url( home_url() ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"><h1>Corporación Salvemooz</h1></a>
     				</div>
 
     				<?php

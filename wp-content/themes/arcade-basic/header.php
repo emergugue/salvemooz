@@ -39,7 +39,7 @@ $space_class = '';
 
 		<header id="header">
 			<nav id="site-navigation" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-				<div class="logo-sz"><a href="http://localhost/salvemooz/" title="Logo Salvemooz"></a></div>
+				<div class="logo-sz"><a href="<?php bloginfo('url') ?>" title="Logo Salvemooz"></a></div>
 				<h3 class="sr-only"><?php _e( 'Main menu', 'arcade' ); ?></h3>
 				<a class="sr-only" href="#primary" title="<?php esc_attr_e( 'Skip to content', 'arcade' ); ?>"><?php _e( 'Skip to content', 'arcade' ); ?></a>
 

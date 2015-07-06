@@ -678,7 +678,7 @@ input.wysija-submit.wysija-submit-field:hover{
 a.btn-adoptar {
   padding: 15px 15px !important;
   font-size: 24px !important;
-  background: #007bc3 !important;
+  background: #49af2e !important;
   color: #fff !important;
   display: block;
   margin: 30px auto;
@@ -690,7 +690,7 @@ a.btn-adoptar {
   transition: all 0.5s;
 }
 a.btn-adoptar:hover{
-  background: #0267A1 !important
+  background: #2C8C13 !important
 }
 a.logo-portada{
   display: block;
@@ -699,6 +699,81 @@ a.logo-portada{
   width: 100px;
   height: 160px;
   margin: 0 0 0 15px;
+}
+.ctn_informacion{
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+.ctn_thumbnail{
+  margin-bottom: 30px;
+}
+@media (min-width: 768px){
+  .ctn_thumbnail{
+    margin-bottom: 0px;
+  }
+  .informacion-item{
+    margin-bottom: 30px;
+  }
+}
+.ctn_informacion_item ul{
+  padding: 0;
+  margin: 0;
+}
+.informacion-item{
+  list-style: none;
+  margin-bottom: 22px;
+  position: relative;
+  padding-left: 40px;
+  padding-top: 5px;
+}
+.informacion-item::before{
+  content: "";
+  background: url(images/info-icons.png) no-repeat;
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  margin-right: 10px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+.edad::before{
+  background-position: -20px -20px;
+}
+.tamano::before{
+  background-position: -90px -20px;
+}
+.raza::before{
+  background-position: -161px -19px;
+}
+.esterilizado::before{
+  background-position: -230px -19px;
+}
+.vacunado::before{
+  background-position: -300px -19px;
+}
+.sexo::before{
+  background-position: -371px -19px;
+}
+.widget{
+  margin-bottom: 30px;
+}
+.widget-title{
+  background-color: #007bc3;
+  background-image: url(images/logo-transparencia.png);
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+  background-size: contain;
+  padding: 10px;
+  font-size: 18px;
+  color: #ffffff !important;
+}
+aside.widget_wysija, aside .widget_wysija{
+  margin: 10px 0 0 0 !important;
+}
+aside.widget_wysija input.wysija-submit.wysija-submit-field{
+  width: 80%;
+  margin: 20px auto 0 auto;
 }
 @media (min-width: 992px) {
   a.logo-portada{
@@ -3102,8 +3177,8 @@ input[type="button"].btn-block {
 .navbar-nav {
   margin: 7.5px -20px; }
   .navbar-nav > li > a {
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     line-height: 20px; }
   @media (max-width: 767px) {
     .navbar-nav .open .dropdown-menu {

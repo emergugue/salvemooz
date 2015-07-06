@@ -70,6 +70,7 @@ function bavotasan_setup() {
 	add_theme_support( 'post-thumbnails' );
 	add_image_size( 'half', 570, 220, true );
 	add_image_size( 'square100', 100, 100, true );
+	add_image_size( "my-size", 450, 230, true);
 
 	// Add a filter to bavotasan_header_image_width and bavotasan_header_image_height to change the width and height of your custom header.
 	add_theme_support( 'custom-header', array(

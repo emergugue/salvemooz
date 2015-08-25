@@ -70,6 +70,7 @@
 								node = node.parentNode;
 							}
 
+<<<<<<< HEAD
 							if ( ! node || node.nodeType !== 1 ||
 								( node.className && typeof node.className === 'string' && node.className.indexOf( 'wp-exclude-emoji' ) !== -1 ) ) {
 
@@ -77,6 +78,13 @@
 							}
 
 							if ( test( node.textContent ) ) {
+=======
+							if ( ! node || ( node.className && node.className.indexOf( 'wp-exclude-emoji' ) !== -1 ) ) {
+								continue;
+							}
+
+							if ( node && node.nodeType === 1 ) {
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 								parse( node );
 							}
 						}
@@ -91,6 +99,7 @@
 		}
 
 		/**
+<<<<<<< HEAD
 		 * Test if a text string contains emoji characters.
 		 *
 		 * @since 4.3.0
@@ -113,6 +122,8 @@
 		}
 
 		/**
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 		 * Given an element or string, parse any emoji characters into Twemoji images.
 		 *
 		 * @since 4.2.0
@@ -121,19 +132,32 @@
 		 * @param {Object} args Additional options for Twemoji.
 		 */
 		function parse( object, args ) {
+<<<<<<< HEAD
 			var params;
 
 			if ( ! replaceEmoji || ! twemoji || ! object ||
 				( 'string' !== typeof object && ( ! object.childNodes || ! object.childNodes.length ) ) ) {
 
+=======
+			if ( ! replaceEmoji || ! twemoji ) {
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 				return object;
 			}
 
 			args = args || {};
+<<<<<<< HEAD
 			params = {
 				base: settings.baseUrl,
 				ext: settings.ext,
 				className: args.className || 'emoji',
+=======
+
+			return twemoji.parse( object, {
+				base: settings.baseUrl,
+				ext: settings.ext,
+				className: args.className || 'emoji',
+				imgAttr: args.imgAttr,
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 				callback: function( icon, options ) {
 					// Ignore some standard characters that TinyMCE recommends in its character map.
 					switch ( icon ) {
@@ -156,6 +180,7 @@
 
 					return ''.concat( options.base, icon, options.ext );
 				}
+<<<<<<< HEAD
 			};
 
 			if ( typeof args.imgAttr === 'object' ) {
@@ -165,6 +190,9 @@
 			}
 
 			return twemoji.parse( object, params );
+=======
+			} );
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 		}
 
 		/**
@@ -182,8 +210,12 @@
 
 		return {
 			replaceEmoji: replaceEmoji,
+<<<<<<< HEAD
 			parse: parse,
 			test: test
+=======
+			parse: parse
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 		};
 	}
 

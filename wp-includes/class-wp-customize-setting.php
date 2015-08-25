@@ -129,11 +129,19 @@ class WP_Customize_Setting {
 	 * @since 4.2.0
 	 * @access public
 	 *
+<<<<<<< HEAD
 	 * @return bool If preview() has been called.
 	 */
 	public function is_current_blog_previewed() {
 		if ( ! isset( $this->_previewed_blog_id ) ) {
 			return false;
+=======
+	 * @return bool|null Returns null if preview() has not been called yet.
+	 */
+	public function is_current_blog_previewed() {
+		if ( ! isset( $this->_previewed_blog_id ) ) {
+			return null;
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 		}
 		return ( get_current_blog_id() === $this->_previewed_blog_id );
 	}
@@ -235,7 +243,11 @@ class WP_Customize_Setting {
 	 *
 	 * @since 3.4.0
 	 *
+<<<<<<< HEAD
 	 * @return false|void False if cap check fails or value isn't set.
+=======
+	 * @return false|null False if cap check fails or value isn't set.
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	 */
 	final public function save() {
 		$value = $this->post_value();
@@ -275,8 +287,13 @@ class WP_Customize_Setting {
 	 *
 	 * @since 3.4.0
 	 *
+<<<<<<< HEAD
 	 * @param string|array $value The value to sanitize.
 	 * @return string|array|null Null if an input isn't valid, otherwise the sanitized value.
+=======
+	 * @param mixed $value The value to sanitize.
+	 * @return mixed Null if an input isn't valid, otherwise the sanitized value.
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	 */
 	public function sanitize( $value ) {
 		$value = wp_unslash( $value );
@@ -331,6 +348,7 @@ class WP_Customize_Setting {
 	 * @since 3.4.0
 	 *
 	 * @param mixed $value The value to update.
+<<<<<<< HEAD
 	 */
 	protected function _update_theme_mod( $value ) {
 		// Handle non-array theme mod.
@@ -344,6 +362,20 @@ class WP_Customize_Setting {
 		if ( isset( $mods ) ) {
 			set_theme_mod( $this->id_data[ 'base' ], $mods );
 		}
+=======
+	 * @return mixed The result of saving the value.
+	 */
+	protected function _update_theme_mod( $value ) {
+		// Handle non-array theme mod.
+		if ( empty( $this->id_data[ 'keys' ] ) )
+			return set_theme_mod( $this->id_data[ 'base' ], $value );
+
+		// Handle array-based theme mod.
+		$mods = get_theme_mod( $this->id_data[ 'base' ] );
+		$mods = $this->multidimensional_replace( $mods, $this->id_data[ 'keys' ], $value );
+		if ( isset( $mods ) )
+			return set_theme_mod( $this->id_data[ 'base' ], $mods );
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	}
 
 	/**
@@ -352,7 +384,11 @@ class WP_Customize_Setting {
 	 * @since 3.4.0
 	 *
 	 * @param mixed $value The value to update.
+<<<<<<< HEAD
 	 * @return bool The result of saving the value.
+=======
+	 * @return bool|null The result of saving the value.
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	 */
 	protected function _update_option( $value ) {
 		// Handle non-array option.
@@ -461,7 +497,11 @@ class WP_Customize_Setting {
 	 * @param $root
 	 * @param $keys
 	 * @param bool $create Default is false.
+<<<<<<< HEAD
 	 * @return array|void Keys are 'root', 'node', and 'key'.
+=======
+	 * @return null|array Keys are 'root', 'node', and 'key'.
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	 */
 	final protected function multidimensional( &$root, $keys, $create = false ) {
 		if ( $create && empty( $root ) )
@@ -592,8 +632,11 @@ final class WP_Customize_Header_Image_Setting extends WP_Customize_Setting {
 	/**
 	 * @since 3.4.0
 	 *
+<<<<<<< HEAD
 	 * @global Custom_Image_Header $custom_image_header
 	 *
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	 * @param $value
 	 */
 	public function update( $value ) {
@@ -630,6 +673,7 @@ final class WP_Customize_Background_Image_Setting extends WP_Customize_Setting {
 		remove_theme_mod( 'background_image_thumb' );
 	}
 }
+<<<<<<< HEAD
 
 /**
  * Customize Setting to represent a nav_menu.
@@ -2047,3 +2091,5 @@ class WP_Customize_Nav_Menu_Setting extends WP_Customize_Setting {
 		return $data;
 	}
 }
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28

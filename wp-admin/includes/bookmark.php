@@ -74,10 +74,15 @@ function get_default_link_to_edit() {
  *
  * @since 2.0.0
  *
+<<<<<<< HEAD
  * @global wpdb $wpdb
  *
  * @param int $link_id ID of the link to delete
  * @return true
+=======
+ * @param int $link_id ID of the link to delete
+ * @return bool True
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  */
 function wp_delete_link( $link_id ) {
 	global $wpdb;
@@ -116,7 +121,13 @@ function wp_delete_link( $link_id ) {
  * @return array The requested link's categories
  */
 function wp_get_link_cats( $link_id = 0 ) {
+<<<<<<< HEAD
 	$cats = wp_get_object_terms( $link_id, 'link_category', array('fields' => 'ids') );
+=======
+
+	$cats = wp_get_object_terms( $link_id, 'link_category', array('fields' => 'ids') );
+
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	return array_unique( $cats );
 }
 
@@ -137,10 +148,15 @@ function get_link_to_edit( $link_id ) {
  *
  * @since 2.0.0
  *
+<<<<<<< HEAD
  * @global wpdb $wpdb
  *
  * @param array $linkdata Elements that make up the link to insert.
  * @param bool  $wp_error Optional. If true return WP_Error object on failure.
+=======
+ * @param array $linkdata Elements that make up the link to insert.
+ * @param bool $wp_error Optional. If true return WP_Error object on failure.
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  * @return int|WP_Error Value 0 or WP_Error on failure. The link ID on success.
  */
 function wp_insert_link( $linkdata, $wp_error = false ) {
@@ -287,8 +303,11 @@ function wp_update_link( $linkdata ) {
 /**
  * @since 3.5.0
  * @access private
+<<<<<<< HEAD
  *
  * @global string $pagenow
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  */
 function wp_link_manager_disabled_message() {
 	global $pagenow;
@@ -306,3 +325,7 @@ function wp_link_manager_disabled_message() {
 
 	wp_die( __( 'You do not have sufficient permissions to edit the links for this site.' ) );
 }
+<<<<<<< HEAD
+=======
+add_action( 'admin_page_access_denied', 'wp_link_manager_disabled_message' );
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28

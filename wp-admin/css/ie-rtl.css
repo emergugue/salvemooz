@@ -50,6 +50,22 @@
 	width: 35%;
 }
 
+<<<<<<< HEAD
+=======
+.wp-fullscreen-title {
+	width: 97%;
+}
+
+#wp_mce_fullscreen_ifr {
+	background-color: #f9f9f9;
+}
+
+#wp-fullscreen-tagline {
+	color: #82878c;
+	font-size: 14px;
+}
+
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 #adminmenuback {
 	right: 0;
 	background-image: none;
@@ -484,16 +500,24 @@ table.ie-fixed {
 }
 
 .widefat tr,
+<<<<<<< HEAD
 .widefat th,
 .widefat thead td,
 .widefat tfoot td {
+=======
+.widefat th {
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	margin-bottom: 0;
 	border-spacing: 0;
 }
 
+<<<<<<< HEAD
 .widefat th input,
 .widefat thead td input,
 .widefat tfoot td input {
+=======
+.widefat th input {
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	margin: 0 5px 0 0;
 }
 

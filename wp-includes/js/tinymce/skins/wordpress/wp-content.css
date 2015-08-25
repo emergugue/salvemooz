@@ -21,9 +21,12 @@ body {
 	margin: 9px 10px;
 	max-width: 100%;
 	-webkit-font-smoothing: antialiased !important;
+<<<<<<< HEAD
 	overflow-wrap: break-word;
 	word-wrap: break-word; /* Old syntax */
 	word-break: break-word; /* iOS */
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 }
 
 body.rtl {
@@ -74,6 +77,7 @@ img.emoji {
 	box-shadow: none !important;
 }
 
+<<<<<<< HEAD
 .mceIEcenter {
 	text-align: center;
 }
@@ -95,6 +99,58 @@ img {
 
 .wp-caption img {
 	display: block;
+=======
+/* DFW mode */
+html.wp-fullscreen,
+html.wp-fullscreen body#tinymce {
+	width: auto;
+	max-width: none;
+	min-height: 0;
+	overflow: hidden;
+	color: #333;
+	background: transparent;
+}
+
+.aligncenter,
+dl.aligncenter,
+.html5-captions .wp-caption.aligncenter {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.alignleft {
+	float: left;
+}
+
+.alignright {
+	float: right;
+}
+
+.wp-caption {
+	border: 1px solid #ddd;
+	text-align: center;
+	background-color: #f3f3f3;
+	padding-top: 4px;
+	margin: 10px 0;
+}
+
+.html5-captions .wp-caption {
+	border: none;
+	background-color: transparent;
+	margin: 0;
+	padding: 0;
+}
+
+.mceIEcenter {
+	text-align: center;
+}
+
+.wp-caption img {
+	margin: 0;
+	padding: 0;
+	border: 0 none;
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 }
 
 div.mceTemp {
@@ -107,6 +163,7 @@ dl.wp-caption * {
 }
 
 .wp-caption-dd {
+<<<<<<< HEAD
 	font-size: 14px;
 	padding-top: 0.5em;
 	margin: 0; /* browser reset */
@@ -126,6 +183,12 @@ dl.wp-caption * {
 .alignright {
 	float: right;
 	margin: 0.5em 0 0.5em 1em;
+=======
+	font-size: 11px;
+	line-height: 17px;
+	padding: 0 4px 5px;
+	margin: 0;
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 }
 
 /* Remove blue highlighting of selected images in WebKit */

@@ -27,14 +27,24 @@
  */
 class ftp extends ftp_base {
 
+<<<<<<< HEAD
 	function __construct($verb=FALSE, $le=FALSE) {
 		parent::__construct(true, $verb, $le);
 	}
 
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	function ftp($verb=FALSE, $le=FALSE) {
 		$this->__construct($verb, $le);
 	}
 
+<<<<<<< HEAD
+=======
+	function __construct($verb=FALSE, $le=FALSE) {
+		parent::__construct(true, $verb, $le);
+	}
+
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 // <!-- --------------------------------------------------------------------------------------- -->
 // <!--       Private functions                                                                 -->
 // <!-- --------------------------------------------------------------------------------------- -->

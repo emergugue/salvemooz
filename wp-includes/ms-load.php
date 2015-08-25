@@ -19,7 +19,14 @@ function is_subdomain_install() {
 	if ( defined('SUBDOMAIN_INSTALL') )
 		return SUBDOMAIN_INSTALL;
 
+<<<<<<< HEAD
 	return ( defined( 'VHOST' ) && VHOST == 'yes' );
+=======
+	if ( defined('VHOST') && VHOST == 'yes' )
+		return true;
+
+	return false;
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 }
 
 /**
@@ -65,7 +72,11 @@ function wp_get_active_network_plugins() {
  *
  * @since 3.0.0
  *
+<<<<<<< HEAD
  * @return true|string Returns true on success, or drop-in file to include.
+=======
+ * @return bool|string Returns true on success, or drop-in file to include.
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  */
 function ms_site_check() {
 	$blog = get_blog_details();
@@ -114,12 +125,19 @@ function ms_site_check() {
  *
  * @since 3.9.0
  *
+<<<<<<< HEAD
  * @global wpdb $wpdb
  *
  * @param string   $domain   Domain to check.
  * @param string   $path     Path to check.
  * @param int|null $segments Path segments to use. Defaults to null, or the full path.
  * @return object|false Network object if successful. False when no network is found.
+=======
+ * @param string   $domain   Domain to check.
+ * @param string   $path     Path to check.
+ * @param int|null $segments Path segments to use. Defaults to null, or the full path.
+ * @return object|bool Network object if successful. False when no network is found.
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  */
 function get_network_by_path( $domain, $path, $segments = null ) {
 	global $wpdb;
@@ -259,10 +277,15 @@ function get_network_by_path( $domain, $path, $segments = null ) {
  *
  * @since 3.9.0
  *
+<<<<<<< HEAD
  * @global wpdb $wpdb
  *
  * @param object|int $network The network's database row or ID.
  * @return object|false Object containing network information if found, false if not.
+=======
+ * @param object|int $network The network's database row or ID.
+ * @return object|bool Object containing network information if found, false if not.
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  */
 function wp_get_network( $network ) {
 	global $wpdb;
@@ -282,12 +305,19 @@ function wp_get_network( $network ) {
  *
  * @since 3.9.0
  *
+<<<<<<< HEAD
  * @global wpdb $wpdb
  *
  * @param string   $domain   Domain to check.
  * @param string   $path     Path to check.
  * @param int|null $segments Path segments to use. Defaults to null, or the full path.
  * @return object|false Site object if successful. False when no site is found.
+=======
+ * @param string   $domain   Domain to check.
+ * @param string   $path     Path to check.
+ * @param int|null $segments Path segments to use. Defaults to null, or the full path.
+ * @return object|bool Site object if successful. False when no site is found.
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  */
 function get_site_by_path( $domain, $path, $segments = null ) {
 	global $wpdb;
@@ -394,10 +424,13 @@ function get_site_by_path( $domain, $path, $segments = null ) {
  *
  * @access private
  * @since 3.0.0
+<<<<<<< HEAD
  *
  * @global wpdb   $wpdb
  * @global string $domain
  * @global string $path
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  */
 function ms_not_installed() {
 	global $wpdb, $domain, $path;
@@ -470,8 +503,11 @@ function get_current_site_name( $current_site ) {
  * @since 3.0.0
  * @deprecated 3.9.0
  *
+<<<<<<< HEAD
  * @global object $current_site
  *
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  * @return object
  */
 function wpmu_current_site() {

@@ -2,7 +2,10 @@
 tinymce.PluginManager.add( 'wpeditimage', function( editor ) {
 	var toolbar, serializer,
 		each = tinymce.each,
+<<<<<<< HEAD
 		trim = tinymce.trim,
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 		iOS = tinymce.Env.iOS;
 
 	function isPlaceholder( node ) {
@@ -96,7 +99,12 @@ tinymce.PluginManager.add( 'wpeditimage', function( editor ) {
 
 	function parseShortcode( content ) {
 		return content.replace( /(?:<p>)?\[(?:wp_)?caption([^\]]+)\]([\s\S]+?)\[\/(?:wp_)?caption\](?:<\/p>)?/g, function( a, b, c ) {
+<<<<<<< HEAD
 			var id, align, classes, caption, img, width;
+=======
+			var id, align, classes, caption, img, width,
+				trim = tinymce.trim;
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 
 			id = b.match( /id=['"]([^'"]*)['"] ?/ );
 			if ( id ) {
@@ -525,10 +533,19 @@ tinymce.PluginManager.add( 'wpeditimage', function( editor ) {
 	}
 
 	function removeImage( node ) {
+<<<<<<< HEAD
 		var wrap = editor.dom.getParent( node, 'div.mceTemp' );
 
 		if ( ! wrap && node.nodeName === 'IMG' ) {
 			wrap = editor.dom.getParent( node, 'a' );
+=======
+		var wrap;
+
+		if ( node.nodeName === 'DIV' && editor.dom.hasClass( node, 'mceTemp' ) ) {
+			wrap = node;
+		} else if ( node.nodeName === 'IMG' || node.nodeName === 'DT' || node.nodeName === 'A' ) {
+			wrap = editor.dom.getParent( node, 'div.mceTemp' );
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 		}
 
 		if ( wrap ) {
@@ -863,7 +880,11 @@ tinymce.PluginManager.add( 'wpeditimage', function( editor ) {
 				replacement = ' ' + align;
 			}
 
+<<<<<<< HEAD
 			node.className = trim( node.className.replace( / ?align(left|center|right|none)/g, '' ) + replacement );
+=======
+			node.className = node.className.replace( / ?align(left|center|right|none)/g, '' ) + replacement;
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 
 			editor.nodeChanged();
 			event.preventDefault();

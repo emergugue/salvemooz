@@ -232,6 +232,7 @@ textarea[readonly] {
    color: #a9a9a9;
 }
 
+<<<<<<< HEAD
 .form-invalid input, .form-invalid input:focus,
 .form-invalid select, .form-invalid select:focus {
 	border-color: #dc3232 !important;
@@ -245,6 +246,15 @@ textarea[readonly] {
 	color: #dc3232;
 	margin-right: -25px;
 	vertical-align: middle;
+=======
+.form-invalid {
+	background-color: #ffebe8 !important;
+}
+
+.form-invalid input,
+.form-invalid select {
+	border-color: #c00 !important;
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 }
 
 .form-input-tip {
@@ -358,7 +368,12 @@ textarea.large-text {
 	width: 99%;
 }
 
+<<<<<<< HEAD
 input.regular-text {
+=======
+input.regular-text,
+#adduser .form-field input {
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	width: 25em;
 }
 
@@ -406,11 +421,14 @@ input[type="number"].small-text {
 	color: #777;
 }
 
+<<<<<<< HEAD
 button.wp-hide-pw > .dashicons {
 	position: relative;
 	top: 3px;
 }
 
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 label,
 #your-profile label + a {
 	vertical-align: middle;
@@ -444,6 +462,7 @@ fieldset label,
 #pass-strength-result {
 	background-color: #eee;
 	border: 1px solid #ddd;
+<<<<<<< HEAD
 	color: #23282d;
 	margin: -2px 1px 5px 5px;
 	padding: 3px 5px;
@@ -497,12 +516,41 @@ fieldset label,
 
 .pw-weak {
 	display:none;
+=======
+	float: right;
+	margin: 13px 1px 5px 5px;
+	padding: 3px 5px;
+	text-align: center;
+	width: 200px;
+	display: none;
+}
+
+#pass-strength-result.short {
+	background-color: #ffa0a0;
+	border-color: #f04040;
+}
+
+#pass-strength-result.bad {
+	background-color: #ffb78c;
+	border-color: #ff853c;
+}
+
+#pass-strength-result.good {
+	background-color: #ffec8b;
+	border-color: #fc0;
+}
+
+#pass-strength-result.strong {
+	background-color: #c3ff88;
+	border-color: #8dff1c;
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 }
 
 .indicator-hint {
 	padding-top: 8px;
 }
 
+<<<<<<< HEAD
 #pass1-text,
 .show-password #pass1 {
 	display: none;
@@ -517,6 +565,8 @@ fieldset label,
 	font-size: 12px;
 }
 
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 p.search-box {
 	float: left;
 	margin: 0;
@@ -680,7 +730,10 @@ table.form-table td .updated p {
 	width: 15em;
 }
 
+<<<<<<< HEAD
 #adduser .form-field input,
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 #createuser .form-field input {
 	width: 25em;
 }
@@ -884,10 +937,13 @@ table.form-table td .updated p {
   21.0 - Network Admin
 ------------------------------------------------------------------------------*/
 
+<<<<<<< HEAD
 .setup-php textarea {
 	max-width: 100%;
 }
 
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 .form-field #site-address {
 	max-width: 25em;
 }
@@ -908,11 +964,14 @@ table.form-table td .updated p {
 	margin-bottom: 5px;
 }
 
+<<<<<<< HEAD
 #search-users,
 #search-sites {
 	max-width: 100%;
 }
 
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 /*------------------------------------------------------------------------------
    Credentials check dialog for Install and Updates
 ------------------------------------------------------------------------------*/
@@ -923,7 +982,10 @@ table.form-table td .updated p {
 
 .request-filesystem-credentials-dialog .notification-dialog {
 	top: 15%;
+<<<<<<< HEAD
 	max-height: 85%;
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 }
 
 .request-filesystem-credentials-dialog-content {
@@ -1005,14 +1067,19 @@ table.form-table td .updated p {
 		padding-top: 10px;
 	}
 
+<<<<<<< HEAD
 	input[type="checkbox"],
 	.widefat th input[type="checkbox"],
 	.widefat thead td input[type="checkbox"],
 	.widefat tfoot td input[type="checkbox"] {
+=======
+	input[type="checkbox"], .widefat th input[type="checkbox"] {
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 		-webkit-appearance: none;
 		padding: 10px;
 	}
 
+<<<<<<< HEAD
 	.widefat th input[type="checkbox"],
 	.widefat thead td input[type="checkbox"],
 	.widefat tfoot td input[type="checkbox"] {
@@ -1023,6 +1090,13 @@ table.form-table td .updated p {
 	.widefat th input[type="checkbox"]:before,
 	.widefat thead td input[type="checkbox"]:before,
 	.widefat tfoot td input[type="checkbox"]:before {
+=======
+	.widefat th input[type="checkbox"] {
+		margin-bottom: 8px;
+	}
+
+	input[type="checkbox"]:checked:before, .widefat th input[type="checkbox"]:before {
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 		font: normal 30px/1 'Dashicons';
 		margin: -3px -5px;
 	}
@@ -1060,7 +1134,10 @@ table.form-table td .updated p {
 		font-size: 14px;
 	}
 
+<<<<<<< HEAD
 	#adduser .form-field input,
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	#createuser .form-field input {
 		width: 100%;
 	}
@@ -1110,11 +1187,14 @@ table.form-table td .updated p {
 		box-sizing: border-box;
 	}
 
+<<<<<<< HEAD
 	.form-table .form-required.form-invalid td:after {
 		float: left;
 		margin: -30px 0 0 3px;
 	}
 
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	#wpbody .form-table td select {
 		height: 40px;
 	}
@@ -1163,10 +1243,15 @@ table.form-table td .updated p {
 	}
 
 	.form-table span.description {
+<<<<<<< HEAD
 		display: inline;
 		padding: 4px 0 0;
 		line-height: 1.4em;
 		font-size: 14px;
+=======
+		padding: 4px 0 0;
+		line-height: 1.4em;
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	}
 
 	.form-table th {
@@ -1176,6 +1261,7 @@ table.form-table td .updated p {
 	}
 
 	.form-table td {
+<<<<<<< HEAD
 		margin-bottom: 0;
 		padding-bottom: 6px;
 		padding-top: 4px;
@@ -1192,6 +1278,12 @@ table.form-table td .updated p {
 		width: 96%;
 	}
 
+=======
+		padding-top: 8px;
+		padding-right: 0;
+	}
+
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	.form-table input.regular-text {
 		width: 100%;
 	}
@@ -1219,6 +1311,7 @@ table.form-table td .updated p {
 	.form-field #domain {
 		max-width: none;
 	}
+<<<<<<< HEAD
 
 	/* New Password */
 	.wp-pwd {
@@ -1252,6 +1345,8 @@ table.form-table td .updated p {
 	.wp-pwd .button .text {
 		display: none;
 	}
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 }
 
 @media only screen and (max-width: 768px) {
@@ -1272,18 +1367,32 @@ table.form-table td .updated p {
 		max-width: 400px;
 		width: auto;
 	}
+<<<<<<< HEAD
+=======
+
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 }
 
 @media only screen and (max-height: 480px) {
 	/*  Request Credentials */
+<<<<<<< HEAD
 	.request-filesystem-credentials-dialog .notification-dialog{
 		width: 100%;
 		height: 100%;
 		max-height: 100%;
+=======
+	.request-filesystem-credentials-dialog	.notification-dialog{
+		width: 100%;
+		height: 100%;
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 		position: fixed;
 		top: 0;
 		margin: 0;
 		right: 0;
+<<<<<<< HEAD
+=======
+		overflow-y: auto;
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	}
 }
 
@@ -1294,3 +1403,7 @@ table.form-table td .updated p {
 		width: 49%;
 	}
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28

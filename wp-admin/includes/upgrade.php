@@ -118,10 +118,13 @@ if ( !function_exists('wp_install_defaults') ) :
  *
  * @since 2.1.0
  *
+<<<<<<< HEAD
  * @global wpdb       $wpdb
  * @global WP_Rewrite $wp_rewrite
  * @global string     $table_prefix
  *
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  * @param int $user_id User ID.
  */
 function wp_install_defaults( $user_id ) {
@@ -156,11 +159,16 @@ function wp_install_defaults( $user_id ) {
 		$first_post = get_site_option( 'first_post' );
 
 		if ( empty($first_post) )
+<<<<<<< HEAD
 			$first_post = __( 'Welcome to <a href="SITE_URL">SITE_NAME</a>. This is your first post. Edit or delete it, then start writing!' );
+=======
+			$first_post = __( 'Welcome to <a href="SITE_URL">SITE_NAME</a>. This is your first post. Edit or delete it, then start blogging!' );
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 
 		$first_post = str_replace( "SITE_URL", esc_url( network_home_url() ), $first_post );
 		$first_post = str_replace( "SITE_NAME", get_current_site()->site_name, $first_post );
 	} else {
+<<<<<<< HEAD
 		$first_post = __( 'Welcome to WordPress. This is your first post. Edit or delete it, then start writing!' );
 	}
 
@@ -181,6 +189,28 @@ function wp_install_defaults( $user_id ) {
 		'pinged' => '',
 		'post_content_filtered' => ''
 	));
+=======
+		$first_post = __('Welcome to WordPress. This is your first post. Edit or delete it, then start blogging!');
+	}
+
+	$wpdb->insert( $wpdb->posts, array(
+								'post_author' => $user_id,
+								'post_date' => $now,
+								'post_date_gmt' => $now_gmt,
+								'post_content' => $first_post,
+								'post_excerpt' => '',
+								'post_title' => __('Hello world!'),
+								/* translators: Default post slug */
+								'post_name' => sanitize_title( _x('hello-world', 'Default post slug') ),
+								'post_modified' => $now,
+								'post_modified_gmt' => $now_gmt,
+								'guid' => $first_post_guid,
+								'comment_count' => 1,
+								'to_ping' => '',
+								'pinged' => '',
+								'post_content_filtered' => ''
+								));
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	$wpdb->insert( $wpdb->term_relationships, array('term_taxonomy_id' => $cat_tt_id, 'object_id' => 1) );
 
 	// Default comment
@@ -194,6 +224,7 @@ To delete a comment, just log in and view the post&#039;s comments. There you wi
 		$first_comment = get_site_option( 'first_comment', $first_comment );
 	}
 	$wpdb->insert( $wpdb->comments, array(
+<<<<<<< HEAD
 		'comment_post_ID' => 1,
 		'comment_author' => $first_comment_author,
 		'comment_author_email' => '',
@@ -202,11 +233,25 @@ To delete a comment, just log in and view the post&#039;s comments. There you wi
 		'comment_date_gmt' => $now_gmt,
 		'comment_content' => $first_comment
 	));
+=======
+								'comment_post_ID' => 1,
+								'comment_author' => $first_comment_author,
+								'comment_author_email' => '',
+								'comment_author_url' => $first_comment_url,
+								'comment_date' => $now,
+								'comment_date_gmt' => $now_gmt,
+								'comment_content' => $first_comment
+								));
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 
 	// First Page
 	$first_page = sprintf( __( "This is an example page. It's different from a blog post because it will stay in one place and will show up in your site navigation (in most themes). Most people start with an About page that introduces them to potential site visitors. It might say something like this:
 
+<<<<<<< HEAD
 <blockquote>Hi there! I'm a bike messenger by day, aspiring actor by night, and this is my website. I live in Los Angeles, have a great dog named Jack, and I like pi&#241;a coladas. (And gettin' caught in the rain.)</blockquote>
+=======
+<blockquote>Hi there! I'm a bike messenger by day, aspiring actor by night, and this is my blog. I live in Los Angeles, have a great dog named Jack, and I like pi&#241;a coladas. (And gettin' caught in the rain.)</blockquote>
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 
 ...or something like this:
 
@@ -217,6 +262,7 @@ As a new WordPress user, you should go to <a href=\"%s\">your dashboard</a> to d
 		$first_page = get_site_option( 'first_page', $first_page );
 	$first_post_guid = get_option('home') . '/?page_id=2';
 	$wpdb->insert( $wpdb->posts, array(
+<<<<<<< HEAD
 		'post_author' => $user_id,
 		'post_date' => $now,
 		'post_date_gmt' => $now_gmt,
@@ -233,6 +279,24 @@ As a new WordPress user, you should go to <a href=\"%s\">your dashboard</a> to d
 		'pinged' => '',
 		'post_content_filtered' => ''
 	));
+=======
+								'post_author' => $user_id,
+								'post_date' => $now,
+								'post_date_gmt' => $now_gmt,
+								'post_content' => $first_page,
+								'post_excerpt' => '',
+								'post_title' => __( 'Sample Page' ),
+								/* translators: Default page slug */
+								'post_name' => __( 'sample-page' ),
+								'post_modified' => $now,
+								'post_modified_gmt' => $now_gmt,
+								'guid' => $first_post_guid,
+								'post_type' => 'page',
+								'to_ping' => '',
+								'pinged' => '',
+								'post_content_filtered' => ''
+								));
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	$wpdb->insert( $wpdb->postmeta, array( 'post_id' => 2, 'meta_key' => '_wp_page_template', 'meta_value' => 'default' ) );
 
 	// Set up default widgets for default theme.
@@ -389,9 +453,13 @@ if ( !function_exists('wp_upgrade') ) :
  *
  * @since 2.1.0
  *
+<<<<<<< HEAD
  * @global int  $wp_current_db_version
  * @global int  $wp_db_version
  * @global wpdb $wpdb
+=======
+ * @return null If no update is necessary or site isn't completely installed, null.
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  */
 function wp_upgrade() {
 	global $wp_current_db_version, $wp_db_version, $wpdb;
@@ -441,8 +509,12 @@ endif;
  *
  * @since 1.0.1
  *
+<<<<<<< HEAD
  * @global int $wp_current_db_version
  * @global int $wp_db_version
+=======
+ * @return null If no update is necessary, null.
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  */
 function upgrade_all() {
 	global $wp_current_db_version, $wp_db_version;
@@ -531,8 +603,19 @@ function upgrade_all() {
 	if ( $wp_current_db_version < 29630 )
 		upgrade_400();
 
+<<<<<<< HEAD
 	if ( $wp_current_db_version < 33055 )
 		upgrade_430();
+=======
+	// Don't harsh my mellow. upgrade_422() must be called before
+	// upgrade_420() to catch bad comments prior to any auto-expansion of
+	// MySQL column widths.
+	if ( $wp_current_db_version < 31534 )
+		upgrade_422();
+
+	if ( $wp_current_db_version < 31351 )
+		upgrade_420();
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 
 	maybe_disable_link_manager();
 
@@ -546,8 +629,11 @@ function upgrade_all() {
  * Execute changes made in WordPress 1.0.
  *
  * @since 1.0.0
+<<<<<<< HEAD
  *
  * @global wpdb $wpdb
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  */
 function upgrade_100() {
 	global $wpdb;
@@ -604,8 +690,11 @@ function upgrade_100() {
  * Execute changes made in WordPress 1.0.1.
  *
  * @since 1.0.1
+<<<<<<< HEAD
  *
  * @global wpdb $wpdb
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  */
 function upgrade_101() {
 	global $wpdb;
@@ -624,8 +713,11 @@ function upgrade_101() {
  * Execute changes made in WordPress 1.2.
  *
  * @since 1.2.0
+<<<<<<< HEAD
  *
  * @global wpdb $wpdb
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  */
 function upgrade_110() {
 	global $wpdb;
@@ -686,8 +778,11 @@ function upgrade_110() {
  * Execute changes made in WordPress 1.5.
  *
  * @since 1.5.0
+<<<<<<< HEAD
  *
  * @global wpdb $wpdb
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  */
 function upgrade_130() {
 	global $wpdb;
@@ -772,9 +867,12 @@ function upgrade_130() {
  * Execute changes made in WordPress 2.0.
  *
  * @since 2.0.0
+<<<<<<< HEAD
  *
  * @global wpdb $wpdb
  * @global int  $wp_current_db_version
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  */
 function upgrade_160() {
 	global $wpdb, $wp_current_db_version;
@@ -858,9 +956,12 @@ function upgrade_160() {
  * Execute changes made in WordPress 2.1.
  *
  * @since 2.1.0
+<<<<<<< HEAD
  *
  * @global wpdb $wpdb
  * @global int  $wp_current_db_version
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  */
 function upgrade_210() {
 	global $wpdb, $wp_current_db_version;
@@ -905,9 +1006,12 @@ function upgrade_210() {
  * Execute changes made in WordPress 2.3.
  *
  * @since 2.3.0
+<<<<<<< HEAD
  *
  * @global wpdb $wpdb
  * @global int  $wp_current_db_version
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  */
 function upgrade_230() {
 	global $wp_current_db_version, $wpdb;
@@ -1084,8 +1188,11 @@ function upgrade_230() {
  * Remove old options from the database.
  *
  * @since 2.3.0
+<<<<<<< HEAD
  *
  * @global wpdb $wpdb
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  */
 function upgrade_230_options_table() {
 	global $wpdb;
@@ -1100,8 +1207,11 @@ function upgrade_230_options_table() {
  * Remove old categories, link2cat, and post2cat database tables.
  *
  * @since 2.3.0
+<<<<<<< HEAD
  *
  * @global wpdb $wpdb
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  */
 function upgrade_230_old_tables() {
 	global $wpdb;
@@ -1114,8 +1224,11 @@ function upgrade_230_old_tables() {
  * Upgrade old slugs made in version 2.2.
  *
  * @since 2.2.0
+<<<<<<< HEAD
  *
  * @global wpdb $wpdb
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  */
 function upgrade_old_slugs() {
 	// Upgrade people who were using the Redirect Old Slugs plugin.
@@ -1127,8 +1240,11 @@ function upgrade_old_slugs() {
  * Execute changes made in WordPress 2.5.0.
  *
  * @since 2.5.0
+<<<<<<< HEAD
  *
  * @global int $wp_current_db_version
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  */
 function upgrade_250() {
 	global $wp_current_db_version;
@@ -1143,8 +1259,11 @@ function upgrade_250() {
  * Execute changes made in WordPress 2.5.2.
  *
  * @since 2.5.2
+<<<<<<< HEAD
  *
  * @global wpdb $wpdb
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  */
 function upgrade_252() {
 	global $wpdb;
@@ -1156,8 +1275,11 @@ function upgrade_252() {
  * Execute changes made in WordPress 2.6.
  *
  * @since 2.6.0
+<<<<<<< HEAD
  *
  * @global int $wp_current_db_version
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  */
 function upgrade_260() {
 	global $wp_current_db_version;
@@ -1170,9 +1292,12 @@ function upgrade_260() {
  * Execute changes made in WordPress 2.7.
  *
  * @since 2.7.0
+<<<<<<< HEAD
  *
  * @global wpdb $wpdb
  * @global int  $wp_current_db_version
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  */
 function upgrade_270() {
 	global $wpdb, $wp_current_db_version;
@@ -1189,9 +1314,12 @@ function upgrade_270() {
  * Execute changes made in WordPress 2.8.
  *
  * @since 2.8.0
+<<<<<<< HEAD
  *
  * @global int  $wp_current_db_version
  * @global wpdb $wpdb
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  */
 function upgrade_280() {
 	global $wp_current_db_version, $wpdb;
@@ -1219,8 +1347,11 @@ function upgrade_280() {
  * Execute changes made in WordPress 2.9.
  *
  * @since 2.9.0
+<<<<<<< HEAD
  *
  * @global int $wp_current_db_version
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  */
 function upgrade_290() {
 	global $wp_current_db_version;
@@ -1238,9 +1369,12 @@ function upgrade_290() {
  * Execute changes made in WordPress 3.0.
  *
  * @since 3.0.0
+<<<<<<< HEAD
  *
  * @global int  $wp_current_db_version
  * @global wpdb $wpdb
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  */
 function upgrade_300() {
 	global $wp_current_db_version, $wpdb;
@@ -1252,7 +1386,11 @@ function upgrade_300() {
 		add_site_option( 'siteurl', '' );
 
 	// 3.0 screen options key name changes.
+<<<<<<< HEAD
 	if ( wp_should_upgrade_global_tables() ) {
+=======
+	if ( is_main_site() && !defined('DO_NOT_UPGRADE_GLOBAL_TABLES') ) {
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 		$sql = "DELETE FROM $wpdb->usermeta
 			WHERE meta_key LIKE %s
 			OR meta_key LIKE %s
@@ -1283,16 +1421,23 @@ function upgrade_300() {
  * Execute changes made in WordPress 3.3.
  *
  * @since 3.3.0
+<<<<<<< HEAD
  *
  * @global int   $wp_current_db_version
  * @global wpdb  $wpdb
  * @global array $wp_registered_widgets
  * @global array $sidebars_widgets
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  */
 function upgrade_330() {
 	global $wp_current_db_version, $wpdb, $wp_registered_widgets, $sidebars_widgets;
 
+<<<<<<< HEAD
 	if ( $wp_current_db_version < 19061 && wp_should_upgrade_global_tables() ) {
+=======
+	if ( $wp_current_db_version < 19061 && is_main_site() && ! defined( 'DO_NOT_UPGRADE_GLOBAL_TABLES' ) ) {
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 		$wpdb->query( "DELETE FROM $wpdb->usermeta WHERE meta_key IN ('show_admin_bar_admin', 'plugins_last_view')" );
 	}
 
@@ -1357,9 +1502,12 @@ function upgrade_330() {
  * Execute changes made in WordPress 3.4.
  *
  * @since 3.4.0
+<<<<<<< HEAD
  *
  * @global int   $wp_current_db_version
  * @global wpdb  $wpdb
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  */
 function upgrade_340() {
 	global $wp_current_db_version, $wpdb;
@@ -1376,7 +1524,11 @@ function upgrade_340() {
 		$wpdb->show_errors();
 	}
 
+<<<<<<< HEAD
 	if ( $wp_current_db_version < 20022 && wp_should_upgrade_global_tables() ) {
+=======
+	if ( $wp_current_db_version < 20022 && is_main_site() && ! defined( 'DO_NOT_UPGRADE_GLOBAL_TABLES' ) ) {
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 		$wpdb->query( "DELETE FROM $wpdb->usermeta WHERE meta_key = 'themes_last_view'" );
 	}
 
@@ -1393,9 +1545,12 @@ function upgrade_340() {
  * Execute changes made in WordPress 3.5.
  *
  * @since 3.5.0
+<<<<<<< HEAD
  *
  * @global int   $wp_current_db_version
  * @global wpdb  $wpdb
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  */
 function upgrade_350() {
 	global $wp_current_db_version, $wpdb;
@@ -1403,7 +1558,11 @@ function upgrade_350() {
 	if ( $wp_current_db_version < 22006 && $wpdb->get_var( "SELECT link_id FROM $wpdb->links LIMIT 1" ) )
 		update_option( 'link_manager_enabled', 1 ); // Previously set to 0 by populate_options()
 
+<<<<<<< HEAD
 	if ( $wp_current_db_version < 21811 && wp_should_upgrade_global_tables() ) {
+=======
+	if ( $wp_current_db_version < 21811 && is_main_site() && ! defined( 'DO_NOT_UPGRADE_GLOBAL_TABLES' ) ) {
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 		$meta_keys = array();
 		foreach ( array_merge( get_post_types(), get_taxonomies() ) as $name ) {
 			if ( false !== strpos( $name, '-' ) )
@@ -1423,8 +1582,11 @@ function upgrade_350() {
  * Execute changes made in WordPress 3.7.
  *
  * @since 3.7.0
+<<<<<<< HEAD
  *
  * @global int $wp_current_db_version
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  */
 function upgrade_370() {
 	global $wp_current_db_version;
@@ -1437,8 +1599,11 @@ function upgrade_370() {
  *
  * @since 3.7.2
  * @since 3.8.0
+<<<<<<< HEAD
  *
  * @global int $wp_current_db_version
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  */
 function upgrade_372() {
 	global $wp_current_db_version;
@@ -1450,8 +1615,11 @@ function upgrade_372() {
  * Execute changes made in WordPress 3.8.0.
  *
  * @since 3.8.0
+<<<<<<< HEAD
  *
  * @global int $wp_current_db_version
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  */
 function upgrade_380() {
 	global $wp_current_db_version;
@@ -1464,8 +1632,11 @@ function upgrade_380() {
  * Execute changes made in WordPress 4.0.0.
  *
  * @since 4.0.0
+<<<<<<< HEAD
  *
  * @global int $wp_current_db_version
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  */
 function upgrade_400() {
 	global $wp_current_db_version;
@@ -1484,6 +1655,7 @@ function upgrade_400() {
  * Execute changes made in WordPress 4.2.0.
  *
  * @since 4.2.0
+<<<<<<< HEAD
  *
  * @global int   $wp_current_db_version
  * @global wpdb  $wpdb
@@ -1512,14 +1684,24 @@ function upgrade_430() {
 	}
 
 	if ( $wp_current_db_version < 33055 && 'utf8mb4' === $wpdb->charset ) {
+=======
+ */
+function upgrade_420() {
+	global $wp_current_db_version, $wpdb;
+
+	if ( $wp_current_db_version < 31351 && $wpdb->charset === 'utf8mb4' ) {
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 		if ( is_multisite() ) {
 			$tables = $wpdb->tables( 'blog' );
 		} else {
 			$tables = $wpdb->tables( 'all' );
+<<<<<<< HEAD
 			if ( ! wp_should_upgrade_global_tables() ) {
 				$global_tables = $wpdb->tables( 'global' );
 				$tables = array_diff_assoc( $tables, $global_tables );
 			}
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 		}
 
 		foreach ( $tables as $table ) {
@@ -1529,6 +1711,7 @@ function upgrade_430() {
 }
 
 /**
+<<<<<<< HEAD
  * Executes comments changes made in WordPress 4.3.0.
  *
  * @since 4.3.0
@@ -1574,6 +1757,60 @@ function upgrade_430_fix_comments() {
 
 	foreach ( $comments as $comment ) {
 		wp_delete_comment( $comment->comment_ID, true );
+=======
+ * Execute changes made in WordPress 4.2.1.
+ *
+ * @since 4.2.1
+ */
+function upgrade_421() {
+}
+
+/**
+ * Execute changes made in WordPress 4.2.2.
+ *
+ * @since 4.2.2
+ */
+function upgrade_422() {
+	global $wp_current_db_version, $wpdb;
+
+	if ( $wp_current_db_version < 31534 ) {
+		$content_length = $wpdb->get_col_length( $wpdb->comments, 'comment_content' );
+
+		if ( is_wp_error( $content_length ) ) {
+			return;
+		}
+
+		if ( false === $content_length ) {
+			$content_length = array(
+				'type'   => 'byte',
+				'length' => 65535,
+			);
+		} elseif ( ! is_array( $content_length ) ) {
+			$length = (int) $content_length > 0 ? (int) $content_length : 65535;
+			$content_length = array(
+				'type'	 => 'byte',
+				'length' => $length
+			);
+		}
+
+		if ( 'byte' !== $content_length['type'] || 0 === $content_length['length'] ) {
+			// Sites with malformed DB schemas are on their own.
+			return;
+		}
+
+		$allowed_length = intval( $content_length['length'] ) - 10;
+
+		$comments = $wpdb->get_results(
+			"SELECT `comment_ID` FROM `{$wpdb->comments}`
+				WHERE `comment_date_gmt` > '2015-04-26'
+				AND LENGTH( `comment_content` ) >= {$allowed_length}
+				AND ( `comment_content` LIKE '%<%' OR `comment_content` LIKE '%>%' )"
+		);
+
+		foreach ( $comments as $comment ) {
+			wp_delete_comment( $comment->comment_ID, true );
+		}
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	}
 }
 
@@ -1581,9 +1818,12 @@ function upgrade_430_fix_comments() {
  * Executes network-level upgrade routines.
  *
  * @since 3.0.0
+<<<<<<< HEAD
  *
  * @global int   $wp_current_db_version
  * @global wpdb  $wpdb
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  */
 function upgrade_network() {
 	global $wp_current_db_version, $wpdb;
@@ -1679,7 +1919,11 @@ function upgrade_network() {
 
 	// 4.2
 	if ( $wp_current_db_version < 31351 && $wpdb->charset === 'utf8mb4' ) {
+<<<<<<< HEAD
 		if ( wp_should_upgrade_global_tables() ) {
+=======
+		if ( ! ( defined( 'DO_NOT_UPGRADE_GLOBAL_TABLES' ) && DO_NOT_UPGRADE_GLOBAL_TABLES ) ) {
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 			$wpdb->query( "ALTER TABLE $wpdb->usermeta DROP INDEX meta_key, ADD INDEX meta_key(meta_key(191))" );
 			$wpdb->query( "ALTER TABLE $wpdb->site DROP INDEX domain, ADD INDEX domain(domain(140),path(51))" );
 			$wpdb->query( "ALTER TABLE $wpdb->sitemeta DROP INDEX meta_key, ADD INDEX meta_key(meta_key(191))" );
@@ -1687,20 +1931,29 @@ function upgrade_network() {
 
 			$tables = $wpdb->tables( 'global' );
 
+<<<<<<< HEAD
 			// sitecategories may not exist.
 			if ( ! $wpdb->get_var( "SHOW TABLES LIKE '{$tables['sitecategories']}'" ) ) {
 				unset( $tables['sitecategories'] );
 			}
 
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 			foreach ( $tables as $table ) {
 				maybe_convert_table_to_utf8mb4( $table );
 			}
 		}
 	}
 
+<<<<<<< HEAD
 	// 4.3
 	if ( $wp_current_db_version < 33055 && 'utf8mb4' === $wpdb->charset ) {
 		if ( wp_should_upgrade_global_tables() ) {
+=======
+	// 4.2.2
+	if ( $wp_current_db_version < 31535 && 'utf8mb4' === $wpdb->charset ) {
+		if ( ! ( defined( 'DO_NOT_UPGRADE_GLOBAL_TABLES' ) && DO_NOT_UPGRADE_GLOBAL_TABLES ) ) {
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 			$upgrade = false;
 			$indexes = $wpdb->get_results( "SHOW INDEXES FROM $wpdb->signups" );
 			foreach( $indexes as $index ) {
@@ -1713,6 +1966,7 @@ function upgrade_network() {
 			if ( $upgrade ) {
 				$wpdb->query( "ALTER TABLE $wpdb->signups DROP INDEX domain_path, ADD INDEX domain_path(domain(140),path(51))" );
 			}
+<<<<<<< HEAD
 
 			$tables = $wpdb->tables( 'global' );
 
@@ -1724,6 +1978,8 @@ function upgrade_network() {
 			foreach ( $tables as $table ) {
 				maybe_convert_table_to_utf8mb4( $table );
 			}
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 		}
 	}
 }
@@ -1741,8 +1997,11 @@ function upgrade_network() {
  *
  * @since 1.0.0
  *
+<<<<<<< HEAD
  * @global wpdb  $wpdb
  *
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  * @param string $table_name Database table name to create.
  * @param string $create_ddl SQL statement to create table.
  * @return bool If table already exists or was created by function.
@@ -1771,11 +2030,17 @@ function maybe_create_table($table_name, $create_ddl) {
  *
  * @since 1.0.1
  *
+<<<<<<< HEAD
  * @global wpdb  $wpdb
  *
  * @param string $table Database table name.
  * @param string $index Index name to drop.
  * @return true True, when finished.
+=======
+ * @param string $table Database table name.
+ * @param string $index Index name to drop.
+ * @return bool True, when finished.
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  */
 function drop_index($table, $index) {
 	global $wpdb;
@@ -1794,11 +2059,17 @@ function drop_index($table, $index) {
  *
  * @since 1.0.1
  *
+<<<<<<< HEAD
  * @global wpdb  $wpdb
  *
  * @param string $table Database table name.
  * @param string $index Database table index column.
  * @return true True, when done with execution.
+=======
+ * @param string $table Database table name.
+ * @param string $index Database table index column.
+ * @return bool True, when done with execution.
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  */
 function add_clean_index($table, $index) {
 	global $wpdb;
@@ -1812,12 +2083,19 @@ function add_clean_index($table, $index) {
  *
  * @since 1.3.0
  *
+<<<<<<< HEAD
  * @global wpdb  $wpdb
  *
  * @param string $table_name  The table name to modify.
  * @param string $column_name The column name to add to the table.
  * @param string $create_ddl  The SQL statement used to add the column.
  * @return bool True if already exists or on successful completion, false on error.
+=======
+ * @param string $table_name  The table name to modify.
+ * @param string $column_name The column name to add to the table.
+ * @param string $create_ddl  The SQL statement used to add the column.
+ * @return True if already exists or on successful completion, false on error.
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  */
 function maybe_add_column($table_name, $column_name, $create_ddl) {
 	global $wpdb;
@@ -1844,8 +2122,11 @@ function maybe_add_column($table_name, $column_name, $create_ddl) {
  *
  * @since 4.2.0
  *
+<<<<<<< HEAD
  * @global wpdb  $wpdb
  *
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  * @param string $table The table to convert.
  * @return bool true if the table was converted, false if it wasn't.
  */
@@ -1868,6 +2149,7 @@ function maybe_convert_table_to_utf8mb4( $table ) {
 		}
 	}
 
+<<<<<<< HEAD
 	$table_details = $wpdb->get_row( "SHOW TABLE STATUS LIKE '$table'" );
 	if ( ! $table_details ) {
 		return false;
@@ -1879,6 +2161,8 @@ function maybe_convert_table_to_utf8mb4( $table ) {
 		return true;
 	}
 
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	return $wpdb->query( "ALTER TABLE $table CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci" );
 }
 
@@ -1887,8 +2171,11 @@ function maybe_convert_table_to_utf8mb4( $table ) {
  *
  * @since 1.2.0
  *
+<<<<<<< HEAD
  * @global wpdb  $wpdb
  *
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  * @return stdClass List of options.
  */
 function get_alloptions_110() {
@@ -1911,8 +2198,11 @@ function get_alloptions_110() {
  * @since 1.5.1
  * @access private
  *
+<<<<<<< HEAD
  * @global wpdb  $wpdb
  *
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  * @param string $setting Option name.
  * @return mixed
  */
@@ -1972,8 +2262,11 @@ function deslash($content) {
  *
  * @since 1.5.0
  *
+<<<<<<< HEAD
  * @global wpdb  $wpdb
  *
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  * @param string|array $queries Optional. The query to run. Can be multiple queries
  *                              in an array, or a string of queries separated by
  *                              semicolons. Default empty.
@@ -2046,8 +2339,13 @@ function dbDelta( $queries = '', $execute = true ) {
 
 	$global_tables = $wpdb->tables( 'global' );
 	foreach ( $cqueries as $table => $qry ) {
+<<<<<<< HEAD
 		// Upgrade global tables only for the main site. Don't upgrade at all if conditions are not optimal.
 		if ( in_array( $table, $global_tables ) && ! wp_should_upgrade_global_tables() ) {
+=======
+		// Upgrade global tables only for the main site. Don't upgrade at all if DO_NOT_UPGRADE_GLOBAL_TABLES is defined.
+		if ( in_array( $table, $global_tables ) && ( !is_main_site() || defined( 'DO_NOT_UPGRADE_GLOBAL_TABLES' ) ) ) {
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 			unset( $cqueries[ $table ], $for_update[ $table ] );
 			continue;
 		}
@@ -2306,7 +2604,11 @@ function make_site_theme_from_oldschool($theme_name, $template) {
 
 				// Don't copy anything.
 				continue;
+<<<<<<< HEAD
 			}
+=======
+				}
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 		}
 
 		if (! @copy("$oldpath/$oldfile", "$site_dir/$newfile"))
@@ -2359,7 +2661,11 @@ function make_site_theme_from_oldschool($theme_name, $template) {
  *
  * @param string $theme_name The name of the theme.
  * @param string $template   The directory name of the theme.
+<<<<<<< HEAD
  * @return false|void
+=======
+ * @return null|false
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  */
 function make_site_theme_from_default($theme_name, $template) {
 	$site_dir = WP_CONTENT_DIR . "/themes/$template";
@@ -2498,8 +2804,11 @@ function translate_level_to_role($level) {
  * Checks the version of the installed MySQL binary.
  *
  * @since 2.1.0
+<<<<<<< HEAD
  *
  * @global wpdb  $wpdb
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  */
 function wp_check_mysql_version() {
 	global $wpdb;
@@ -2529,9 +2838,12 @@ function maybe_disable_automattic_widgets() {
  * Disables the Link Manager on upgrade if, at the time of upgrade, no links exist in the DB.
  *
  * @since 3.5.0
+<<<<<<< HEAD
  *
  * @global int  $wp_current_db_version
  * @global wpdb $wpdb
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  */
 function maybe_disable_link_manager() {
 	global $wp_current_db_version, $wpdb;
@@ -2544,9 +2856,12 @@ function maybe_disable_link_manager() {
  * Runs before the schema is upgraded.
  *
  * @since 2.9.0
+<<<<<<< HEAD
  *
  * @global int  $wp_current_db_version
  * @global wpdb $wpdb
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  */
 function pre_schema_upgrade() {
 	global $wp_current_db_version, $wpdb;
@@ -2564,7 +2879,11 @@ function pre_schema_upgrade() {
 	}
 
 	// Multisite schema upgrades.
+<<<<<<< HEAD
 	if ( $wp_current_db_version < 25448 && is_multisite() && wp_should_upgrade_global_tables() ) {
+=======
+	if ( $wp_current_db_version < 25448 && is_multisite() && ! defined( 'DO_NOT_UPGRADE_GLOBAL_TABLES' ) && is_main_network() ) {
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 
 		// Upgrade verions prior to 3.7
 		if ( $wp_current_db_version < 25179 ) {
@@ -2580,9 +2899,20 @@ function pre_schema_upgrade() {
 		}
 	}
 
+<<<<<<< HEAD
 	// Upgrade versions prior to 4.2.
 	if ( $wp_current_db_version < 31351 ) {
 		if ( ! is_multisite() && wp_should_upgrade_global_tables() ) {
+=======
+	if ( $wp_current_db_version < 30133 ) {
+		// dbDelta() can recreate but can't drop the index.
+		$wpdb->query( "ALTER TABLE $wpdb->terms DROP INDEX slug" );
+	}
+
+	// Upgrade versions prior to 4.2.
+	if ( $wp_current_db_version < 31351 ) {
+		if ( ! is_multisite() ) {
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 			$wpdb->query( "ALTER TABLE $wpdb->usermeta DROP INDEX meta_key, ADD INDEX meta_key(meta_key(191))" );
 		}
 		$wpdb->query( "ALTER TABLE $wpdb->terms DROP INDEX slug, ADD INDEX slug(slug(191))" );
@@ -2598,8 +2928,11 @@ function pre_schema_upgrade() {
  *
  * @since 3.0.0
  *
+<<<<<<< HEAD
  * @global wpdb   $wpdb
  * @global string $charset_collate
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  */
 if ( !function_exists( 'install_global_terms' ) ) :
 function install_global_terms() {
@@ -2619,6 +2952,7 @@ CREATE TABLE $wpdb->sitecategories (
 	dbDelta( $ms_queries );
 }
 endif;
+<<<<<<< HEAD
 
 /**
  * Determine if global tables should be upgraded.
@@ -2665,3 +2999,5 @@ function wp_should_upgrade_global_tables() {
 	 */
 	return apply_filters( 'wp_should_upgrade_global_tables', $should_upgrade );
 }
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28

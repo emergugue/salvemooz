@@ -152,6 +152,7 @@ tinymce.PluginManager.add( 'wpview', function( editor ) {
 		};
 	}
 
+<<<<<<< HEAD
 	function resetViewsCallback( match, viewText ) {
 		return '<p>' + window.decodeURIComponent( viewText ) + '</p>';
 	}
@@ -160,12 +161,25 @@ tinymce.PluginManager.add( 'wpview', function( editor ) {
 	function resetViews( content ) {
 		return content.replace( /<div[^>]+data-wpview-text="([^"]+)"[^>]*>(?:[\s\S]+?wpview-selection-after[^>]+>[^<>]*<\/p>\s*|\.)<\/div>/g, resetViewsCallback )
 			.replace( /<p [^>]*?data-wpview-marker="([^"]+)"[^>]*>[\s\S]*?<\/p>/g, resetViewsCallback );
+=======
+	// Remove the content of view wrappers from HTML string
+	function emptyViews( content ) {
+		content = content.replace( /<div[^>]+data-wpview-text="([^"]+)"[^>]*>[\s\S]+?wpview-selection-after[^>]+>[^<>]*<\/p>\s*<\/div>/g, function( all, match ) {
+			return '<p>' + window.decodeURIComponent( match ) + '</p>';
+		});
+
+		return content.replace( / data-wpview-marker="[^"]+"/g, '' );
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	}
 
 	// Prevent adding undo levels on changes inside a view wrapper
 	editor.on( 'BeforeAddUndo', function( event ) {
 		if ( event.level.content ) {
+<<<<<<< HEAD
 			event.level.content = resetViews( event.level.content );
+=======
+			event.level.content = emptyViews( event.level.content );
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 		}
 	});
 
@@ -349,6 +363,7 @@ tinymce.PluginManager.add( 'wpview', function( editor ) {
 		}
 	});
 
+<<<<<<< HEAD
 	// Empty the wpview wrap and marker nodes
 	function emptyViewNodes( rootNode ) {
 		$( 'div[data-wpview-text], p[data-wpview-marker]', rootNode ).each( function( i, node ) {
@@ -372,6 +387,33 @@ tinymce.PluginManager.add( 'wpview', function( editor ) {
 			event.content = event.content.replace( /<div [^>]*?data-wpview-text="([^"]+)"[^>]*>[\s\S]*?<\/div>/g, resetViewsCallback )
 				.replace( /<p [^>]*?data-wpview-marker="([^"]+)"[^>]*>[\s\S]*?<\/p>/g, resetViewsCallback );
 		}
+=======
+	function resetViews( rootNode ) {
+		// Replace view nodes
+		$( 'div[data-wpview-text]', rootNode ).each( function( i, node ) {
+			var $node = $( node ),
+				text = window.decodeURIComponent( $node.attr( 'data-wpview-text' ) || '' );
+
+			if ( text && node.parentNode ) {
+				$node.replaceWith( $( editor.dom.create('p') ).text( text ) );
+			}
+		});
+
+		// Remove marker attributes
+		$( 'p[data-wpview-marker]', rootNode ).attr( 'data-wpview-marker', null );
+	}
+
+	editor.on( 'PreProcess', function( event ) {
+		// Replace the view nodes with their text in the DOM clone.
+		resetViews( event.node );
+	}, true );
+
+	editor.on( 'hide', function() {
+		// Replace the view nodes with their text directly in the editor body.
+		wp.mce.views.unbind();
+		deselect();
+		resetViews( editor.getBody() );
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	});
 
 	// Excludes arrow keys, delete, backspace, enter, space bar.
@@ -729,7 +771,10 @@ tinymce.PluginManager.add( 'wpview', function( editor ) {
 	// Add to editor.wp
 	editor.wp = editor.wp || {};
 	editor.wp.getView = getView;
+<<<<<<< HEAD
 	editor.wp.setViewCursor = setViewCursor;
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 
 	// Keep for back-compat.
 	return {

@@ -10,6 +10,7 @@
 if ( ! defined( 'WP_ADMIN' ) )
 	require_once( dirname( __FILE__ ) . '/admin.php' );
 
+<<<<<<< HEAD
 /**
  * In case admin-header.php is included in a function.
  *
@@ -23,6 +24,9 @@ if ( ! defined( 'WP_ADMIN' ) )
  * @global int       $total_update_count
  * @global string    $parent_file
  */
+=======
+// In case admin-header.php is included in a function.
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 global $title, $hook_suffix, $current_screen, $wp_locale, $pagenow, $wp_version,
 	$update_title, $total_update_count, $parent_file;
 
@@ -36,7 +40,11 @@ $title = esc_html( strip_tags( $title ) );
 if ( is_network_admin() )
 	$admin_title = sprintf( __( 'Network Admin: %s' ), esc_html( get_current_site()->site_name ) );
 elseif ( is_user_admin() )
+<<<<<<< HEAD
 	$admin_title = sprintf( __( 'User Dashboard: %s' ), esc_html( get_current_site()->site_name ) );
+=======
+	$admin_title = sprintf( __( 'Global Dashboard: %s' ), esc_html( get_current_site()->site_name ) );
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 else
 	$admin_title = get_bloginfo( 'name' );
 

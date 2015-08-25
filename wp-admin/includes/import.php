@@ -11,7 +11,10 @@
  *
  * @since 2.0.0
  *
+<<<<<<< HEAD
  * @global array $wp_importers
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  * @return array
  */
 function get_importers() {
@@ -43,12 +46,19 @@ function _usort_by_first_member( $a, $b ) {
  *
  * @since 2.0.0
  *
+<<<<<<< HEAD
  * @global array $wp_importers
  *
  * @param string   $id          Importer tag. Used to uniquely identify importer.
  * @param string   $name        Importer name and title.
  * @param string   $description Importer description.
  * @param callback $callback    Callback to run.
+=======
+ * @param string $id Importer tag. Used to uniquely identify importer.
+ * @param string $name Importer name and title.
+ * @param string $description Importer description.
+ * @param callback $callback Callback to run.
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  * @return WP_Error Returns WP_Error when $callback is WP_Error.
  */
 function register_importer( $id, $name, $description, $callback ) {

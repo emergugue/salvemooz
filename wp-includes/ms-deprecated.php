@@ -210,7 +210,11 @@ function get_most_active_blogs( $num = 10, $display = true ) {
 		$most_active = $t;
 	}
 
+<<<<<<< HEAD
 	if ( $display ) {
+=======
+	if ( $display == true ) {
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 		if ( is_array( $most_active ) ) {
 			reset( $most_active );
 			foreach ( (array) $most_active as $key => $details ) {
@@ -253,7 +257,11 @@ function wpmu_admin_do_redirect( $url = '' ) {
 		wp_redirect( $ref );
 		exit();
 	}
+<<<<<<< HEAD
 	if ( ! empty( $_SERVER['HTTP_REFERER'] ) ) {
+=======
+	if ( empty( $_SERVER['HTTP_REFERER'] ) == false ) {
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 		wp_redirect( $_SERVER['HTTP_REFERER'] );
 		exit();
 	}

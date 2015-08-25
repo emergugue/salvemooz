@@ -7,7 +7,11 @@ add_action( 'wp_head', 'wp_no_robots' );
 
 require( dirname( __FILE__ ) . '/wp-blog-header.php' );
 
+<<<<<<< HEAD
 if ( is_array( get_site_option( 'illegal_names' )) && isset( $_GET[ 'new' ] ) && in_array( $_GET[ 'new' ], get_site_option( 'illegal_names' ) ) ) {
+=======
+if ( is_array( get_site_option( 'illegal_names' )) && isset( $_GET[ 'new' ] ) && in_array( $_GET[ 'new' ], get_site_option( 'illegal_names' ) ) == true ) {
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	wp_redirect( network_home_url() );
 	die();
 }
@@ -299,8 +303,13 @@ function signup_another_blog( $blogname = '', $blog_title = '', $errors = '' ) {
  *
  * @since MU
  *
+<<<<<<< HEAD
  * @return null|bool True if blog signup was validated, false if error.
  *                   The function halts all execution if the user is not logged in.
+=======
+ * @return null|boolean True if blog signup was validated, false if error.
+ *                      The function halts all execution if the user is not logged in.
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  */
 function validate_another_blog_signup() {
 	global $wpdb, $blogname, $blog_title, $errors, $domain, $path;
@@ -700,9 +709,15 @@ if ( $active_signup == 'none' ) {
 			do_action( 'preprocess_signup_form' );
 			if ( is_user_logged_in() && ( $active_signup == 'all' || $active_signup == 'blog' ) )
 				signup_another_blog($newblogname);
+<<<<<<< HEAD
 			elseif ( ! is_user_logged_in() && ( $active_signup == 'all' || $active_signup == 'user' ) )
 				signup_user( $newblogname, $user_email );
 			elseif ( ! is_user_logged_in() && ( $active_signup == 'blog' ) )
+=======
+			elseif ( is_user_logged_in() == false && ( $active_signup == 'all' || $active_signup == 'user' ) )
+				signup_user( $newblogname, $user_email );
+			elseif ( is_user_logged_in() == false && ( $active_signup == 'blog' ) )
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 				_e( 'Sorry, new registrations are not allowed at this time.' );
 			else
 				_e( 'You are logged in already. No need to register again!' );

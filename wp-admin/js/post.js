@@ -1,5 +1,9 @@
 /* global postL10n, ajaxurl, wpAjax, setPostThumbnailL10n, postboxes, pagenow, tinymce, alert, deleteUserSetting */
+<<<<<<< HEAD
 /* global theList:true, theExtraList:true, getUserSetting, setUserSetting, commentReply */
+=======
+/* global theList:true, theExtraList:true, getUserSetting, setUserSetting */
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 
 var commentsBox, WPSetThumbnailHTML, WPSetThumbnailID, WPRemoveThumbnail, wptitlehint, makeSlugeditClickable, editPermalink;
 // Back-compat: prevent fatal errors
@@ -170,6 +174,7 @@ $(document).on( 'heartbeat-send.refresh-lock', function( e, data ) {
 	}
 
 	$(document).on( 'heartbeat-send.wp-refresh-nonces', function( e, data ) {
+<<<<<<< HEAD
 		var post_id,
 			$authCheck = $('#wp-auth-check-wrap');
 
@@ -177,6 +182,15 @@ $(document).on( 'heartbeat-send.refresh-lock', function( e, data ) {
 			if ( ( post_id = $('#post_ID').val() ) && $('#_wpnonce').val() ) {
 				data['wp-refresh-post-nonces'] = {
 					post_id: post_id
+=======
+		var nonce, post_id;
+
+		if ( check ) {
+			if ( ( post_id = $('#post_ID').val() ) && ( nonce = $('#_wpnonce').val() ) ) {
+				data['wp-refresh-post-nonces'] = {
+					post_id: post_id,
+					post_nonce: nonce
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 				};
 			}
 		}
@@ -203,7 +217,12 @@ $(document).on( 'heartbeat-send.refresh-lock', function( e, data ) {
 jQuery(document).ready( function($) {
 	var stamp, visibility, $submitButtons, updateVisibility, updateText,
 		sticky = '',
+<<<<<<< HEAD
 		$textarea = $('#content'),
+=======
+		last = 0,
+		co = $('#content'),
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 		$document = $(document),
 		$editSlugWrap = $('#edit-slug-box'),
 		postId = $('#post_ID').val() || 0,
@@ -211,8 +230,12 @@ jQuery(document).ready( function($) {
 		releaseLock = true,
 		$postVisibilitySelect = $('#post-visibility-select'),
 		$timestampdiv = $('#timestampdiv'),
+<<<<<<< HEAD
 		$postStatusSelect = $('#post-status-select'),
 		isMac = window.navigator.platform ? window.navigator.platform.indexOf( 'Mac' ) !== -1 : false;
+=======
+		$postStatusSelect = $('#post-status-select');
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 
 	postboxes.add_postbox_toggles(pagenow);
 
@@ -266,6 +289,7 @@ jQuery(document).ready( function($) {
 				wp.autosave.server.suspend();
 			}
 
+<<<<<<< HEAD
 			if ( typeof commentReply !== 'undefined' ) {
 				/*
 				 * Close the comment edit/reply form if open to stop the form
@@ -274,6 +298,8 @@ jQuery(document).ready( function($) {
 				commentReply.close();
 			}
 
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 			releaseLock = false;
 			$(window).off( 'beforeunload.edit-post' );
 
@@ -321,10 +347,18 @@ jQuery(document).ready( function($) {
 
 	// This code is meant to allow tabbing from Title to Post content.
 	$('#title').on( 'keydown.editor-focus', function( event ) {
+<<<<<<< HEAD
 		var editor;
 
 		if ( event.keyCode === 9 && ! event.ctrlKey && ! event.altKey && ! event.shiftKey ) {
 			editor = typeof tinymce != 'undefined' && tinymce.get('content');
+=======
+		var editor, $textarea;
+
+		if ( event.keyCode === 9 && ! event.ctrlKey && ! event.altKey && ! event.shiftKey ) {
+			editor = typeof tinymce != 'undefined' && tinymce.get('content');
+			$textarea = $('#content');
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 
 			if ( editor && ! editor.isHidden() ) {
 				editor.focus();
@@ -558,6 +592,7 @@ jQuery(document).ready( function($) {
 				$('#timestamp').html(stamp);
 			} else {
 				$('#timestamp').html(
+<<<<<<< HEAD
 					'\n' + publishOn + ' <b>' +
 					postL10n.dateFormat
 						.replace( '%1$s', $( 'option[value="' + mm + '"]', '#mm' ).attr( 'data-text' ) )
@@ -565,6 +600,14 @@ jQuery(document).ready( function($) {
 						.replace( '%3$s', aa )
 						.replace( '%4$s', ( '00' + hh ).slice( -2 ) )
 						.replace( '%5$s', ( '00' + mn ).slice( -2 ) ) +
+=======
+					publishOn + ' <b>' +
+					postL10n.dateFormat.replace( '%1$s', $('option[value="' + $('#mm').val() + '"]', '#mm').text() )
+						.replace( '%2$s', jj )
+						.replace( '%3$s', aa )
+						.replace( '%4$s', hh )
+						.replace( '%5$s', mn ) +
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 						'</b> '
 				);
 			}
@@ -607,9 +650,13 @@ jQuery(document).ready( function($) {
 		$( '#visibility .edit-visibility').click( function () {
 			if ( $postVisibilitySelect.is(':hidden') ) {
 				updateVisibility();
+<<<<<<< HEAD
 				$postVisibilitySelect.slideDown( 'fast', function() {
 					$postVisibilitySelect.find( 'input[type="radio"]' ).first().focus();
 				} );
+=======
+				$postVisibilitySelect.slideDown('fast').find('input[type="radio"]').first().focus();
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 				$(this).hide();
 			}
 			return false;
@@ -628,7 +675,11 @@ jQuery(document).ready( function($) {
 
 		$postVisibilitySelect.find('.save-post-visibility').click( function( event ) { // crazyhorse - multiple ok cancels
 			$postVisibilitySelect.slideUp('fast');
+<<<<<<< HEAD
 			$('#visibility .edit-visibility').show().focus();
+=======
+			$('#visibility .edit-visibility').show();
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 			updateText();
 
 			if ( $postVisibilitySelect.find('input:radio:checked').val() != 'public' ) {
@@ -651,9 +702,14 @@ jQuery(document).ready( function($) {
 
 		$timestampdiv.siblings('a.edit-timestamp').click( function( event ) {
 			if ( $timestampdiv.is( ':hidden' ) ) {
+<<<<<<< HEAD
 				$timestampdiv.slideDown( 'fast', function() {
 					$( 'input, select', $timestampdiv.find( '.timestamp-wrap' ) ).first().focus();
 				} );
+=======
+				$timestampdiv.slideDown('fast');
+				$('#mm').focus();
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 				$(this).hide();
 			}
 			event.preventDefault();
@@ -673,7 +729,11 @@ jQuery(document).ready( function($) {
 		$timestampdiv.find('.save-timestamp').click( function( event ) { // crazyhorse - multiple ok cancels
 			if ( updateText() ) {
 				$timestampdiv.slideUp('fast');
+<<<<<<< HEAD
 				$timestampdiv.siblings('a.edit-timestamp').show().focus();
+=======
+				$timestampdiv.siblings('a.edit-timestamp').show();
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 			}
 			event.preventDefault();
 		});
@@ -693,22 +753,34 @@ jQuery(document).ready( function($) {
 
 		$postStatusSelect.siblings('a.edit-post-status').click( function( event ) {
 			if ( $postStatusSelect.is( ':hidden' ) ) {
+<<<<<<< HEAD
 				$postStatusSelect.slideDown( 'fast', function() {
 					$postStatusSelect.find('select').focus();
 				} );
+=======
+				$postStatusSelect.slideDown('fast').find('select').focus();
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 				$(this).hide();
 			}
 			event.preventDefault();
 		});
 
 		$postStatusSelect.find('.save-post-status').click( function( event ) {
+<<<<<<< HEAD
 			$postStatusSelect.slideUp( 'fast' ).siblings( 'a.edit-post-status' ).show().focus();
+=======
+			$postStatusSelect.slideUp('fast').siblings('a.edit-post-status').show();
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 			updateText();
 			event.preventDefault();
 		});
 
 		$postStatusSelect.find('.cancel-post-status').click( function( event ) {
+<<<<<<< HEAD
 			$postStatusSelect.slideUp( 'fast' ).siblings( 'a.edit-post-status' ).show().focus();
+=======
+			$('#post-status-select').slideUp('fast').siblings( 'a.edit-post-status' ).show().focus();
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 			$('#post_status').val( $('#hidden_post_status').val() );
 			updateText();
 			event.preventDefault();
@@ -801,6 +873,27 @@ jQuery(document).ready( function($) {
 		});
 	}
 
+<<<<<<< HEAD
+=======
+	// word count
+	if ( typeof(wpWordCount) != 'undefined' ) {
+		$document.triggerHandler('wpcountwords', [ co.val() ]);
+
+		co.keyup( function(e) {
+			var k = e.keyCode || e.charCode;
+
+			if ( k == last )
+				return true;
+
+			if ( 13 == k || 8 == last || 46 == last )
+				$document.triggerHandler('wpcountwords', [ co.val() ]);
+
+			last = k;
+			return true;
+		});
+	}
+
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	wptitlehint = function(id) {
 		id = id || 'title';
 
@@ -830,6 +923,10 @@ jQuery(document).ready( function($) {
 	// Resize the visual and text editors
 	( function() {
 		var editor, offset, mce,
+<<<<<<< HEAD
+=======
+			$textarea = $('textarea#content'),
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 			$handle = $('#post-status-info'),
 			$postdivrich = $('#postdivrich');
 
@@ -917,6 +1014,7 @@ jQuery(document).ready( function($) {
 			}
 		});
 	}
+<<<<<<< HEAD
 
 	// Save on pressing Ctrl/Command + S in the Text editor
 	$textarea.on( 'keydown.wp-autosave', function( event ) {
@@ -971,3 +1069,6 @@ jQuery(document).ready( function($) {
 		update();
 	} );
 } )( jQuery, new wp.utils.WordCounter() );
+=======
+});
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28

@@ -214,7 +214,11 @@ case 'delete':
 <?php echo $referer; ?>
 
 <div class="wrap">
+<<<<<<< HEAD
 <h1><?php _e( 'Delete Users' ); ?></h1>
+=======
+<h2><?php _e('Delete Users'); ?></h2>
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 <?php if ( isset( $_REQUEST['error'] ) ) : ?>
 	<div class="error">
 		<p><strong><?php _e( 'ERROR:' ); ?></strong> <?php _e( 'Please select an option.' ); ?></p>
@@ -336,6 +340,7 @@ case 'remove':
 <?php echo $referer; ?>
 
 <div class="wrap">
+<<<<<<< HEAD
 <h1><?php _e( 'Remove Users from Site' ); ?></h1>
 
 <?php if ( 1 == count( $userids ) ) : ?>
@@ -344,6 +349,10 @@ case 'remove':
 	<p><?php _e( 'You have specified these users for removal:' ); ?></p>
 <?php endif; ?>
 
+=======
+<h2><?php _e('Remove Users from Site'); ?></h2>
+<p><?php _e('You have specified these users for removal:'); ?></p>
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 <ul>
 <?php
 	$go_remove = false;
@@ -449,6 +458,7 @@ if ( ! empty($messages) ) {
 } ?>
 
 <div class="wrap">
+<<<<<<< HEAD
 <h1>
 <?php
 echo esc_html( $title );
@@ -456,11 +466,24 @@ if ( current_user_can( 'create_users' ) ) { ?>
 	<a href="user-new.php" class="page-title-action"><?php echo esc_html_x( 'Add New', 'user' ); ?></a>
 <?php } elseif ( is_multisite() && current_user_can( 'promote_users' ) ) { ?>
 	<a href="user-new.php" class="page-title-action"><?php echo esc_html_x( 'Add Existing', 'user' ); ?></a>
+=======
+<h2>
+<?php
+echo esc_html( $title );
+if ( current_user_can( 'create_users' ) ) { ?>
+	<a href="user-new.php" class="add-new-h2"><?php echo esc_html_x( 'Add New', 'user' ); ?></a>
+<?php } elseif ( is_multisite() && current_user_can( 'promote_users' ) ) { ?>
+	<a href="user-new.php" class="add-new-h2"><?php echo esc_html_x( 'Add Existing', 'user' ); ?></a>
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 <?php }
 
 if ( $usersearch )
 	printf( '<span class="subtitle">' . __('Search results for &#8220;%s&#8221;') . '</span>', esc_html( $usersearch ) ); ?>
+<<<<<<< HEAD
 </h1>
+=======
+</h2>
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 
 <?php $wp_list_table->views(); ?>
 

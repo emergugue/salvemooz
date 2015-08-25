@@ -52,6 +52,7 @@ if ( isset( $_GET['action'] ) ) {
 	/** This action is documented in wp-admin/network/edit.php */
 	do_action( 'wpmuadminedit' );
 
+<<<<<<< HEAD
 	// A list of valid actions and their associated messaging for confirmation output.
 	$manage_actions = array(
 		'activateblog'   => __( 'You are about to activate the site %s' ),
@@ -79,6 +80,10 @@ if ( isset( $_GET['action'] ) ) {
 		} else {
 			check_admin_referer( $site_action . '_' . $id );
 		}
+=======
+	if ( 'confirm' === $_GET['action'] ) {
+		check_admin_referer( 'confirm' );
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 
 		if ( ! headers_sent() ) {
 			nocache_headers();
@@ -89,6 +94,7 @@ if ( isset( $_GET['action'] ) ) {
 			wp_die( __( 'You are not allowed to change the current site.' ) );
 		}
 
+<<<<<<< HEAD
 		$site_details = get_blog_details( $id );
 		$site_address = untrailingslashit( $site_details->domain . $site_details->path );
 
@@ -102,21 +108,48 @@ if ( isset( $_GET['action'] ) ) {
 					<input type="hidden" name="_wp_http_referer" value="<?php echo esc_attr( wp_get_referer() ); ?>" />
 					<?php wp_nonce_field( $site_action . '_' . $id, '_wpnonce', false ); ?>
 					<p><?php echo sprintf( $manage_actions[ $site_action ], $site_address ); ?></p>
+=======
+		require_once( ABSPATH . 'wp-admin/admin-header.php' );
+		?>
+			<div class="wrap">
+				<h2><?php _e( 'Confirm your action' ); ?></h2>
+				<form action="sites.php?action=<?php echo esc_attr( $_GET['action2'] ) ?>" method="post">
+					<input type="hidden" name="action" value="<?php echo esc_attr( $_GET['action2'] ) ?>" />
+					<input type="hidden" name="id" value="<?php echo esc_attr( $id ); ?>" />
+					<input type="hidden" name="_wp_http_referer" value="<?php echo esc_attr( wp_get_referer() ); ?>" />
+					<?php wp_nonce_field( $_GET['action2'], '_wpnonce', false ); ?>
+					<p><?php echo esc_html( wp_unslash( $_GET['msg'] ) ); ?></p>
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 					<?php submit_button( __( 'Confirm' ), 'button' ); ?>
 				</form>
 			</div>
 		<?php
 		require_once( ABSPATH . 'wp-admin/admin-footer.php' );
 		exit();
+<<<<<<< HEAD
 	} elseif ( array_key_exists( $_GET['action'], $manage_actions ) ) {
 		$action = $_GET['action'];
 		check_admin_referer( $action . '_' . $id );
 	} elseif ( 'allblogs' === $_GET['action'] ) {
 		check_admin_referer( 'bulk-sites' );
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	}
 
 	$updated_action = '';
 
+<<<<<<< HEAD
+=======
+	$manage_actions = array( 'deleteblog', 'allblogs', 'archiveblog', 'unarchiveblog', 'activateblog', 'deactivateblog', 'unspamblog', 'spamblog', 'unmatureblog', 'matureblog' );
+	if ( in_array( $_GET['action'], $manage_actions ) ) {
+		$action = $_GET['action'];
+		if ( 'allblogs' === $action )
+			$action = 'bulk-sites';
+
+		check_admin_referer( $action );
+	}
+
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	switch ( $_GET['action'] ) {
 
 		case 'deleteblog':
@@ -202,9 +235,14 @@ if ( isset( $_GET['action'] ) ) {
 		break;
 	}
 
+<<<<<<< HEAD
 	if ( empty( $updated_action ) && array_key_exists( $_GET['action'], $manage_actions ) ) {
 		$updated_action = $_GET['action'];
 	}
+=======
+	if ( empty( $updated_action ) && in_array( $_GET['action'], $manage_actions ) )
+		$updated_action = $_GET['action'];
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 
 	if ( ! empty( $updated_action ) ) {
 		wp_safe_redirect( add_query_arg( array( 'updated' => $updated_action ), wp_get_referer() ) );
@@ -273,16 +311,27 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' );
 ?>
 
 <div class="wrap">
+<<<<<<< HEAD
 <h1><?php _e( 'Sites' ); ?>
 
 <?php if ( current_user_can( 'create_sites') ) : ?>
 	<a href="<?php echo network_admin_url('site-new.php'); ?>" class="page-title-action"><?php echo esc_html_x( 'Add New', 'site' ); ?></a>
+=======
+<h2><?php _e( 'Sites' ) ?>
+
+<?php if ( current_user_can( 'create_sites') ) : ?>
+	<a href="<?php echo network_admin_url('site-new.php'); ?>" class="add-new-h2"><?php echo esc_html_x( 'Add New', 'site' ); ?></a>
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 <?php endif; ?>
 
 <?php if ( isset( $_REQUEST['s'] ) && $_REQUEST['s'] ) {
 	printf( '<span class="subtitle">' . __( 'Search results for &#8220;%s&#8221;' ) . '</span>', esc_html( $s ) );
 } ?>
+<<<<<<< HEAD
 </h1>
+=======
+</h2>
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 
 <?php echo $msg; ?>
 

@@ -69,10 +69,17 @@ if ( ! current_user_can('manage_links') )
 ?>
 
 <div class="wrap nosubsub">
+<<<<<<< HEAD
 <h1><?php echo esc_html( $title ); ?> <a href="link-add.php" class="page-title-action"><?php echo esc_html_x('Add New', 'link'); ?></a> <?php
 if ( !empty($_REQUEST['s']) )
 	printf( '<span class="subtitle">' . __('Search results for &#8220;%s&#8221;') . '</span>', esc_html( wp_unslash($_REQUEST['s']) ) ); ?>
 </h1>
+=======
+<h2><?php echo esc_html( $title ); ?> <a href="link-add.php" class="add-new-h2"><?php echo esc_html_x('Add New', 'link'); ?></a> <?php
+if ( !empty($_REQUEST['s']) )
+	printf( '<span class="subtitle">' . __('Search results for &#8220;%s&#8221;') . '</span>', esc_html( wp_unslash($_REQUEST['s']) ) ); ?>
+</h2>
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 
 <?php
 if ( isset($_REQUEST['deleted']) ) {

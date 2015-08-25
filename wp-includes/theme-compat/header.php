@@ -20,7 +20,10 @@ _deprecated_file( sprintf( __( 'Theme without %1$s' ), basename(__FILE__) ), '3.
 <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css" media="screen" />
 <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 
+<<<<<<< HEAD
 <?php if ( file_exists( get_stylesheet_directory() . '/images/kubrickbgwide.jpg' ) ) { ?>
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 <style type="text/css" media="screen">
 
 <?php
@@ -33,7 +36,10 @@ if ( empty($withcomments) && !is_single() ) {
 <?php } ?>
 
 </style>
+<<<<<<< HEAD
 <?php } ?>
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 
 <?php if ( is_singular() ) wp_enqueue_script( 'comment-reply' ); ?>
 

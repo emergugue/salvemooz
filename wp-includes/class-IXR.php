@@ -49,10 +49,14 @@ class IXR_Value {
     var $data;
     var $type;
 
+<<<<<<< HEAD
 	/**
 	 * PHP5 constructor.
 	 */
 	function __construct( $data, $type = false )
+=======
+    function IXR_Value($data, $type = false)
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
     {
         $this->data = $data;
         if (!$type) {
@@ -72,6 +76,7 @@ class IXR_Value {
         }
     }
 
+<<<<<<< HEAD
 	/**
 	 * PHP4 constructor.
 	 */
@@ -79,6 +84,8 @@ class IXR_Value {
 		self::__construct( $data, $type );
 	}
 
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
     function calculateType()
     {
         if ($this->data === true || $this->data === false) {
@@ -162,7 +169,11 @@ class IXR_Value {
      * Checks whether or not the supplied array is a struct or not
      *
      * @param array $array
+<<<<<<< HEAD
      * @return bool
+=======
+     * @return boolean
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
      */
     function isStruct($array)
     {
@@ -204,14 +215,19 @@ class IXR_Message
     // The XML parser
     var $_parser;
 
+<<<<<<< HEAD
 	/**
 	 * PHP5 constructor.
 	 */
     function __construct( $message )
+=======
+    function IXR_Message($message)
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
     {
         $this->message =& $message;
     }
 
+<<<<<<< HEAD
 	/**
 	 * PHP4 constructor.
 	 */
@@ -219,6 +235,8 @@ class IXR_Message
 		self::__construct( $message );
 	}
 
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
     function parse()
     {
         // first remove the XML declaration
@@ -406,10 +424,14 @@ class IXR_Server
     var $message;
     var $capabilities;
 
+<<<<<<< HEAD
 	/**
 	 * PHP5 constructor.
 	 */
     function __construct( $callbacks = false, $data = false, $wait = false )
+=======
+    function IXR_Server($callbacks = false, $data = false, $wait = false)
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
     {
         $this->setCapabilities();
         if ($callbacks) {
@@ -421,6 +443,7 @@ class IXR_Server
         }
     }
 
+<<<<<<< HEAD
 	/**
 	 * PHP4 constructor.
 	 */
@@ -428,6 +451,8 @@ class IXR_Server
 		self::__construct( $callbacks, $data, $wait );
 	}
 
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
     function serve($data = false)
     {
         if (!$data) {
@@ -630,10 +655,14 @@ class IXR_Request
     var $args;
     var $xml;
 
+<<<<<<< HEAD
 	/**
 	 * PHP5 constructor.
 	 */
     function __construct($method, $args)
+=======
+    function IXR_Request($method, $args)
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
     {
         $this->method = $method;
         $this->args = $args;
@@ -653,6 +682,7 @@ EOD;
         $this->xml .= '</params></methodCall>';
     }
 
+<<<<<<< HEAD
 	/**
 	 * PHP4 constructor.
 	 */
@@ -660,6 +690,8 @@ EOD;
 		self::__construct( $method, $args );
 	}
 
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
     function getLength()
     {
         return strlen($this->xml);
@@ -693,10 +725,14 @@ class IXR_Client
     // Storage place for an error message
     var $error = false;
 
+<<<<<<< HEAD
 	/**
 	 * PHP5 constructor.
 	 */
     function __construct( $server, $path = false, $port = 80, $timeout = 15 )
+=======
+    function IXR_Client($server, $path = false, $port = 80, $timeout = 15)
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
     {
         if (!$path) {
             // Assume we have been given a URL instead
@@ -722,6 +758,7 @@ class IXR_Client
         $this->timeout = $timeout;
     }
 
+<<<<<<< HEAD
 	/**
 	 * PHP4 constructor.
 	 */
@@ -729,6 +766,8 @@ class IXR_Client
 		self::__construct( $server, $path, $port, $timeout );
 	}
 
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
     function query()
     {
         $args = func_get_args();
@@ -848,15 +887,20 @@ class IXR_Error
     var $code;
     var $message;
 
+<<<<<<< HEAD
 	/**
 	 * PHP5 constructor.
 	 */
     function __construct( $code, $message )
+=======
+    function IXR_Error($code, $message)
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
     {
         $this->code = $code;
         $this->message = htmlspecialchars($message);
     }
 
+<<<<<<< HEAD
 	/**
 	 * PHP4 constructor.
 	 */
@@ -864,6 +908,8 @@ class IXR_Error
 		self::__construct( $code, $message );
 	}
 
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
     function getXml()
     {
         $xml = <<<EOD
@@ -904,10 +950,14 @@ class IXR_Date {
     var $second;
     var $timezone;
 
+<<<<<<< HEAD
 	/**
 	 * PHP5 constructor.
 	 */
     function __construct( $time )
+=======
+    function IXR_Date($time)
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
     {
         // $time can be a PHP timestamp or an ISO one
         if (is_numeric($time)) {
@@ -917,6 +967,7 @@ class IXR_Date {
         }
     }
 
+<<<<<<< HEAD
 	/**
 	 * PHP4 constructor.
 	 */
@@ -924,6 +975,8 @@ class IXR_Date {
 		self::__construct( $time );
 	}
 
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
     function parseTimestamp($timestamp)
     {
         $this->year = date('Y', $timestamp);
@@ -972,14 +1025,19 @@ class IXR_Base64
 {
     var $data;
 
+<<<<<<< HEAD
 	/**
 	 * PHP5 constructor.
 	 */
     function __construct( $data )
+=======
+    function IXR_Base64($data)
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
     {
         $this->data = $data;
     }
 
+<<<<<<< HEAD
 	/**
 	 * PHP4 constructor.
 	 */
@@ -987,6 +1045,8 @@ class IXR_Base64
 		self::__construct( $data );
 	}
 
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
     function getXml()
     {
         return '<base64>'.base64_encode($this->data).'</base64>';
@@ -1004,10 +1064,14 @@ class IXR_IntrospectionServer extends IXR_Server
     var $signatures;
     var $help;
 
+<<<<<<< HEAD
 	/**
 	 * PHP5 constructor.
 	 */
     function __construct()
+=======
+    function IXR_IntrospectionServer()
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
     {
         $this->setCallbacks();
         $this->setCapabilities();
@@ -1041,6 +1105,7 @@ class IXR_IntrospectionServer extends IXR_Server
         );
     }
 
+<<<<<<< HEAD
 	/**
 	 * PHP4 constructor.
 	 */
@@ -1048,6 +1113,8 @@ class IXR_IntrospectionServer extends IXR_Server
 		self::__construct();
 	}
 
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
     function addCallback($method, $callback, $args, $help)
     {
         $this->callbacks[$method] = $callback;
@@ -1176,15 +1243,20 @@ class IXR_ClientMulticall extends IXR_Client
 {
     var $calls = array();
 
+<<<<<<< HEAD
 	/**
 	 * PHP5 constructor.
 	 */
     function __construct( $server, $path = false, $port = 80 )
+=======
+    function IXR_ClientMulticall($server, $path = false, $port = 80)
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
     {
         parent::IXR_Client($server, $path, $port);
         $this->useragent = 'The Incutio XML-RPC PHP Library (multicall client)';
     }
 
+<<<<<<< HEAD
 	/**
 	 * PHP4 constructor.
 	 */
@@ -1192,6 +1264,8 @@ class IXR_ClientMulticall extends IXR_Client
 		self::__construct( $server, $path, $port );
 	}
 
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
     function addCall()
     {
         $args = func_get_args();

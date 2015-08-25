@@ -11,8 +11,11 @@ class WP_Embed {
 	public $post_ID;
 	public $usecache = true;
 	public $linkifunknown = true;
+<<<<<<< HEAD
 	public $last_attr = array();
 	public $last_url = '';
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 
 	/**
 	 * When an URL cannot be embedded, return false instead of returning a link
@@ -44,7 +47,11 @@ class WP_Embed {
 	 * this function removes all existing shortcodes, registers the [embed] shortcode,
 	 * calls {@link do_shortcode()}, and then re-registers the old shortcodes.
 	 *
+<<<<<<< HEAD
 	 * @global array $shortcode_tags
+=======
+	 * @uses $shortcode_tags
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	 *
 	 * @param string $content Content to parse
 	 * @return string Content with shortcode parsed
@@ -59,7 +66,11 @@ class WP_Embed {
 		add_shortcode( 'embed', array( $this, 'shortcode' ) );
 
 		// Do the shortcode (only the [embed] one is registered)
+<<<<<<< HEAD
 		$content = do_shortcode( $content, true );
+=======
+		$content = do_shortcode( $content );
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 
 		// Put the original shortcodes back
 		$shortcode_tags = $orig_shortcode_tags;
@@ -92,7 +103,11 @@ class WP_Embed {
 	 *
 	 * @param string $id An internal ID/name for the handler. Needs to be unique.
 	 * @param string $regex The regex that will be used to see if this handler should be used for a URL.
+<<<<<<< HEAD
 	 * @param callable $callback The callback function that will be called if the regex is matched.
+=======
+	 * @param callback $callback The callback function that will be called if the regex is matched.
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	 * @param int $priority Optional. Used to specify the order in which the registered handlers will be tested (default: 10). Lower numbers correspond with earlier testing, and handlers with the same priority are tested in the order in which they were added to the action.
 	 */
 	public function register_handler( $id, $regex, $callback, $priority = 10 ) {
@@ -109,7 +124,12 @@ class WP_Embed {
 	 * @param int $priority Optional. The priority of the handler to be removed (default: 10).
 	 */
 	public function unregister_handler( $id, $priority = 10 ) {
+<<<<<<< HEAD
 		unset( $this->handlers[ $priority ][ $id ] );
+=======
+		if ( isset($this->handlers[$priority][$id]) )
+			unset($this->handlers[$priority][$id]);
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	}
 
 	/**
@@ -135,18 +155,27 @@ class WP_Embed {
 			$url = $attr['src'];
 		}
 
+<<<<<<< HEAD
 		$this->last_url = $url;
 
 		if ( empty( $url ) ) {
 			$this->last_attr = $attr;
 			return '';
 		}
+=======
+
+		if ( empty( $url ) )
+			return '';
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 
 		$rawattr = $attr;
 		$attr = wp_parse_args( $attr, wp_embed_defaults( $url ) );
 
+<<<<<<< HEAD
 		$this->last_attr = $attr;
 
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 		// kses converts & into &amp; and we need to undo this
 		// See https://core.trac.wordpress.org/ticket/11311
 		$url = str_replace( '&amp;', '&', $url );
@@ -318,6 +347,7 @@ class WP_Embed {
 	 * @return string Potentially modified $content.
 	 */
 	public function autoembed( $content ) {
+<<<<<<< HEAD
 		// Replace line breaks from all HTML elements with placeholders.
 		$content = wp_replace_in_html_tags( $content, array( "\n" => '<!-- wp-line-break -->' ) );
 
@@ -326,6 +356,9 @@ class WP_Embed {
 
 		// Put the line breaks back.
 		return str_replace( '<!-- wp-line-break -->', "\n", $content );
+=======
+		return preg_replace_callback( '|^(\s*)(https?://[^\s"]+)(\s*)$|im', array( $this, 'autoembed_callback' ), $content );
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	}
 
 	/**

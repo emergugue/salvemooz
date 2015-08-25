@@ -111,9 +111,12 @@ class Translations {
 		return 1 == $count? 0 : 1;
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @return int
 	 */
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	function get_plural_forms_count() {
 		return 2;
 	}
@@ -149,9 +152,12 @@ class Translations {
 		}
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @param object $other
 	 */
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	function merge_originals_with(&$other) {
 		foreach( $other->entries as $entry ) {
 			if ( !isset( $this->entries[$entry->key()] ) )
@@ -284,6 +290,7 @@ class NOOP_Translations {
 		return true;
 	}
 
+<<<<<<< HEAD
 	/**
 	 *
 	 * @param string $header
@@ -303,14 +310,25 @@ class NOOP_Translations {
 	 * @param string $header
 	 * @return false
 	 */
+=======
+	function set_header($header, $value) {
+	}
+
+	function set_headers($headers) {
+	}
+
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	function get_header($header) {
 		return false;
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @param Translation_Entry $entry
 	 * @return false
 	 */
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	function translate_entry(&$entry) {
 		return false;
 	}
@@ -323,18 +341,24 @@ class NOOP_Translations {
 		return $singular;
 	}
 
+<<<<<<< HEAD
 	/**
 	 *
 	 * @param int $count
 	 * @return bool
 	 */
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	function select_plural_form($count) {
 		return 1 == $count? 0 : 1;
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @return int
 	 */
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	function get_plural_forms_count() {
 		return 2;
 	}
@@ -349,9 +373,12 @@ class NOOP_Translations {
 			return 1 == $count? $singular : $plural;
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @param object $other
 	 */
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	function merge_with(&$other) {
 	}
 }

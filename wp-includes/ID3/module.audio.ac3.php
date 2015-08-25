@@ -471,4 +471,8 @@ class getid3_ac3 extends getid3_handler
 	}
 
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28

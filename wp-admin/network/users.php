@@ -16,17 +16,24 @@ if ( ! is_multisite() )
 if ( ! current_user_can( 'manage_network_users' ) )
 	wp_die( __( 'You do not have permission to access this page.' ), 403 );
 
+<<<<<<< HEAD
 /**
  *
  * @param array $users
  */
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 function confirm_delete_users( $users ) {
 	$current_user = wp_get_current_user();
 	if ( ! is_array( $users ) || empty( $users ) ) {
 		return false;
 	}
 	?>
+<<<<<<< HEAD
 	<h1><?php esc_html_e( 'Users' ); ?></h1>
+=======
+	<h2><?php esc_html_e( 'Users' ); ?></h2>
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 
 	<?php if ( 1 == count( $users ) ) : ?>
 		<p><?php _e( 'You have chosen to delete the user from all networks and sites.' ); ?></p>
@@ -90,7 +97,11 @@ function confirm_delete_users( $users ) {
 							<li><label><input type="radio" id="delete_option0" name="delete[<?php echo $details->userblog_id . '][' . $delete_user->ID ?>]" value="delete" checked="checked" />
 							<?php _e( 'Delete all content.' ); ?></label></li>
 							<li><label><input type="radio" id="delete_option1" name="delete[<?php echo $details->userblog_id . '][' . $delete_user->ID ?>]" value="reassign" />
+<<<<<<< HEAD
 							<?php _e( 'Attribute all content to:' ) . "</label>\n" . $user_dropdown; ?></li>
+=======
+							<?php echo __( 'Attribute all content to:' ) . "</label>\n" . $user_dropdown; ?></li>
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 						</ul>
 						<?php
 					}
@@ -309,15 +320,25 @@ if ( isset( $_REQUEST['updated'] ) && $_REQUEST['updated'] == 'true' && ! empty(
 }
 	?>
 <div class="wrap">
+<<<<<<< HEAD
 	<h1><?php esc_html_e( 'Users' );
 	if ( current_user_can( 'create_users') ) : ?>
 		<a href="<?php echo network_admin_url('user-new.php'); ?>" class="page-title-action"><?php echo esc_html_x( 'Add New', 'user' ); ?></a><?php
+=======
+	<h2><?php esc_html_e( 'Users' );
+	if ( current_user_can( 'create_users') ) : ?>
+		<a href="<?php echo network_admin_url('user-new.php'); ?>" class="add-new-h2"><?php echo esc_html_x( 'Add New', 'user' ); ?></a><?php
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	endif;
 
 	if ( !empty( $usersearch ) )
 	printf( '<span class="subtitle">' . __( 'Search results for &#8220;%s&#8221;' ) . '</span>', esc_html( $usersearch ) );
 	?>
+<<<<<<< HEAD
 	</h1>
+=======
+	</h2>
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 
 	<?php $wp_list_table->views(); ?>
 

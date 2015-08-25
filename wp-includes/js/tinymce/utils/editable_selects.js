@@ -1,8 +1,13 @@
 /**
  * editable_selects.js
  *
+<<<<<<< HEAD
  * Released under LGPL License.
  * Copyright (c) 1999-2015 Ephox Corp. All rights reserved
+=======
+ * Copyright, Moxiecode Systems AB
+ * Released under LGPL License.
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  *
  * License: http://www.tinymce.com/license
  * Contributing: http://www.tinymce.com/contributing

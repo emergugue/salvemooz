@@ -54,7 +54,11 @@ inlineEditTax = {
 		}
 
 		editRow = $('#inline-edit').clone(true), rowData = $('#inline_'+id);
+<<<<<<< HEAD
 		$( 'td', editRow ).attr( 'colspan', $( 'th:visible, td:visible', '.widefat:first thead' ).length );
+=======
+		$('td', editRow).attr('colspan', $('.widefat:first thead th:visible').length);
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 
 		$(t.what+id).hide().after(editRow).after('<tr class="hidden"></tr>');
 

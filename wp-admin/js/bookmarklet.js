@@ -66,6 +66,19 @@
 		form.appendChild( input );
 	}
 
+<<<<<<< HEAD
+=======
+	if ( href.match( /\/\/(www|m)\.youtube\.com\/watch/ ) ||
+		href.match( /\/\/vimeo\.com\/(.+\/)?([\d]+)$/ ) ||
+		href.match( /\/\/(www\.)?dailymotion\.com\/video\/.+$/ ) ||
+		href.match( /\/\/soundcloud\.com\/.+$/ ) ||
+		href.match( /\/\/twitter\.com\/[^\/]+\/status\/[\d]+$/ ) ||
+		href.match( /\/\/vine\.co\/v\/[^\/]+/ ) ) {
+
+		add( '_embeds[]', href );
+	}
+
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	metas = head.getElementsByTagName( 'meta' ) || [];
 
 	for ( var m = 0; m < metas.length; m++ ) {

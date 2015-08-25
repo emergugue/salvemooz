@@ -12,8 +12,13 @@
  * Adds data to the cache, if the cache key doesn't already exist.
  *
  * @since 2.0.0
+<<<<<<< HEAD
  *
  * @global WP_Object_Cache $wp_object_cache
+=======
+ * @uses $wp_object_cache Object Cache Class
+ * @see WP_Object_Cache::add()
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  *
  * @param int|string $key The cache key to use for retrieval later
  * @param mixed $data The data to add to the cache store
@@ -37,7 +42,11 @@ function wp_cache_add( $key, $data, $group = '', $expire = 0 ) {
  *
  * @since 2.0.0
  *
+<<<<<<< HEAD
  * @return true Always returns True
+=======
+ * @return bool Always returns True
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  */
 function wp_cache_close() {
 	return true;
@@ -47,8 +56,13 @@ function wp_cache_close() {
  * Decrement numeric cache item's value
  *
  * @since 3.3.0
+<<<<<<< HEAD
  *
  * @global WP_Object_Cache $wp_object_cache
+=======
+ * @uses $wp_object_cache Object Cache Class
+ * @see WP_Object_Cache::decr()
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  *
  * @param int|string $key The cache key to increment
  * @param int $offset The amount by which to decrement the item's value. Default is 1.
@@ -65,8 +79,13 @@ function wp_cache_decr( $key, $offset = 1, $group = '' ) {
  * Removes the cache contents matching key and group.
  *
  * @since 2.0.0
+<<<<<<< HEAD
  *
  * @global WP_Object_Cache $wp_object_cache
+=======
+ * @uses $wp_object_cache Object Cache Class
+ * @see WP_Object_Cache::delete()
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  *
  * @param int|string $key What the contents in the cache are called
  * @param string $group Where the cache contents are grouped
@@ -82,8 +101,13 @@ function wp_cache_delete($key, $group = '') {
  * Removes all cache items.
  *
  * @since 2.0.0
+<<<<<<< HEAD
  *
  * @global WP_Object_Cache $wp_object_cache
+=======
+ * @uses $wp_object_cache Object Cache Class
+ * @see WP_Object_Cache::flush()
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  *
  * @return bool False on failure, true on success
  */
@@ -97,15 +121,24 @@ function wp_cache_flush() {
  * Retrieves the cache contents from the cache by key and group.
  *
  * @since 2.0.0
+<<<<<<< HEAD
  *
  * @global WP_Object_Cache $wp_object_cache
+=======
+ * @uses $wp_object_cache Object Cache Class
+ * @see WP_Object_Cache::get()
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  *
  * @param int|string $key What the contents in the cache are called
  * @param string $group Where the cache contents are grouped
  * @param bool $force Whether to force an update of the local cache from the persistent cache (default is false)
  * @param bool &$found Whether key was found in the cache. Disambiguates a return of false, a storable value.
  * @return bool|mixed False on failure to retrieve contents or the cache
+<<<<<<< HEAD
  *		              contents on success
+=======
+ *		contents on success
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  */
 function wp_cache_get( $key, $group = '', $force = false, &$found = null ) {
 	global $wp_object_cache;
@@ -117,8 +150,13 @@ function wp_cache_get( $key, $group = '', $force = false, &$found = null ) {
  * Increment numeric cache item's value
  *
  * @since 3.3.0
+<<<<<<< HEAD
  *
  * @global WP_Object_Cache $wp_object_cache
+=======
+ * @uses $wp_object_cache Object Cache Class
+ * @see WP_Object_Cache::incr()
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  *
  * @param int|string $key The cache key to increment
  * @param int $offset The amount by which to increment the item's value. Default is 1.
@@ -135,8 +173,12 @@ function wp_cache_incr( $key, $offset = 1, $group = '' ) {
  * Sets up Object Cache Global and assigns it.
  *
  * @since 2.0.0
+<<<<<<< HEAD
  *
  * @global WP_Object_Cache $wp_object_cache
+=======
+ * @global WP_Object_Cache $wp_object_cache WordPress Object Cache
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  */
 function wp_cache_init() {
 	$GLOBALS['wp_object_cache'] = new WP_Object_Cache();
@@ -146,8 +188,13 @@ function wp_cache_init() {
  * Replaces the contents of the cache with new data.
  *
  * @since 2.0.0
+<<<<<<< HEAD
  *
  * @global WP_Object_Cache $wp_object_cache
+=======
+ * @uses $wp_object_cache Object Cache Class
+ * @see WP_Object_Cache::replace()
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  *
  * @param int|string $key What to call the contents in the cache
  * @param mixed $data The contents to store in the cache
@@ -166,7 +213,12 @@ function wp_cache_replace( $key, $data, $group = '', $expire = 0 ) {
  *
  * @since 2.0.0
  *
+<<<<<<< HEAD
  * @global WP_Object_Cache $wp_object_cache
+=======
+ * @uses $wp_object_cache Object Cache Class
+ * @see WP_Object_Cache::set()
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  *
  * @param int|string $key What to call the contents in the cache
  * @param mixed $data The contents to store in the cache
@@ -187,14 +239,21 @@ function wp_cache_set( $key, $data, $group = '', $expire = 0 ) {
  *
  * @since 3.5.0
  *
+<<<<<<< HEAD
  * @global WP_Object_Cache $wp_object_cache
  *
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  * @param int $blog_id Blog ID
  */
 function wp_cache_switch_to_blog( $blog_id ) {
 	global $wp_object_cache;
 
+<<<<<<< HEAD
 	$wp_object_cache->switch_to_blog( $blog_id );
+=======
+	return $wp_object_cache->switch_to_blog( $blog_id );
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 }
 
 /**
@@ -202,14 +261,21 @@ function wp_cache_switch_to_blog( $blog_id ) {
  *
  * @since 2.6.0
  *
+<<<<<<< HEAD
  * @global WP_Object_Cache $wp_object_cache
  *
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  * @param string|array $groups A group or an array of groups to add
  */
 function wp_cache_add_global_groups( $groups ) {
 	global $wp_object_cache;
 
+<<<<<<< HEAD
 	$wp_object_cache->add_global_groups( $groups );
+=======
+	return $wp_object_cache->add_global_groups( $groups );
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 }
 
 /**
@@ -237,15 +303,22 @@ function wp_cache_add_non_persistent_groups( $groups ) {
  *
  * @since 2.6.0
  * @deprecated 3.5.0
+<<<<<<< HEAD
  *
  * @global WP_Object_Cache $wp_object_cache
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  */
 function wp_cache_reset() {
 	_deprecated_function( __FUNCTION__, '3.5' );
 
 	global $wp_object_cache;
 
+<<<<<<< HEAD
 	$wp_object_cache->reset();
+=======
+	return $wp_object_cache->reset();
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 }
 
 /**
@@ -483,10 +556,17 @@ class WP_Object_Cache {
 	 *
 	 * @since 2.0.0
 	 *
+<<<<<<< HEAD
 	 * @return true Always returns true
 	 */
 	public function flush() {
 		$this->cache = array();
+=======
+	 * @return bool Always returns true
+	 */
+	public function flush() {
+		$this->cache = array ();
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 
 		return true;
 	}
@@ -505,8 +585,13 @@ class WP_Object_Cache {
 	 * @param int|string $key What the contents in the cache are called
 	 * @param string $group Where the cache contents are grouped
 	 * @param string $force Whether to force a refetch rather than relying on the local cache (default is false)
+<<<<<<< HEAD
 	 * @return false|mixed False on failure to retrieve contents or the cache
 	 *		               contents on success
+=======
+	 * @return bool|mixed False on failure to retrieve contents or the cache
+	 *		contents on success
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	 */
 	public function get( $key, $group = 'default', $force = false, &$found = null ) {
 		if ( empty( $group ) )
@@ -622,7 +707,11 @@ class WP_Object_Cache {
 	 * @param mixed $data The contents to store in the cache
 	 * @param string $group Where to group the cache contents
 	 * @param int $expire Not Used
+<<<<<<< HEAD
 	 * @return true Always returns true
+=======
+	 * @return bool Always returns true
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	 */
 	public function set( $key, $data, $group = 'default', $expire = 0 ) {
 		if ( empty( $group ) )
@@ -690,8 +779,11 @@ class WP_Object_Cache {
 	 * Sets up object properties; PHP 5 style constructor
 	 *
 	 * @since 2.0.8
+<<<<<<< HEAD
 	 *
      * @global int $blog_id
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	 */
 	public function __construct() {
 		global $blog_id;
@@ -714,7 +806,11 @@ class WP_Object_Cache {
 	 *
 	 * @since  2.0.8
 	 *
+<<<<<<< HEAD
 	 * @return true True value. Won't be used by PHP
+=======
+	 * @return bool True value. Won't be used by PHP
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	 */
 	public function __destruct() {
 		return true;

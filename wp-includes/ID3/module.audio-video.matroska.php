@@ -1748,4 +1748,8 @@ class getid3_matroska extends getid3_handler
 		return $info;
 	}
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28

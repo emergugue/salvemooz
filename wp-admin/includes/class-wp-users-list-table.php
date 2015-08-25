@@ -56,8 +56,11 @@ class WP_Users_List_Table extends WP_List_Table {
 	 *
  	 * @since 3.1.0
 	 * @access public
+<<<<<<< HEAD
 	 *
 	 * @return bool
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	 */
 	public function ajax_user_can() {
 		if ( $this->is_site_users )
@@ -71,9 +74,12 @@ class WP_Users_List_Table extends WP_List_Table {
 	 *
 	 * @since 3.1.0
 	 * @access public
+<<<<<<< HEAD
 	 *
 	 * @global string $role
 	 * @global string $usersearch
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	 */
 	public function prepare_items() {
 		global $role, $usersearch;
@@ -138,6 +144,7 @@ class WP_Users_List_Table extends WP_List_Table {
 	 * @since  3.1.0
 	 * @access protected
 	 *
+<<<<<<< HEAD
 	 * @global string $role
 	 *
 	 * @return array An array of HTML links, one for each view.
@@ -146,6 +153,12 @@ class WP_Users_List_Table extends WP_List_Table {
 		global $role;
 
 		$wp_roles = wp_roles();
+=======
+	 * @return array An array of HTML links, one for each view.
+	 */
+	protected function get_views() {
+		global $wp_roles, $role;
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 
 		if ( $this->is_site_users ) {
 			$url = 'site-users.php?id=' . $this->site_id;
@@ -338,6 +351,11 @@ class WP_Users_List_Table extends WP_List_Table {
 	 * @since 4.2.0 The `$style` argument was deprecated.
 	 * @access public
 	 *
+<<<<<<< HEAD
+=======
+	 * @global WP_Roles $wp_roles User roles object.
+	 *
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	 * @param object $user_object The current user object.
 	 * @param string $style       Deprecated. Not used.
 	 * @param string $role        Optional. Key for the $wp_roles array. Default empty.
@@ -346,7 +364,11 @@ class WP_Users_List_Table extends WP_List_Table {
 	 * @return string Output for a single row.
 	 */
 	public function single_row( $user_object, $style = '', $role = '', $numposts = 0 ) {
+<<<<<<< HEAD
 		$wp_roles = wp_roles();
+=======
+		global $wp_roles;
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 
 		if ( ! ( $user_object instanceof WP_User ) ) {
 			$user_object = get_userdata( (int) $user_object );
@@ -391,6 +413,10 @@ class WP_Users_List_Table extends WP_List_Table {
 			 * @param WP_User $user_object WP_User object for the currently-listed user.
 			 */
 			$actions = apply_filters( 'user_row_actions', $actions, $user_object );
+<<<<<<< HEAD
+=======
+			$edit .= $this->row_actions( $actions );
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 
 			// Set up the checkbox ( because the user is editable, otherwise it's empty )
 			$checkbox = '<label class="screen-reader-text" for="user_' . $user_object->ID . '">' . sprintf( __( 'Select %s' ), $user_object->user_login ) . '</label>'
@@ -404,6 +430,7 @@ class WP_Users_List_Table extends WP_List_Table {
 
 		$r = "<tr id='user-$user_object->ID'>";
 
+<<<<<<< HEAD
 		list( $columns, $hidden, $sortable, $primary ) = $this->get_column_info();
 
 		foreach ( $columns as $column_name => $column_display_name ) {
@@ -467,12 +494,68 @@ class WP_Users_List_Table extends WP_List_Table {
 					$r .= $this->row_actions( $actions );
 				}
 				$r .= "</td>";
+=======
+		list( $columns, $hidden ) = $this->get_column_info();
+
+		foreach ( $columns as $column_name => $column_display_name ) {
+			$class = "class=\"$column_name column-$column_name\"";
+
+			$style = '';
+			if ( in_array( $column_name, $hidden ) )
+				$style = ' style="display:none;"';
+
+			$attributes = "$class$style";
+
+			switch ( $column_name ) {
+				case 'cb':
+					$r .= "<th scope='row' class='check-column'>$checkbox</th>";
+					break;
+				case 'username':
+					$r .= "<td $attributes>$avatar $edit</td>";
+					break;
+				case 'name':
+					$r .= "<td $attributes>$user_object->first_name $user_object->last_name</td>";
+					break;
+				case 'email':
+					$r .= "<td $attributes><a href='mailto:$email' title='" . esc_attr( sprintf( __( 'E-mail: %s' ), $email ) ) . "'>$email</a></td>";
+					break;
+				case 'role':
+					$r .= "<td $attributes>$role_name</td>";
+					break;
+				case 'posts':
+					$attributes = 'class="posts column-posts num"' . $style;
+					$r .= "<td $attributes>";
+					if ( $numposts > 0 ) {
+						$r .= "<a href='edit.php?author=$user_object->ID' title='" . esc_attr__( 'View posts by this author' ) . "' class='edit'>";
+						$r .= $numposts;
+						$r .= '</a>';
+					} else {
+						$r .= 0;
+					}
+					$r .= "</td>";
+					break;
+				default:
+					$r .= "<td $attributes>";
+
+					/**
+					 * Filter the display output of custom columns in the Users list table.
+					 *
+					 * @since 2.8.0
+					 *
+					 * @param string $output      Custom column output. Default empty.
+					 * @param string $column_name Column name.
+					 * @param int    $user_id     ID of the currently-listed user.
+					 */
+					$r .= apply_filters( 'manage_users_custom_column', '', $column_name, $user_object->ID );
+					$r .= "</td>";
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 			}
 		}
 		$r .= '</tr>';
 
 		return $r;
 	}
+<<<<<<< HEAD
 
 	/**
 	 * Gets the name of the default primary column.
@@ -485,4 +568,6 @@ class WP_Users_List_Table extends WP_List_Table {
 	protected function get_default_primary_column_name() {
 		return 'username';
 	}
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 }

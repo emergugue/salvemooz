@@ -63,12 +63,15 @@ class getid3_ogg extends getid3_handler
 
 			$this->ParseVorbisPageHeader($filedata, $filedataoffset, $oggpageinfo);
 
+<<<<<<< HEAD
 		} elseif (substr($filedata, 0, 8) == 'OpusHead') {
 
 			if( $this->ParseOpusPageHeader($filedata, $filedataoffset, $oggpageinfo) == false ) {
 				return false;
 			}
 
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 		} elseif (substr($filedata, 0, 8) == 'Speex   ') {
 
 			// http://www.speex.org/manual/node10.html
@@ -261,7 +264,11 @@ $info['warning'][] = 'Ogg Theora (v3) not fully supported in this version of get
 
 		} else {
 
+<<<<<<< HEAD
 			$info['error'][] = 'Expecting either "Speex   ", "OpusHead" or "vorbis" identifier strings, found "'.substr($filedata, 0, 8).'"';
+=======
+			$info['error'][] = 'Expecting either "Speex   " or "vorbis" identifier strings, found "'.substr($filedata, 0, 8).'"';
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 			unset($info['ogg']);
 			unset($info['mime_type']);
 			return false;
@@ -294,6 +301,7 @@ $info['warning'][] = 'Ogg Theora (v3) not fully supported in this version of get
 				$this->fseek($info['ogg']['pageheader'][$oggpageinfo['page_seqno']]['page_length'], SEEK_CUR);
 				$this->ParseVorbisComments();
 				break;
+<<<<<<< HEAD
 
 			case 'opus':
 				$filedata = $this->fread($info['ogg']['pageheader'][$oggpageinfo['page_seqno']]['page_length']);
@@ -308,6 +316,11 @@ $info['warning'][] = 'Ogg Theora (v3) not fully supported in this version of get
 
 		}
 
+=======
+		}
+
+
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 		// Last Page - Number of Samples
 		if (!getid3_lib::intValueSupported($info['avdataend'])) {
 
@@ -426,6 +439,7 @@ $info['warning'][] = 'Ogg Theora (v3) not fully supported in this version of get
 		return true;
 	}
 
+<<<<<<< HEAD
 	// http://tools.ietf.org/html/draft-ietf-codec-oggopus-03
 	public function ParseOpusPageHeader(&$filedata, &$filedataoffset, &$oggpageinfo) {
 		$info = &$this->getid3->info;
@@ -477,6 +491,8 @@ $info['warning'][] = 'Ogg Theora (v3) not fully supported in this version of get
 	}
 
 
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	public function ParseOggPageHeader() {
 		// http://xiph.org/ogg/vorbis/doc/framing.html
 		$oggheader['page_start_offset'] = $this->ftell(); // where we started from in the file
@@ -539,7 +555,10 @@ $info['warning'][] = 'Ogg Theora (v3) not fully supported in this version of get
 		switch ($info['audio']['dataformat']) {
 			case 'vorbis':
 			case 'speex':
+<<<<<<< HEAD
 			case 'opus':
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 				$CommentStartOffset = $info['ogg']['pageheader'][$VorbisCommentPage]['page_start_offset'];  // Second Ogg page, after header block
 				$this->fseek($CommentStartOffset);
 				$commentdataoffset = 27 + $info['ogg']['pageheader'][$VorbisCommentPage]['page_segments'];
@@ -548,10 +567,13 @@ $info['warning'][] = 'Ogg Theora (v3) not fully supported in this version of get
 				if ($info['audio']['dataformat'] == 'vorbis') {
 					$commentdataoffset += (strlen('vorbis') + 1);
 				}
+<<<<<<< HEAD
 				else if ($info['audio']['dataformat'] == 'opus') {
 					$commentdataoffset += strlen('OpusTags');
 				}
 
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 				break;
 
 			case 'flac':
@@ -578,12 +600,15 @@ $info['warning'][] = 'Ogg Theora (v3) not fully supported in this version of get
 		$ThisFileInfo_ogg_comments_raw = &$info['ogg']['comments_raw'];
 		for ($i = 0; $i < $CommentsCount; $i++) {
 
+<<<<<<< HEAD
 			if ($i >= 10000) {
 				// https://github.com/owncloud/music/issues/212#issuecomment-43082336
 				$info['warning'][] = 'Unexpectedly large number ('.$CommentsCount.') of Ogg comments - breaking after reading '.$i.' comments';
 				break;
 			}
 
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 			$ThisFileInfo_ogg_comments_raw[$i]['dataoffset'] = $CommentStartOffset + $commentdataoffset;
 
 			if ($this->ftell() < ($ThisFileInfo_ogg_comments_raw[$i]['dataoffset'] + 4)) {
@@ -694,12 +719,17 @@ $info['warning'][] = 'Ogg Theora (v3) not fully supported in this version of get
 					$ogg = new self($this->getid3);
 					$ogg->setStringMode($data);
 					$info['ogg']['comments']['picture'][] = array(
+<<<<<<< HEAD
 						'image_mime'   => $imageinfo['mime'],
 						'datalength'   => strlen($data),
 						'picturetype'  => 'cover art',
 						'image_height' => $imageinfo['height'],
 						'image_width'  => $imageinfo['width'],
 						'data'         => $ogg->saveAttachment('coverart', 0, strlen($data), $imageinfo['mime']),
+=======
+						'image_mime' => $imageinfo['mime'],
+						'data'       => $ogg->saveAttachment('coverart', 0, strlen($data), $imageinfo['mime']),
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 					);
 					unset($ogg);
 
@@ -836,4 +866,8 @@ $info['warning'][] = 'Ogg Theora (v3) not fully supported in this version of get
 		return (isset($TheoraPixelFormatLookup[$pixelformat_id]) ? $TheoraPixelFormatLookup[$pixelformat_id] : null);
 	}
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28

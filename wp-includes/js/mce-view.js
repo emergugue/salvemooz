@@ -1,5 +1,10 @@
 /* global tinymce */
 
+<<<<<<< HEAD
+=======
+window.wp = window.wp || {};
+
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 /*
  * The TinyMCE view API.
  *
@@ -22,7 +27,11 @@
  * |- registered view
  * |  |- ...
  */
+<<<<<<< HEAD
 ( function( window, wp, shortcode, $ ) {
+=======
+( function( window, wp, $ ) {
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	'use strict';
 
 	var views = {},
@@ -91,7 +100,12 @@
 		setMarkers: function( content ) {
 			var pieces = [ { content: content } ],
 				self = this,
+<<<<<<< HEAD
 				instance, current;
+=======
+				instance,
+				current;
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 
 			_.each( views, function( view, type ) {
 				current = pieces.slice();
@@ -99,7 +113,11 @@
 
 				_.each( current, function( piece ) {
 					var remaining = piece.content,
+<<<<<<< HEAD
 						result, text;
+=======
+						result;
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 
 					// Ignore processed pieces, but retain their location.
 					if ( piece.processed ) {
@@ -116,11 +134,18 @@
 						}
 
 						instance = self.createInstance( type, result.content, result.options );
+<<<<<<< HEAD
 						text = instance.loader ? '.' : instance.text;
 
 						// Add the processed piece for the match.
 						pieces.push( {
 							content: '<p data-wpview-marker="' + instance.encodedText + '">' + text + '</p>',
+=======
+
+						// Add the processed piece for the match.
+						pieces.push( {
+							content: '<p data-wpview-marker="' + instance.encodedText + '">' + instance.text + '</p>',
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 							processed: true
 						} );
 
@@ -136,13 +161,18 @@
 				} );
 			} );
 
+<<<<<<< HEAD
 			content = _.pluck( pieces, 'content' ).join( '' );
 			return content.replace( /<p>\s*<p data-wpview-marker=/g, '<p data-wpview-marker=' ).replace( /<\/p>\s*<\/p>/g, '</p>' );
+=======
+			return _.pluck( pieces, 'content' ).join( '' );
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 		},
 
 		/**
 		 * Create a view instance.
 		 *
+<<<<<<< HEAD
 		 * @param {String}  type    The view type.
 		 * @param {String}  text    The textual representation of the view.
 		 * @param {Object}  options Options.
@@ -151,10 +181,20 @@
 		 * @return {wp.mce.View} The view instance.
 		 */
 		createInstance: function( type, text, options, force ) {
+=======
+		 * @param {String} type    The view type.
+		 * @param {String} text    The textual representation of the view.
+		 * @param {Object} options Options.
+		 *
+		 * @return {wp.mce.View} The view instance.
+		 */
+		createInstance: function( type, text, options ) {
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 			var View = this.get( type ),
 				encodedText,
 				instance;
 
+<<<<<<< HEAD
 			text = tinymce.DOM.decode( text );
 
 			if ( ! force ) {
@@ -167,6 +207,16 @@
 
 			encodedText = encodeURIComponent( text );
 
+=======
+			text = tinymce.DOM.decode( text ),
+			encodedText = encodeURIComponent( text ),
+			instance = this.getInstance( encodedText );
+
+			if ( instance ) {
+				return instance;
+			}
+
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 			options = _.extend( options || {}, {
 				text: text,
 				encodedText: encodedText
@@ -218,6 +268,7 @@
 		 * @param {String}         text   The new text.
 		 * @param {tinymce.Editor} editor The TinyMCE editor instance the view node is in.
 		 * @param {HTMLElement}    node   The view node to update.
+<<<<<<< HEAD
 		 * @param {Boolean}        force  Recreate the instance. Optional.
 		 */
 		update: function( text, editor, node, force ) {
@@ -225,6 +276,14 @@
 
 			if ( instance ) {
 				instance.update( text, editor, node, force );
+=======
+		 */
+		update: function( text, editor, node ) {
+			var instance = this.getInstance( node );
+
+			if ( instance ) {
+				instance.update( text, editor, node );
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 			}
 		},
 
@@ -238,8 +297,13 @@
 			var instance = this.getInstance( node );
 
 			if ( instance && instance.edit ) {
+<<<<<<< HEAD
 				instance.edit( instance.text, function( text, force ) {
 					instance.update( text, editor, node, force );
+=======
+				instance.edit( instance.text, function( text ) {
+					instance.update( text, editor, node );
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 				} );
 			}
 		},
@@ -305,8 +369,13 @@
 		/**
 		 * Renders all view nodes tied to this view instance that are not yet rendered.
 		 *
+<<<<<<< HEAD
 		 * @param {String}  content The content to render. Optional.
 		 * @param {Boolean} force   Rerender all view nodes tied to this view instance. Optional.
+=======
+		 * @param {String} content The content to render. Optional.
+		 * @param {Boolean} force Rerender all view nodes tied to this view instance.
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 		 */
 		render: function( content, force ) {
 			if ( content != null ) {
@@ -421,14 +490,19 @@
 		 */
 		replaceMarkers: function() {
 			this.getMarkers( function( editor, node ) {
+<<<<<<< HEAD
 				var selected = node === editor.selection.getNode(),
 					$viewNode;
 
 				if ( ! this.loader && $( node ).text() !== this.text ) {
+=======
+				if ( $( node ).text() !== this.text ) {
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 					editor.dom.setAttrib( node, 'data-wpview-marker', null );
 					return;
 				}
 
+<<<<<<< HEAD
 				$viewNode = editor.$(
 					'<div class="wpview-wrap" data-wpview-text="' + this.encodedText + '" data-wpview-type="' + this.type + '">' +
 						'<p class="wpview-selection-before">\u00a0</p>' +
@@ -444,6 +518,20 @@
 				if ( selected ) {
 					editor.wp.setViewCursor( false, $viewNode[0] );
 				}
+=======
+				editor.dom.replace(
+					editor.dom.createFragment(
+						'<div class="wpview-wrap" data-wpview-text="' + this.encodedText + '" data-wpview-type="' + this.type + '">' +
+							'<p class="wpview-selection-before">\u00a0</p>' +
+							'<div class="wpview-body" contenteditable="false">' +
+								'<div class="wpview-content wpview-type-' + this.type + '"></div>' +
+							'</div>' +
+							'<p class="wpview-selection-after">\u00a0</p>' +
+						'</div>'
+					),
+					node
+				);
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 			} );
 		},
 
@@ -510,6 +598,7 @@
 					}
 				} );
 
+<<<<<<< HEAD
 				if ( self.iframeHeight ) {
 					dom.add( contentNode, 'div', { style: {
 						width: '100%',
@@ -521,6 +610,12 @@
 				// or the iframe will fail especially when switching Text => Visual.
 				setTimeout( function() {
 					var iframe, iframeDoc, observer, i, block;
+=======
+				// Seems the browsers need a bit of time to insert/set the view nodes,
+				// or the iframe will fail especially when switching Text => Visual.
+				setTimeout( function() {
+					var iframe, iframeDoc, observer, i;
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 
 					contentNode.innerHTML = '';
 
@@ -534,8 +629,12 @@
 						style: {
 							width: '100%',
 							display: 'block'
+<<<<<<< HEAD
 						},
 						height: self.iframeHeight
+=======
+						}
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 					} );
 
 					dom.add( contentNode, 'div', { 'class': 'wpview-overlay' } );
@@ -578,24 +677,36 @@
 					iframeDoc.close();
 
 					function resize() {
+<<<<<<< HEAD
 						var $iframe;
 
 						if ( block ) {
 							return;
 						}
+=======
+						var $iframe, iframeDocHeight;
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 
 						// Make sure the iframe still exists.
 						if ( iframe.contentWindow ) {
 							$iframe = $( iframe );
+<<<<<<< HEAD
 							self.iframeHeight = $( iframeDoc.body ).height();
 
 							if ( $iframe.height() !== self.iframeHeight ) {
 								$iframe.height( self.iframeHeight );
+=======
+							iframeDocHeight = $( iframeDoc.body ).height();
+
+							if ( $iframe.height() !== iframeDocHeight ) {
+								$iframe.height( iframeDocHeight );
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 								editor.nodeChanged();
 							}
 						}
 					}
 
+<<<<<<< HEAD
 					if ( self.iframeHeight ) {
 						block = true;
 
@@ -605,6 +716,8 @@
 						}, 3000 );
 					}
 
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 					$( iframe.contentWindow ).on( 'load', resize );
 
 					if ( MutationObserver ) {
@@ -656,7 +769,11 @@
 		 * Sets an error for all view nodes tied to this view instance.
 		 *
 		 * @param {String} message  The error message to set.
+<<<<<<< HEAD
 		 * @param {String} dashicon A dashicon ID. Optional. {@link https://developer.wordpress.org/resource/dashicons/}
+=======
+		 * @param {String} dashicon A dashicon ID (optional). {@link https://developer.wordpress.org/resource/dashicons/}
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 		 */
 		setError: function( message, dashicon ) {
 			this.setContent(
@@ -675,7 +792,11 @@
 		 * @return {Object}
 		 */
 		match: function( content ) {
+<<<<<<< HEAD
 			var match = shortcode.next( this.type, content );
+=======
+			var match = wp.shortcode.next( this.type, content );
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 
 			if ( match ) {
 				return {
@@ -694,16 +815,25 @@
 		 * @param {String}         text   The new text.
 		 * @param {tinymce.Editor} editor The TinyMCE editor instance the view node is in.
 		 * @param {HTMLElement}    node   The view node to update.
+<<<<<<< HEAD
 		 * @param {Boolean}        force  Recreate the instance. Optional.
 		 */
 		update: function( text, editor, node, force ) {
+=======
+		 */
+		update: function( text, editor, node ) {
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 			_.find( views, function( view, type ) {
 				var match = view.prototype.match( text );
 
 				if ( match ) {
 					$( node ).data( 'rendered', false );
 					editor.dom.setAttrib( node, 'data-wpview-text', encodeURIComponent( text ) );
+<<<<<<< HEAD
 					wp.mce.views.createInstance( type, text, match.options, force ).render();
+=======
+					wp.mce.views.createInstance( type, text, match.options ).render();
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 					editor.focus();
 
 					return true;
@@ -724,13 +854,18 @@
 			editor.focus();
 		}
 	} );
+<<<<<<< HEAD
 } )( window, window.wp, window.wp.shortcode, window.jQuery );
+=======
+} )( window, window.wp, window.jQuery );
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 
 /*
  * The WordPress core TinyMCE views.
  * Views for the gallery, audio, video, playlist and embed shortcodes,
  * and a view for embeddable URLs.
  */
+<<<<<<< HEAD
 ( function( window, views, media, $ ) {
 	var base, gallery, av, embed;
 
@@ -740,12 +875,28 @@
 		edit: function( text, update ) {
 			var type = this.type,
 				frame = media[ type ].edit( text );
+=======
+( function( window, views, $ ) {
+	var postID = $( '#post_ID' ).val() || 0,
+		media, gallery, av, embed;
+
+	media = {
+		state: [],
+
+		edit: function( text, update ) {
+			var media = wp.media[ this.type ],
+				frame = media.edit( text );
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 
 			this.pausePlayers && this.pausePlayers();
 
 			_.each( this.state, function( state ) {
 				frame.state( state ).on( 'update', function( selection ) {
+<<<<<<< HEAD
 					update( media[ type ].shortcode( selection ).string(), type === 'gallery' );
+=======
+					update( media.shortcode( selection ).string() );
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 				} );
 			} );
 
@@ -757,12 +908,21 @@
 		}
 	};
 
+<<<<<<< HEAD
 	gallery = _.extend( {}, base, {
 		state: [ 'gallery-edit' ],
 		template: media.template( 'editor-gallery' ),
 
 		initialize: function() {
 			var attachments = media.gallery.attachments( this.shortcode, media.view.settings.post.id ),
+=======
+	gallery = _.extend( {}, media, {
+		state: [ 'gallery-edit' ],
+		template: wp.media.template( 'editor-gallery' ),
+
+		initialize: function() {
+			var attachments = wp.media.gallery.attachments( this.shortcode, postID ),
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 				attrs = this.shortcode.attrs.named,
 				self = this;
 
@@ -784,7 +944,11 @@
 
 				self.render( self.template( {
 					attachments: attachments,
+<<<<<<< HEAD
 					columns: attrs.columns ? parseInt( attrs.columns, 10 ) : media.galleryDefaults.columns
+=======
+					columns: attrs.columns ? parseInt( attrs.columns, 10 ) : wp.media.galleryDefaults.columns
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 				} ) );
 			} )
 			.fail( function( jqXHR, textStatus ) {
@@ -793,7 +957,11 @@
 		}
 	} );
 
+<<<<<<< HEAD
 	av = _.extend( {}, base, {
+=======
+	av = _.extend( {}, media, {
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 		action: 'parse-media-shortcode',
 
 		initialize: function() {
@@ -801,13 +969,21 @@
 
 			if ( this.url ) {
 				this.loader = false;
+<<<<<<< HEAD
 				this.shortcode = media.embed.shortcode( {
+=======
+				this.shortcode = wp.media.embed.shortcode( {
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 					url: this.text
 				} );
 			}
 
 			wp.ajax.post( this.action, {
+<<<<<<< HEAD
 				post_ID: media.view.settings.post.id,
+=======
+				post_ID: postID,
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 				type: this.shortcode.tag,
 				shortcode: this.shortcode.string()
 			} )
@@ -848,7 +1024,12 @@
 		action: 'parse-embed',
 
 		edit: function( text, update ) {
+<<<<<<< HEAD
 			var frame = media.embed.edit( text, this.url ),
+=======
+			var media = wp.media.embed,
+				frame = media.edit( text, this.url ),
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 				self = this;
 
 			this.pausePlayers();
@@ -865,7 +1046,11 @@
 				if ( self.url ) {
 					update( data.url );
 				} else {
+<<<<<<< HEAD
 					update( media.embed.shortcode( data ).string() );
+=======
+					update( media.shortcode( data ).string() );
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 				}
 			} );
 
@@ -909,4 +1094,8 @@
 			}
 		}
 	} ) );
+<<<<<<< HEAD
 } )( window, window.wp.mce.views, window.wp.media, window.jQuery );
+=======
+} )( window, window.wp.mce.views, window.jQuery );
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28

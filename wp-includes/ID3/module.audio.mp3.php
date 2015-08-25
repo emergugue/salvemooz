@@ -2009,4 +2009,8 @@ class getid3_mp3 extends getid3_handler
 		return (isset($LAMEpresetUsedLookup[$LAMEtag['preset_used_id']]) ? $LAMEpresetUsedLookup[$LAMEtag['preset_used_id']] : 'new/unknown preset: '.$LAMEtag['preset_used_id'].' - report to info@getid3.org');
 	}
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28

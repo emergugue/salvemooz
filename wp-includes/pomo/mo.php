@@ -27,10 +27,13 @@ class MO extends Gettext_Translations {
 		return $this->import_from_reader($reader);
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @param string $filename
 	 * @return bool
 	 */
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	function export_to_file($filename) {
 		$fh = fopen($filename, 'wb');
 		if ( !$fh ) return false;
@@ -39,9 +42,12 @@ class MO extends Gettext_Translations {
 		return $res;
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @return string|false
 	 */
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	function export() {
 		$tmp_fh = fopen("php://temp", 'r+');
 		if ( !$tmp_fh ) return false;
@@ -50,10 +56,13 @@ class MO extends Gettext_Translations {
 		return stream_get_contents( $tmp_fh );
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @param Translation_Entry $entry
 	 * @return bool
 	 */
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	function is_entry_good_for_export( $entry ) {
 		if ( empty( $entry->translations ) ) {
 			return false;
@@ -66,10 +75,13 @@ class MO extends Gettext_Translations {
 		return true;
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @param resource $fh
 	 * @return true
 	 */
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	function export_to_file_handle($fh) {
 		$entries = array_filter( $this->entries, array( $this, 'is_entry_good_for_export' ) );
 		ksort($entries);
@@ -116,10 +128,13 @@ class MO extends Gettext_Translations {
 		return true;
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @param Translation_Entry $entry
 	 * @return string
 	 */
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	function export_original($entry) {
 		//TODO: warnings for control characters
 		$exported = $entry->singular;
@@ -128,18 +143,24 @@ class MO extends Gettext_Translations {
 		return $exported;
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @param Translation_Entry $entry
 	 * @return string
 	 */
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	function export_translations($entry) {
 		//TODO: warnings for control characters
 		return implode(chr(0), $entry->translations);
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @return string
 	 */
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	function export_headers() {
 		$exported = '';
 		foreach($this->headers as $header => $value) {
@@ -148,10 +169,13 @@ class MO extends Gettext_Translations {
 		return $exported;
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @param int $magic
 	 * @return string|false
 	 */
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	function get_byteorder($magic) {
 		// The magic is 0x950412de
 
@@ -284,17 +308,23 @@ class MO extends Gettext_Translations {
 		return $entry;
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @param int $count
 	 * @return string
 	 */
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	function select_plural_form($count) {
 		return $this->gettext_select_plural_form($count);
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @return int
 	 */
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	function get_plural_forms_count() {
 		return $this->_nplurals;
 	}

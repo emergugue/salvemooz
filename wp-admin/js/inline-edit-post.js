@@ -22,10 +22,17 @@ inlineEditPost = {
 			}
 		});
 
+<<<<<<< HEAD
 		$( '.cancel', qeRow ).click( function() {
 			return inlineEditPost.revert();
 		});
 		$( '.save', qeRow ).click( function() {
+=======
+		$('a.cancel', qeRow).click(function(){
+			return inlineEditPost.revert();
+		});
+		$('a.save', qeRow).click(function(){
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 			return inlineEditPost.save(this);
 		});
 		$('td', qeRow).keydown(function(e){
@@ -34,7 +41,11 @@ inlineEditPost = {
 			}
 		});
 
+<<<<<<< HEAD
 		$( '.cancel', bulkRow ).click( function() {
+=======
+		$('a.cancel', bulkRow).click(function(){
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 			return inlineEditPost.revert();
 		});
 
@@ -81,7 +92,11 @@ inlineEditPost = {
 		var te = '', type = this.type, tax, c = true;
 		this.revert();
 
+<<<<<<< HEAD
 		$( '#bulk-edit td' ).attr( 'colspan', $( 'th:visible, td:visible', '.widefat:first thead' ).length );
+=======
+		$('#bulk-edit td').attr('colspan', $('.widefat:first thead th:visible').length);
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 		// Insert the editor at the top of the table with an empty row above to maintain zebra striping.
 		$('table.widefat tbody').prepend( $('#bulk-edit') ).prepend('<tr class="hidden"></tr>');
 		$('#bulk-edit').addClass('inline-editor').show();
@@ -117,7 +132,11 @@ inlineEditPost = {
 	},
 
 	edit : function(id) {
+<<<<<<< HEAD
 		var t = this, fields, editRow, rowData, status, pageOpt, pageLevel, nextPage, pageLoop = true, nextLevel, cur_format, f, val, pw;
+=======
+		var t = this, fields, editRow, rowData, status, pageOpt, pageLevel, nextPage, pageLoop = true, nextLevel, cur_format, f, val;
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 		t.revert();
 
 		if ( typeof(id) === 'object' ) {
@@ -131,9 +150,15 @@ inlineEditPost = {
 
 		// add the new edit row with an extra blank row underneath to maintain zebra striping.
 		editRow = $('#inline-edit').clone(true);
+<<<<<<< HEAD
 		$( 'td', editRow ).attr( 'colspan', $( 'th:visible, td:visible', '.widefat:first thead' ).length );
 
 		$(t.what+id).removeClass('is-expanded').hide().after(editRow).after('<tr class="hidden"></tr>');
+=======
+		$('td', editRow).attr('colspan', $('.widefat:first thead th:visible').length);
+
+		$(t.what+id).hide().after(editRow).after('<tr class="hidden"></tr>');
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 
 		// populate the data
 		rowData = $('#inline_'+id);
@@ -209,10 +234,16 @@ inlineEditPost = {
 			$('select[name="_status"] option[value="future"]', editRow).remove();
 		}
 
+<<<<<<< HEAD
 		pw = $( '.inline-edit-password-input' ).prop( 'disabled', false );
 		if ( 'private' === status ) {
 			$('input[name="keep_private"]', editRow).prop('checked', true);
 			pw.val( '' ).prop( 'disabled', true );
+=======
+		if ( 'private' === status ) {
+			$('input[name="keep_private"]', editRow).prop('checked', true);
+			$('input.inline-edit-password-input').val('').prop('disabled', true);
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 		}
 
 		// remove the current page and children from the parent dropdown

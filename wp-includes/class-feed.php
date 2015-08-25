@@ -36,9 +36,12 @@ class WP_Feed_Cache_Transient {
 		$this->lifetime = apply_filters( 'wp_feed_cache_transient_lifetime', $lifetime, $filename);
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @access public
 	 */
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	public function save($data) {
 		if ( $data instanceof SimplePie ) {
 			$data = $data->data;
@@ -49,30 +52,42 @@ class WP_Feed_Cache_Transient {
 		return true;
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @access public
 	 */
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	public function load() {
 		return get_transient($this->name);
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @access public
 	 */
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	public function mtime() {
 		return get_transient($this->mod_name);
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @access public
 	 */
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	public function touch() {
 		return set_transient($this->mod_name, time(), $this->lifetime);
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @access public
 	 */
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	public function unlink() {
 		delete_transient($this->name);
 		delete_transient($this->mod_name);

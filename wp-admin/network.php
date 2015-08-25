@@ -35,9 +35,12 @@ foreach ( $wpdb->tables( 'ms_global' ) as $table => $prefixed_table )
  * Check for an existing network.
  *
  * @since 3.0.0
+<<<<<<< HEAD
  *
  * @global wpdb $wpdb
  *
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  * @return Whether a network exists.
  */
 function network_domain_check() {
@@ -58,7 +61,11 @@ function network_domain_check() {
  */
 function allow_subdomain_install() {
 	$domain = preg_replace( '|https?://([^/]+)|', '$1', get_option( 'home' ) );
+<<<<<<< HEAD
 	if ( parse_url( get_option( 'home' ), PHP_URL_PATH ) || 'localhost' == $domain || preg_match( '|^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$|', $domain ) )
+=======
+	if( parse_url( get_option( 'home' ), PHP_URL_PATH ) || 'localhost' == $domain || preg_match( '|^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$|', $domain ) )
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 		return false;
 
 	return true;
@@ -67,9 +74,12 @@ function allow_subdomain_install() {
  * Allow subdirectory install.
  *
  * @since 3.0.0
+<<<<<<< HEAD
  *
  * @global wpdb $wpdb
  *
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  * @return bool Whether subdirectory install is allowed
  */
 function allow_subdirectory_install() {
@@ -145,7 +155,11 @@ get_current_screen()->set_help_sidebar(
 include( ABSPATH . 'wp-admin/admin-header.php' );
 ?>
 <div class="wrap">
+<<<<<<< HEAD
 <h1><?php echo esc_html( $title ); ?></h1>
+=======
+<h2><?php echo esc_html( $title ); ?></h2>
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 
 <?php
 /**
@@ -155,10 +169,13 @@ include( ABSPATH . 'wp-admin/admin-header.php' );
  * 	should not be a sudden "Welcome to a new install process! Fill this out and click here." See also contextual help todo.
  *
  * @since 3.0.0
+<<<<<<< HEAD
  *
  * @global bool $is_apache
  *
  * @param WP_Error $errors
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  */
 function network_step1( $errors = false ) {
 	global $is_apache;
@@ -336,10 +353,13 @@ function network_step1( $errors = false ) {
  * Prints step 2 for Network installation process.
  *
  * @since 3.0.0
+<<<<<<< HEAD
  *
  * @global wpdb $wpdb
  *
  * @param WP_Error $errors
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  */
 function network_step2( $errors = false ) {
 	global $wpdb;

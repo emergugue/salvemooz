@@ -16,8 +16,13 @@
  *
  * @since 1.5.0
  *
+<<<<<<< HEAD
  * @param string $type      Filename without extension.
  * @param array  $templates An optional list of template candidates
+=======
+ * @param string $type Filename without extension.
+ * @param array $templates An optional list of template candidates
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  * @return string Full path to template file.
  */
 function get_query_template( $type, $templates = array() ) {
@@ -27,6 +32,7 @@ function get_query_template( $type, $templates = array() ) {
 		$templates = array("{$type}.php");
 
 	$template = locate_template( $templates );
+<<<<<<< HEAD
 
 	/**
 	 * Filter the path of the queried template by type.
@@ -38,6 +44,18 @@ function get_query_template( $type, $templates = array() ) {
 	 * @since 1.5.0
 	 *
 	 * @param string $template Path to the template. See locate_template().
+=======
+	/**
+	 * Filter the path of the queried template by type.
+	 *
+	 * The dynamic portion of the hook name, `$type`, refers to the filename
+	 * -- minus the extension -- of the file to load. This hook also applies
+	 * to various types of files loaded as part of the Template Hierarchy.
+	 *
+	 * @since 1.5.0
+	 *
+	 * @param string $template Path to the template. See {@see locate_template()}.
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	 */
 	return apply_filters( "{$type}_template", $template );
 }
@@ -45,8 +63,12 @@ function get_query_template( $type, $templates = array() ) {
 /**
  * Retrieve path of index template in current or parent template.
  *
+<<<<<<< HEAD
  * The template path is filterable via the dynamic {@see '$type_template'} hook,
  * e.g. 'index_template'.
+=======
+ * The template path is filterable via the 'index_template' hook.
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  *
  * @since 3.0.0
  *
@@ -61,8 +83,12 @@ function get_index_template() {
 /**
  * Retrieve path of 404 template in current or parent template.
  *
+<<<<<<< HEAD
  * The template path is filterable via the dynamic {@see '$type_template'} hook,
  * e.g. '404_template'.
+=======
+ * The template path is filterable via the '404_template' hook.
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  *
  * @since 1.5.0
  *
@@ -77,8 +103,12 @@ function get_404_template() {
 /**
  * Retrieve path of archive template in current or parent template.
  *
+<<<<<<< HEAD
  * The template path is filterable via the dynamic {@see '$type_template'} hook,
  * e.g. 'archive_template'.
+=======
+ * The template path is filterable via the 'archive_template' hook.
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  *
  * @since 1.5.0
  *
@@ -103,8 +133,12 @@ function get_archive_template() {
 /**
  * Retrieve path of post type archive template in current or parent template.
  *
+<<<<<<< HEAD
  * The template path is filterable via the dynamic {@see '$type_template'} hook,
  * e.g. 'archive_template'.
+=======
+ * The template path is filterable via the 'archive_template' hook.
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  *
  * @since 3.7.0
  *
@@ -127,8 +161,12 @@ function get_post_type_archive_template() {
 /**
  * Retrieve path of author template in current or parent template.
  *
+<<<<<<< HEAD
  * The template path is filterable via the dynamic {@see '$type_template'} hook,
  * e.g. 'author_template'.
+=======
+ * The template path is filterable via the 'author_template' hook.
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  *
  * @since 1.5.0
  *
@@ -153,12 +191,20 @@ function get_author_template() {
 /**
  * Retrieve path of category template in current or parent template.
  *
+<<<<<<< HEAD
  * Works by first retrieving the current slug, for example 'category-default.php',
  * and then trying category ID, for example 'category-1.php', and will finally fall
  * back to category.php template, if those files don't exist.
  *
  * The template path is filterable via the dynamic {@see '$type_template'} hook,
  * e.g. 'category_template'.
+=======
+ * Works by first retrieving the current slug, for example 'category-default.php', and then
+ * trying category ID, for example 'category-1.php', and will finally fall back to category.php
+ * template, if those files don't exist.
+ *
+ * The template path is filterable via the 'category_template' hook.
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  *
  * @since 1.5.0
  *
@@ -183,12 +229,20 @@ function get_category_template() {
 /**
  * Retrieve path of tag template in current or parent template.
  *
+<<<<<<< HEAD
  * Works by first retrieving the current tag name, for example 'tag-wordpress.php',
  * and then trying tag ID, for example 'tag-1.php', and will finally fall back to
  * tag.php template, if those files don't exist.
  *
  * The template path is filterable via the dynamic {@see '$type_template'} hook,
  * e.g. 'tag_template'.
+=======
+ * Works by first retrieving the current tag name, for example 'tag-wordpress.php', and then
+ * trying tag ID, for example 'tag-1.php', and will finally fall back to tag.php
+ * template, if those files don't exist.
+ *
+ * The template path is filterable via the 'tag_template' hook.
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  *
  * @since 2.3.0
  *
@@ -222,8 +276,12 @@ function get_tag_template() {
  * template is used. If none of the files exist, then it will fall back on to
  * index.php.
  *
+<<<<<<< HEAD
  * The template path is filterable via the dynamic {@see '$type_template'} hook,
  * e.g. 'taxonomy_template'.
+=======
+ * The template path is filterable via the 'taxonomy_template' hook.
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  *
  * @since 2.5.0
  *
@@ -249,8 +307,12 @@ function get_taxonomy_template() {
 /**
  * Retrieve path of date template in current or parent template.
  *
+<<<<<<< HEAD
  * The template path is filterable via the dynamic {@see '$type_template'} hook,
  * e.g. 'date_template'.
+=======
+ * The template path is filterable via the 'date_template' hook.
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  *
  * @since 1.5.0
  *
@@ -268,8 +330,12 @@ function get_date_template() {
  * This is the template used for the page containing the blog posts.
  * Attempts to locate 'home.php' first before falling back to 'index.php'.
  *
+<<<<<<< HEAD
  * The template path is filterable via the dynamic {@see '$type_template'} hook,
  * e.g. 'home_template'.
+=======
+ * The template path is filterable via the 'home_template' hook.
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  *
  * @since 1.5.0
  *
@@ -287,7 +353,11 @@ function get_home_template() {
  * Retrieve path of front-page template in current or parent template.
  *
  * Looks for 'front-page.php'. The template path is filterable via the
+<<<<<<< HEAD
  * dynamic {@see '$type_template'} hook, e.g. 'frontpage_template'.
+=======
+ * 'front_page_template' hook.
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  *
  * @since 3.0.0
  *
@@ -308,8 +378,12 @@ function get_front_page_template() {
  * Then will search for 'page-{slug}.php', followed by 'page-{id}.php',
  * and finally 'page.php'.
  *
+<<<<<<< HEAD
  * The template path is filterable via the dynamic {@see '$type_template'} hook,
  * e.g. 'page_template'.
+=======
+ * The template path is filterable via the 'page_template' hook.
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  *
  * @since 1.5.0
  *
@@ -344,8 +418,12 @@ function get_page_template() {
 /**
  * Retrieve path of paged template in current or parent template.
  *
+<<<<<<< HEAD
  * The template path is filterable via the dynamic {@see '$type_template'} hook,
  * e.g. 'paged_template'.
+=======
+ * The template path is filterable via the 'paged_template' hook.
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  *
  * @since 1.5.0
  *
@@ -360,8 +438,12 @@ function get_paged_template() {
 /**
  * Retrieve path of search template in current or parent template.
  *
+<<<<<<< HEAD
  * The template path is filterable via the dynamic {@see '$type_template'} hook,
  * e.g. 'search_template'.
+=======
+ * The template path is filterable via the 'search_template' hook.
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  *
  * @since 1.5.0
  *
@@ -376,8 +458,12 @@ function get_search_template() {
 /**
  * Retrieve path of single template in current or parent template.
  *
+<<<<<<< HEAD
  * The template path is filterable via the dynamic {@see '$type_template'} hook,
  * e.g. 'single_template'.
+=======
+ * The template path is filterable via the 'single_template' hook.
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  *
  * @since 1.5.0
  *
@@ -398,6 +484,7 @@ function get_single_template() {
 }
 
 /**
+<<<<<<< HEAD
  * Retrieves the path of the singular template in current or parent template.
  *
  * The template path is filterable via the dynamic {@see '$type_template'} hook,
@@ -414,6 +501,8 @@ function get_singular_template() {
 }
 
 /**
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  * Retrieve path of attachment template in current or parent template.
  *
  * The attachment path first checks if the first part of the mime type exists.
@@ -422,15 +511,22 @@ function get_singular_template() {
  * 'attachment.php' is checked and returned.
  *
  * Some examples for the 'text/plain' mime type are 'text.php', 'plain.php', and
+<<<<<<< HEAD
  * finally 'text-plain.php'.
  *
  * The template path is filterable via the dynamic {@see '$type_template'} hook,
  * e.g. 'attachment_template'.
+=======
+ * finally 'text_plain.php'.
+ *
+ * The template path is filterable via the 'attachment_template' hook.
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  *
  * @since 2.0.0
  *
  * @see get_query_template()
  *
+<<<<<<< HEAD
  * @global array $posts
  *
  * @return string Full path to attachment template file.
@@ -456,6 +552,29 @@ function get_attachment_template() {
 	$templates[] = 'attachment.php';
 
 	return get_query_template( 'attachment', $templates );
+=======
+ * @return string Full path to attachment template file.
+ */
+function get_attachment_template() {
+	global $posts;
+
+	if ( ! empty( $posts ) && isset( $posts[0]->post_mime_type ) ) {
+		$type = explode( '/', $posts[0]->post_mime_type );
+
+		if ( ! empty( $type ) ) {
+			if ( $template = get_query_template( $type[0] ) )
+				return $template;
+			elseif ( ! empty( $type[1] ) ) {
+				if ( $template = get_query_template( $type[1] ) )
+					return $template;
+				elseif ( $template = get_query_template( "$type[0]_$type[1]" ) )
+					return $template;
+			}
+		}
+	}
+
+	return get_query_template( 'attachment' );
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 }
 
 /**
@@ -464,8 +583,12 @@ function get_attachment_template() {
  * Checks for comment popup template in current template, if it exists or in the
  * parent template.
  *
+<<<<<<< HEAD
  * The template path is filterable via the dynamic {@see '$type_template'} hook,
  * e.g. 'commentspopup_template'.
+=======
+ * The template path is filterable via the 'comments_popup_template' hook.
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  *
  * @since 1.5.0
  *
@@ -476,7 +599,11 @@ function get_attachment_template() {
 function get_comments_popup_template() {
 	$template = get_query_template( 'comments_popup', array( 'comments-popup.php' ) );
 
+<<<<<<< HEAD
 	// Backward compat code will be removed in a future release.
+=======
+	// Backward compat code will be removed in a future release
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	if ('' == $template)
 		$template = ABSPATH . WPINC . '/theme-compat/comments-popup.php';
 
@@ -492,8 +619,13 @@ function get_comments_popup_template() {
  * @since 2.7.0
  *
  * @param string|array $template_names Template file(s) to search for, in order.
+<<<<<<< HEAD
  * @param bool         $load           If true the template file will be loaded if it is found.
  * @param bool         $require_once   Whether to require_once or require. Default true. Has no effect if $load is false.
+=======
+ * @param bool $load If true the template file will be loaded if it is found.
+ * @param bool $require_once Whether to require_once or require. Default true. Has no effect if $load is false.
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  * @return string The template filename if one is located.
  */
 function locate_template($template_names, $load = false, $require_once = true ) {
@@ -525,6 +657,7 @@ function locate_template($template_names, $load = false, $require_once = true ) 
  *
  * @since 1.5.0
  *
+<<<<<<< HEAD
  * @global array      $posts
  * @global WP_Post    $post
  * @global bool       $wp_did_header
@@ -539,10 +672,15 @@ function locate_template($template_names, $load = false, $require_once = true ) 
  *
  * @param string $_template_file Path to template file.
  * @param bool   $require_once   Whether to require_once or require. Default true.
+=======
+ * @param string $_template_file Path to template file.
+ * @param bool $require_once Whether to require_once or require. Default true.
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  */
 function load_template( $_template_file, $require_once = true ) {
 	global $posts, $post, $wp_did_header, $wp_query, $wp_rewrite, $wpdb, $wp_version, $wp, $id, $comment, $user_ID;
 
+<<<<<<< HEAD
 	if ( is_array( $wp_query->query_vars ) ) {
 		extract( $wp_query->query_vars, EXTR_SKIP );
 	}
@@ -556,5 +694,14 @@ function load_template( $_template_file, $require_once = true ) {
 	} else {
 		require( $_template_file );
 	}
+=======
+	if ( is_array( $wp_query->query_vars ) )
+		extract( $wp_query->query_vars, EXTR_SKIP );
+
+	if ( $require_once )
+		require_once( $_template_file );
+	else
+		require( $_template_file );
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 }
 

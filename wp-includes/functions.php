@@ -78,8 +78,11 @@ function current_time( $type, $gmt = 0 ) {
  *
  * @since 0.71
  *
+<<<<<<< HEAD
  * @global WP_Locale $wp_locale
  *
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  * @param string   $dateformatstring Format to display the date.
  * @param bool|int $unixtimestamp    Optional. Unix timestamp. Default false.
  * @param bool     $gmt              Optional. Whether to use GMT timezone. Default false.
@@ -163,8 +166,11 @@ function date_i18n( $dateformatstring, $unixtimestamp = false, $gmt = false ) {
  *
  * @since 2.3.0
  *
+<<<<<<< HEAD
  * @global WP_Locale $wp_locale
  *
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  * @param int $number   The number to convert based on locale.
  * @param int $decimals Optional. Precision of the number of decimal places. Default 0.
  * @return string Converted number in string format.
@@ -385,7 +391,10 @@ function maybe_serialize( $data ) {
 
 	// Double serialization is required for backward compatibility.
 	// See https://core.trac.wordpress.org/ticket/12930
+<<<<<<< HEAD
 	// Also the world will end. See WP 3.6.1.
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	if ( is_serialized( $data, false ) )
 		return serialize( $data );
 
@@ -495,10 +504,17 @@ function wp_extract_urls( $content ) {
  *
  * @since 1.5.0
  *
+<<<<<<< HEAD
  * @global wpdb $wpdb
  *
  * @param string $content Post Content.
  * @param int    $post_ID Post ID.
+=======
+ * @see $wpdb
+ *
+ * @param string $content Post Content.
+ * @param int $post_ID Post ID.
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  */
 function do_enclose( $content, $post_ID ) {
 	global $wpdb;
@@ -875,10 +891,13 @@ function wp_remote_fopen( $uri ) {
  *
  * @since 2.0.0
  *
+<<<<<<< HEAD
  * @global WP       $wp_locale
  * @global WP_Query $wp_query
  * @global WP_Query $wp_the_query
  *
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  * @param string|array $query_vars Default WP_Query arguments.
  */
 function wp( $query_vars = '' ) {
@@ -894,8 +913,11 @@ function wp( $query_vars = '' ) {
  *
  * @since 2.3.0
  *
+<<<<<<< HEAD
  * @global array $wp_header_to_desc
  *
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  * @param int $code HTTP status code.
  * @return string Empty string if not found, or description if found.
  */
@@ -1135,7 +1157,11 @@ function bool_from_yn( $yn ) {
  *
  * @since 2.1.0
  *
+<<<<<<< HEAD
  * @global WP_Query $wp_query Used to tell if the use a comment feed.
+=======
+ * @uses $wp_query Used to tell if the use a comment feed.
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  */
 function do_feed() {
 	global $wp_query;
@@ -1484,7 +1510,11 @@ function wp_mkdir_p( $target ) {
 	$wrapper = null;
 
 	// Strip the protocol.
+<<<<<<< HEAD
 	if ( wp_is_stream( $target ) ) {
+=======
+	if( wp_is_stream( $target ) ) {
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 		list( $wrapper, $target ) = explode( '://', $target, 2 );
 	}
 
@@ -1492,7 +1522,11 @@ function wp_mkdir_p( $target ) {
 	$target = str_replace( '//', '/', $target );
 
 	// Put the wrapper back on the target.
+<<<<<<< HEAD
 	if ( $wrapper !== null ) {
+=======
+	if( $wrapper !== null ) {
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 		$target = $wrapper . '://' . $target;
 	}
 
@@ -1616,12 +1650,19 @@ function wp_normalize_path( $path ) {
  *
  * @since 2.5.0
  *
+<<<<<<< HEAD
  * @staticvar string $temp
  *
  * @return string Writable temporary directory.
  */
 function get_temp_dir() {
 	static $temp = '';
+=======
+ * @return string Writable temporary directory.
+ */
+function get_temp_dir() {
+	static $temp;
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	if ( defined('WP_TEMP_DIR') )
 		return trailingslashit(WP_TEMP_DIR);
 
@@ -1642,7 +1683,12 @@ function get_temp_dir() {
 	if ( is_dir( $temp ) && wp_is_writable( $temp ) )
 		return $temp;
 
+<<<<<<< HEAD
 	return '/tmp/';
+=======
+	$temp = '/tmp/';
+	return $temp;
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 }
 
 /**
@@ -2012,7 +2058,12 @@ function wp_upload_bits( $name, $deprecated, $bits, $time = null ) {
  * @since 2.5.0
  *
  * @param string $ext The extension to search.
+<<<<<<< HEAD
  * @return string|void The file type, example: audio, video, document, spreadsheet, etc.
+=======
+ * @return string|null The file type, example: audio, video, document, spreadsheet, etc.
+ *                     Null if not found.
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  */
 function wp_ext2type( $ext ) {
 	$ext = strtolower( $ext );
@@ -2042,6 +2093,11 @@ function wp_ext2type( $ext ) {
 	foreach ( $ext2type as $type => $exts )
 		if ( in_array( $ext, $exts ) )
 			return $type;
+<<<<<<< HEAD
+=======
+
+	return null;
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 }
 
 /**
@@ -2093,6 +2149,10 @@ function wp_check_filetype( $filename, $mimes = null ) {
  *               if original $filename is valid.
  */
 function wp_check_filetype_and_ext( $file, $filename, $mimes = null ) {
+<<<<<<< HEAD
+=======
+
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	$proper_filename = false;
 
 	// Do basic extension validation and MIME mapping
@@ -2481,7 +2541,10 @@ function _default_wp_die_handler( $message, $title = '', $args = array() ) {
 <html xmlns="http://www.w3.org/1999/xhtml" <?php if ( function_exists( 'language_attributes' ) && function_exists( 'is_rtl' ) ) language_attributes(); else echo "dir='$text_direction'"; ?>>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<<<<<<< HEAD
 	<meta name="viewport" content="width=device-width">
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	<title><?php echo $title ?></title>
 	<style type="text/css">
 		html {
@@ -2601,8 +2664,11 @@ function _default_wp_die_handler( $message, $title = '', $args = array() ) {
  * @since 3.2.0
  * @access private
  *
+<<<<<<< HEAD
  * @global wp_xmlrpc_server $wp_xmlrpc_server
  *
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  * @param string       $message Error message.
  * @param string       $title   Optional. Error title. Default empty.
  * @param string|array $args    Optional. Arguments to control behavior. Default empty array.
@@ -2661,7 +2727,11 @@ function _scalar_wp_die_handler( $message = '' ) {
  * @param int   $options Optional. Options to be passed to json_encode(). Default 0.
  * @param int   $depth   Optional. Maximum depth to walk through $data. Must be
  *                       greater than 0. Default 512.
+<<<<<<< HEAD
  * @return string|false The JSON encoded string, or false if it cannot be encoded.
+=======
+ * @return bool|string The JSON encoded string, or false if it cannot be encoded.
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  */
 function wp_json_encode( $data, $options = 0, $depth = 512 ) {
 	/*
@@ -2767,8 +2837,11 @@ function _wp_json_sanity_check( $data, $depth ) {
  *
  * @see _wp_json_sanity_check()
  *
+<<<<<<< HEAD
  * @staticvar bool $use_mb
  *
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  * @param string $string The string which is to be converted.
  * @return string The checked string.
  */
@@ -3271,8 +3344,11 @@ function wp_maybe_load_widgets() {
  * Append the Widgets menu to the themes main menu.
  *
  * @since 2.2.0
+<<<<<<< HEAD
  *
  * @global array $submenu
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  */
 function wp_widgets_add_menu() {
 	global $submenu;
@@ -3416,6 +3492,7 @@ function _deprecated_function( $function, $version, $replacement = null ) {
 }
 
 /**
+<<<<<<< HEAD
  * Marks a constructor as deprecated and informs when it has been used.
  *
  * Similar to _deprecated_function(), but with different strings. Used to
@@ -3463,6 +3540,8 @@ function _deprecated_constructor( $class, $version ) {
 }
 
 /**
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  * Mark a file as deprecated and inform when it has been used.
  *
  * There is a hook deprecated_file_included that will be called that can be used
@@ -3646,8 +3725,11 @@ function is_lighttpd_before_150() {
  *
  * @since 2.5.0
  *
+<<<<<<< HEAD
  * @global bool $is_apache
  *
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  * @param string $mod     The module, e.g. mod_rewrite.
  * @param bool   $default Optional. The default return value if the module is not found. Default false.
  * @return bool Whether the specified module is loaded.
@@ -3677,8 +3759,11 @@ function apache_mod_loaded($mod, $default = false) {
  *
  * @since 2.8.0
  *
+<<<<<<< HEAD
  * @global bool $is_iis7
  *
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  * @return bool Whether IIS7 supports permalinks.
  */
 function iis7_supports_permalinks() {
@@ -3719,7 +3804,11 @@ function iis7_supports_permalinks() {
  * @since 1.2.0
  *
  * @param string $file File path.
+<<<<<<< HEAD
  * @param array  $allowed_files List of allowed files.
+=======
+ * @param array $allowed_files List of allowed files.
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  * @return int 0 means nothing is wrong, greater than 0 means something was wrong.
  */
 function validate_file( $file, $allowed_files = '' ) {
@@ -3776,8 +3865,11 @@ function force_ssl_login( $force = null ) {
  *
  * @since 2.6.0
  *
+<<<<<<< HEAD
  * @staticvar bool $forced
  *
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  * @param string|bool $force Optional. Whether to force SSL in admin screens. Default null.
  * @return bool True if forced, false if not forced.
  */
@@ -3823,7 +3915,11 @@ function wp_guess_url() {
 			if ( false !== strpos( $_SERVER['SCRIPT_FILENAME'], $abspath_fix ) ) {
 				// Request is hitting a file inside ABSPATH
 				$directory = str_replace( ABSPATH, '', $script_filename_dir );
+<<<<<<< HEAD
 				// Strip off the sub directory, and any file/query params
+=======
+				// Strip off the sub directory, and any file/query paramss
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 				$path = preg_replace( '#/' . preg_quote( $directory, '#' ) . '/[^/]*$#i', '' , $_SERVER['REQUEST_URI'] );
 			} elseif ( false !== strpos( $abspath_fix, $script_filename_dir ) ) {
 				// Request is hitting a file above ABSPATH
@@ -3854,8 +3950,11 @@ function wp_guess_url() {
  *
  * @since 3.3.0
  *
+<<<<<<< HEAD
  * @staticvar bool $_suspend
  *
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  * @param bool $suspend Optional. Suspends additions if true, re-enables them if false.
  * @return bool The current suspend setting
  */
@@ -3877,8 +3976,11 @@ function wp_suspend_cache_addition( $suspend = null ) {
  *
  * @since 2.7.0
  *
+<<<<<<< HEAD
  * @global bool $_wp_suspend_cache_invalidation
  *
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  * @param bool $suspend Optional. Whether to suspend or enable cache invalidation. Default true.
  * @return bool The current suspend setting.
  */
@@ -3895,8 +3997,11 @@ function wp_suspend_cache_invalidation( $suspend = true ) {
  *
  * @since 3.0.0
  *
+<<<<<<< HEAD
  * @global object $current_site
  *
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  * @param int $site_id Optional. Site ID to test. Defaults to current site.
  *                     Defaults to current site.
  * @return bool True if $site_id is the main site of the network, or if not
@@ -3924,6 +4029,7 @@ function is_main_site( $site_id = null ) {
  * @return bool True if $network_id is the main network, or if not running Multisite.
  */
 function is_main_network( $network_id = null ) {
+<<<<<<< HEAD
 	if ( ! is_multisite() ) {
 		return true;
 	}
@@ -3977,6 +4083,34 @@ function get_main_network_id() {
 	 * @param int $main_network_id The ID of the main network.
 	 */
 	return (int) apply_filters( 'get_main_network_id', $main_network_id );
+=======
+	global $wpdb;
+
+	if ( ! is_multisite() )
+		return true;
+
+	$current_network_id = (int) get_current_site()->id;
+
+	if ( ! $network_id )
+		$network_id = $current_network_id;
+	$network_id = (int) $network_id;
+
+	if ( defined( 'PRIMARY_NETWORK_ID' ) )
+		return $network_id === (int) PRIMARY_NETWORK_ID;
+
+	if ( 1 === $current_network_id )
+		return $network_id === $current_network_id;
+
+	$primary_network_id = (int) wp_cache_get( 'primary_network_id', 'site-options' );
+
+	if ( $primary_network_id )
+		return $network_id === $primary_network_id;
+
+	$primary_network_id = (int) $wpdb->get_var( "SELECT id FROM $wpdb->site ORDER BY id LIMIT 1" );
+	wp_cache_add( 'primary_network_id', $primary_network_id, 'site-options' );
+
+	return $network_id === $primary_network_id;
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 }
 
 /**
@@ -3984,8 +4118,11 @@ function get_main_network_id() {
  *
  * @since 3.0.0
  *
+<<<<<<< HEAD
  * @staticvar bool $global_terms
  *
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  * @return bool True if multisite and global terms enabled.
  */
 function global_terms_enabled() {
@@ -4003,7 +4140,11 @@ function global_terms_enabled() {
 		 *
 		 * @since 3.0.0
 		 *
+<<<<<<< HEAD
 		 * @param null $enabled Whether global terms are enabled.
+=======
+		 * @param null $anbled Whether global terms are enabled.
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 		 */
 		$filter = apply_filters( 'global_terms_enabled', null );
 		if ( ! is_null( $filter ) )
@@ -4021,7 +4162,11 @@ function global_terms_enabled() {
  *
  * @since 2.8.0
  *
+<<<<<<< HEAD
  * @return float|false Timezone GMT offset, false otherwise.
+=======
+ * @return float|bool Timezone GMT offset, false otherwise.
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  */
 function wp_timezone_override_offset() {
 	if ( !$timezone_string = get_option( 'timezone_string' ) ) {
@@ -4089,8 +4234,11 @@ function _wp_timezone_choice_usort_callback( $a, $b ) {
  *
  * @since 2.9.0
  *
+<<<<<<< HEAD
  * @staticvar bool $mo_loaded
  *
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  * @param string $selected_zone Selected timezone.
  * @return string
  */
@@ -4237,8 +4385,11 @@ function _cleanup_header_comment( $str ) {
  * The default value of `EMPTY_TRASH_DAYS` is 30 (days).
  *
  * @since 2.9.0
+<<<<<<< HEAD
  *
  * @global wpdb $wpdb
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  */
 function wp_scheduled_delete() {
 	global $wpdb;
@@ -4349,7 +4500,11 @@ function get_file_data( $file, $default_headers, $context = '' ) {
  *
  * @see __return_false()
  *
+<<<<<<< HEAD
  * @return true True.
+=======
+ * @return bool True.
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  */
 function __return_true() {
 	return true;
@@ -4364,7 +4519,11 @@ function __return_true() {
  *
  * @see __return_true()
  *
+<<<<<<< HEAD
  * @return false False.
+=======
+ * @return bool False.
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  */
 function __return_false() {
 	return false;
@@ -4545,11 +4704,15 @@ function send_frame_options_header() {
  * Retrieve a list of protocols to allow in HTML attributes.
  *
  * @since 3.3.0
+<<<<<<< HEAD
  * @since 4.3.0 Added 'webcal' to the protocols array.
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  *
  * @see wp_kses()
  * @see esc_url()
  *
+<<<<<<< HEAD
  * @staticvar array $protocols
  *
  * @return array Array of allowed protocols. Defaults to an array containing 'http', 'https',
@@ -4561,6 +4724,15 @@ function wp_allowed_protocols() {
 
 	if ( empty( $protocols ) ) {
 		$protocols = array( 'http', 'https', 'ftp', 'ftps', 'mailto', 'news', 'irc', 'gopher', 'nntp', 'feed', 'telnet', 'mms', 'rtsp', 'svn', 'tel', 'fax', 'xmpp', 'webcal' );
+=======
+ * @return array Array of allowed protocols.
+ */
+function wp_allowed_protocols() {
+	static $protocols;
+
+	if ( empty( $protocols ) ) {
+		$protocols = array( 'http', 'https', 'ftp', 'ftps', 'mailto', 'news', 'irc', 'gopher', 'nntp', 'feed', 'telnet', 'mms', 'rtsp', 'svn', 'tel', 'fax', 'xmpp' );
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 
 		/**
 		 * Filter the list of protocols allowed in HTML attributes.
@@ -4655,7 +4827,11 @@ function _get_non_cached_ids( $object_ids, $cache_key ) {
  * @since 3.4.0
  * @access private
  *
+<<<<<<< HEAD
  * @return bool Whether the device is able to upload files.
+=======
+ * @return bool true|false Whether the device is able to upload files.
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  */
 function _device_can_upload() {
 	if ( ! wp_is_mobile() )
@@ -4804,10 +4980,16 @@ function wp_auth_check_html() {
  *
  * @since 3.6.0
  *
+<<<<<<< HEAD
  * @global int $login_grace_period
  *
  * @param array $response  The Heartbeat response.
  * @return array $response The Heartbeat response with 'wp-auth-check' value set.
+=======
+ * @param array|object $response  The Heartbeat response object or array.
+ * @return array|object $response The Heartbeat response object or array with 'wp-auth-check'
+ *                                value set.
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  */
 function wp_auth_check( $response ) {
 	$response['wp-auth-check'] = is_user_logged_in() && empty( $GLOBALS['login_grace_period'] );
@@ -4880,9 +5062,12 @@ function _canonical_charset( $charset ) {
  *
  * @see reset_mbstring_encoding()
  *
+<<<<<<< HEAD
  * @staticvar array $encodings
  * @staticvar bool  $overloaded
  *
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  * @param bool $reset Optional. Whether to reset the encoding back to a previously-set encoding.
  *                    Default false.
  */
@@ -4961,6 +5146,7 @@ function wp_delete_file( $file ) {
 		@unlink( $delete );
 	}
 }
+<<<<<<< HEAD
 
 /**
  * Outputs a small JS snippet on preview tabs/windows to remove `window.name` on unload.
@@ -4995,3 +5181,5 @@ function wp_post_preview_js() {
 	</script>
 	<?php
 }
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28

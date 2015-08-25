@@ -68,7 +68,12 @@ function get_categories( $args = '' ) {
  * @param int|object $category Category ID or Category row object
  * @param string $output Optional. Constant OBJECT, ARRAY_A, or ARRAY_N
  * @param string $filter Optional. Default is raw or no WordPress defined filter will applied.
+<<<<<<< HEAD
+ * @return object|array|WP_Error|null Category data in type defined by $output parameter.
+ *                                    WP_Error if $category is empty, null if it does not exist.
+=======
  * @return object|array|WP_Error|null Category data in type defined by $output parameter. WP_Error if $category is empty, null if it does not exist.
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  */
 function get_category( $category, $output = OBJECT, $filter = 'raw' ) {
 	$category = get_term( $category, 'category', $output, $filter );
@@ -98,7 +103,11 @@ function get_category( $category, $output = OBJECT, $filter = 'raw' ) {
  * @param string $category_path URL containing category slugs.
  * @param bool $full_match Optional. Whether full path should be matched.
  * @param string $output Optional. Constant OBJECT, ARRAY_A, or ARRAY_N
+<<<<<<< HEAD
+ * @return object|array|WP_Error|void Type is based on $output value.
+=======
  * @return null|object|array Null on failure. Type is based on $output value.
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  */
 function get_category_by_path( $category_path, $full_match = true, $output = OBJECT ) {
 	$category_path = rawurlencode( urldecode( $category_path ) );
@@ -108,6 +117,16 @@ function get_category_by_path( $category_path, $full_match = true, $output = OBJ
 	$leaf_path  = sanitize_title( basename( $category_paths ) );
 	$category_paths = explode( '/', $category_paths );
 	$full_path = '';
+<<<<<<< HEAD
+	foreach ( (array) $category_paths as $pathdir ) {
+		$full_path .= ( $pathdir != '' ? '/' : '' ) . sanitize_title( $pathdir );
+	}
+	$categories = get_terms( 'category', array('get' => 'all', 'slug' => $leaf_path) );
+
+	if ( empty( $categories ) ) {
+		return;
+	}
+=======
 	foreach ( (array) $category_paths as $pathdir )
 		$full_path .= ( $pathdir != '' ? '/' : '' ) . sanitize_title( $pathdir );
 
@@ -115,14 +134,21 @@ function get_category_by_path( $category_path, $full_match = true, $output = OBJ
 
 	if ( empty( $categories ) )
 		return null;
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 
 	foreach ( $categories as $category ) {
 		$path = '/' . $leaf_path;
 		$curcategory = $category;
 		while ( ( $curcategory->parent != 0 ) && ( $curcategory->parent != $curcategory->term_id ) ) {
 			$curcategory = get_term( $curcategory->parent, 'category' );
+<<<<<<< HEAD
+			if ( is_wp_error( $curcategory ) ) {
+				return $curcategory;
+			}
+=======
 			if ( is_wp_error( $curcategory ) )
 				return $curcategory;
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 			$path = '/' . $curcategory->slug . $path;
 		}
 
@@ -139,8 +165,11 @@ function get_category_by_path( $category_path, $full_match = true, $output = OBJ
 		_make_cat_compat( $category );
 		return $category;
 	}
+<<<<<<< HEAD
+=======
 
 	return null;
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 }
 
 /**
@@ -321,7 +350,11 @@ function clean_category_cache( $id ) {
  * @param array|object $category Category Row object or array
  */
 function _make_cat_compat( &$category ) {
+<<<<<<< HEAD
+	if ( is_object( $category ) && ! is_wp_error( $category ) ) {
+=======
 	if ( is_object( $category ) ) {
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 		$category->cat_ID = &$category->term_id;
 		$category->category_count = &$category->count;
 		$category->category_description = &$category->description;

@@ -13,6 +13,11 @@
  * @since 3.0.0
  */
 
+<<<<<<< HEAD
+add_action( 'init', 'ms_subdomain_constants' );
+
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 // Functions
 add_action( 'update_option_blog_public', 'update_blog_public', 10, 2 );
 add_filter( 'option_users_can_register', 'users_can_register_signup_filter' );

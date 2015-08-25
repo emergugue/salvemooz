@@ -56,15 +56,28 @@ $core_actions_post = array(
 	'hidden-columns', 'update-welcome-panel', 'menu-get-metabox', 'wp-link-ajax',
 	'menu-locations-save', 'menu-quick-search', 'meta-box-order', 'get-permalink',
 	'sample-permalink', 'inline-save', 'inline-save-tax', 'find_posts', 'widgets-order',
+<<<<<<< HEAD
+	'save-widget', 'set-post-thumbnail', 'date_format', 'time_format',
+=======
 	'save-widget', 'set-post-thumbnail', 'date_format', 'time_format', 'wp-fullscreen-save-post',
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	'wp-remove-post-lock', 'dismiss-wp-pointer', 'upload-attachment', 'get-attachment',
 	'query-attachments', 'save-attachment', 'save-attachment-compat', 'send-link-to-editor',
 	'send-attachment-to-editor', 'save-attachment-order', 'heartbeat', 'get-revision-diffs',
 	'save-user-color-scheme', 'update-widget', 'query-themes', 'parse-embed', 'set-attachment-thumbnail',
 	'parse-media-shortcode', 'destroy-sessions', 'install-plugin', 'update-plugin', 'press-this-save-post',
+<<<<<<< HEAD
+	'press-this-add-category', 'crop-image',
+);
+
+// Deprecated
+$core_actions_post[] = 'wp-fullscreen-save-post';
+
+=======
 	'press-this-add-category',
 );
 
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 // Register core Ajax calls.
 if ( ! empty( $_GET['action'] ) && in_array( $_GET['action'], $core_actions_get ) )
 	add_action( 'wp_ajax_' . $_GET['action'], 'wp_ajax_' . str_replace( '-', '_', $_GET['action'] ), 1 );

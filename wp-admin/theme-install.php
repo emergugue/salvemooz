@@ -51,6 +51,11 @@ wp_localize_script( 'theme', '_wpThemeSettings', array(
 		'error'  => __( 'An unexpected error occurred. Something may be wrong with WordPress.org or this server&#8217;s configuration. If you continue to have problems, please try the <a href="https://wordpress.org/support/">support forums</a>.' ),
 		'themesFound'   => __( 'Number of Themes found: %d' ),
 		'noThemesFound' => __( 'No themes found. Try a different search.' ),
+<<<<<<< HEAD
+		'collapseSidebar'    => __( 'Collapse Sidebar' ),
+		'expandSidebar'      => __( 'Expand Sidebar' ),
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	),
 	'installedThemes' => array_keys( $installed_themes ),
 ) );
@@ -102,7 +107,11 @@ include(ABSPATH . 'wp-admin/admin-header.php');
 
 ?>
 <div class="wrap">
+<<<<<<< HEAD
+	<h1><?php
+=======
 	<h2><?php
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	echo esc_html( $title );
 
 	/**
@@ -117,10 +126,17 @@ include(ABSPATH . 'wp-admin/admin-header.php');
 	 */
 	$tabs = apply_filters( 'install_themes_tabs', array( 'upload' => __( 'Upload Theme' ) ) );
 	if ( ! empty( $tabs['upload'] ) && current_user_can( 'upload_themes' ) ) {
+<<<<<<< HEAD
+		echo ' <a href="#" class="upload page-title-action">' . __( 'Upload Theme' ) . '</a>';
+		echo ' <a href="#" class="browse-themes page-title-action">' . _x( 'Browse', 'themes' ) . '</a>';
+	}
+	?></h1>
+=======
 		echo ' <a href="#" class="upload add-new-h2">' . __( 'Upload Theme' ) . '</a>';
 		echo ' <a href="#" class="browse-themes add-new-h2">' . _x( 'Browse', 'themes' ) . '</a>';
 	}
 	?></h2>
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 
 	<div class="upload-theme">
 	<?php install_themes_upload(); ?>
@@ -237,6 +253,14 @@ if ( $tab ) {
 
 				<div class="theme-details">
 					<# if ( data.rating ) { #>
+<<<<<<< HEAD
+						<div class="star-rating rating-{{ Math.round( data.rating / 10 ) * 10 }}">
+							<span class="one"></span><span class="two"></span><span class="three"></span><span class="four"></span><span class="five"></span>
+							<small class="ratings">{{ data.num_ratings }}</small>
+						</div>
+					<# } else { #>
+						<div class="star-rating">
+=======
 						<div class="rating rating-{{ Math.round( data.rating / 10 ) * 10 }}">
 							<span class="one"></span>
 							<span class="two"></span>
@@ -247,6 +271,7 @@ if ( $tab ) {
 						</div>
 					<# } else { #>
 						<div class="rating">
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 							<small class="ratings"><?php _e( 'This theme has not been rated yet.' ); ?></small>
 						</div>
 					<# } #>
@@ -256,10 +281,17 @@ if ( $tab ) {
 			</div>
 		</div>
 		<div class="wp-full-overlay-footer">
+<<<<<<< HEAD
+			<button type="button" class="collapse-sidebar button-secondary" aria-expanded="true" aria-label="<?php esc_attr_e( 'Collapse Sidebar' ); ?>">
+				<span class="collapse-sidebar-arrow"></span>
+				<span class="collapse-sidebar-label"><?php _e( 'Collapse' ); ?></span>
+			</button>
+=======
 			<a href="#" class="collapse-sidebar" title="<?php esc_attr_e( 'Collapse Sidebar' ); ?>">
 				<span class="collapse-sidebar-label"><?php _e( 'Collapse' ); ?></span>
 				<span class="collapse-sidebar-arrow"></span>
 			</a>
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 		</div>
 	</div>
 	<div class="wp-full-overlay-main">

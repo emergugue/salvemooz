@@ -313,8 +313,14 @@ commentReply = {
 	},
 
 	toggle : function(el) {
+<<<<<<< HEAD
+		if ( 'none' !== $( el ).css( 'display' ) && ( $( '#replyrow' ).parent().is('#com-reply') || window.confirm( adminCommentsL10n.warnQuickEdit ) ) ) {
+			$( el ).find( 'a.vim-q' ).click();
+		}
+=======
 		if ( $(el).css('display') != 'none' )
 			$(el).find('a.vim-q').click();
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	},
 
 	revert : function() {
@@ -397,7 +403,11 @@ commentReply = {
 			});
 		} else if ( action == 'add' ) {
 			$('#addhead, #addbtn', editRow).show();
+<<<<<<< HEAD
+			$('#replyhead, #replybtn, #edithead, #savebtn', editRow).hide();
+=======
 			$('#replyhead, #replybtn, #edithead, #editbtn', editRow).hide();
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 			$('#the-comment-list').prepend(editRow);
 			$('#replyrow').fadeIn(300);
 		} else {

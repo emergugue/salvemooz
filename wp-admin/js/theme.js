@@ -84,7 +84,11 @@ themes.view.Appearance = wp.Backbone.View.extend({
 	},
 
 	// Defines search element container
+<<<<<<< HEAD
+	searchContainer: $( '#wpbody h1:first' ),
+=======
 	searchContainer: $( '#wpbody h2:first' ),
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 
 	// Search input and view
 	// for current theme collection
@@ -793,7 +797,17 @@ themes.view.Preview = themes.view.Details.extend({
 		return false;
 	},
 
+<<<<<<< HEAD
+	collapse: function( event ) {
+		var $button = $( event.currentTarget );
+		if ( 'true' === $button.attr( 'aria-expanded' ) ) {
+			$button.attr({ 'aria-expanded': 'false', 'aria-label': l10n.expandSidebar });
+		} else {
+			$button.attr({ 'aria-expanded': 'true', 'aria-label': l10n.collapseSidebar });
+		}
+=======
 	collapse: function() {
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 
 		this.$el.toggleClass( 'collapsed' ).toggleClass( 'expanded' );
 		return false;

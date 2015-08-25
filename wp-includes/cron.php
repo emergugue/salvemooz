@@ -18,6 +18,10 @@
  * @param int $timestamp Timestamp for when to run the event.
  * @param string $hook Action hook to execute when cron is run.
  * @param array $args Optional. Arguments to pass to the hook's callback function.
+<<<<<<< HEAD
+ * @return void|false
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  */
 function wp_schedule_single_event( $timestamp, $hook, $args = array()) {
 	// don't schedule a duplicate if there's already an identical event due within 10 minutes of it
@@ -66,7 +70,11 @@ function wp_schedule_single_event( $timestamp, $hook, $args = array()) {
  * @param string $recurrence How often the event should recur.
  * @param string $hook Action hook to execute when cron is run.
  * @param array $args Optional. Arguments to pass to the hook's callback function.
+<<<<<<< HEAD
+ * @return false|void False when does not schedule event.
+=======
  * @return false|null False on failure, null when complete with scheduling event.
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  */
 function wp_schedule_event( $timestamp, $recurrence, $hook, $args = array()) {
 	$crons = _get_cron_array();
@@ -99,7 +107,11 @@ function wp_schedule_event( $timestamp, $recurrence, $hook, $args = array()) {
  * @param string $recurrence How often the event should recur.
  * @param string $hook Action hook to execute when cron is run.
  * @param array $args Optional. Arguments to pass to the hook's callback function.
+<<<<<<< HEAD
+ * @return false|void False when does not schedule event.
+=======
  * @return false|null False on failure. Null when event is rescheduled.
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  */
 function wp_reschedule_event( $timestamp, $recurrence, $hook, $args = array() ) {
 	$crons = _get_cron_array();
@@ -195,7 +207,11 @@ function wp_clear_scheduled_hook( $hook, $args = array() ) {
  *
  * @param string $hook Action hook to execute when cron is run.
  * @param array $args Optional. Arguments to pass to the hook's callback function.
+<<<<<<< HEAD
+ * @return false|int The UNIX timestamp of the next time the scheduled event will occur.
+=======
  * @return bool|int The UNIX timestamp of the next time the scheduled event will occur.
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  */
 function wp_next_scheduled( $hook, $args = array() ) {
 	$crons = _get_cron_array();
@@ -213,11 +229,16 @@ function wp_next_scheduled( $hook, $args = array() ) {
  * Send request to run cron through HTTP request that doesn't halt page loading.
  *
  * @since 2.1.0
+<<<<<<< HEAD
+ */
+function spawn_cron( $gmt_time = 0 ) {
+=======
  *
  * @return null Cron could not be spawned, because it is not needed to run.
  */
 function spawn_cron( $gmt_time = 0 ) {
 
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	if ( ! $gmt_time )
 		$gmt_time = microtime( true );
 
@@ -225,9 +246,18 @@ function spawn_cron( $gmt_time = 0 ) {
 		return;
 
 	/*
+<<<<<<< HEAD
+	 * Get the cron lock, which is a unix timestamp of when the last cron was spawned
+	 * and has not finished running.
+	 *
+	 * Multiple processes on multiple web servers can run this code concurrently,
+	 * this lock attempts to make spawning as atomic as possible.
+	 */
+=======
 	* multiple processes on multiple web servers can run this code concurrently
 	* try to make this as atomic as possible by setting doing_cron switch
 	*/
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	$lock = get_transient('doing_cron');
 
 	if ( $lock > $gmt_time + 10 * MINUTE_IN_SECONDS )
@@ -266,6 +296,10 @@ function spawn_cron( $gmt_time = 0 ) {
 		return;
 	}
 
+<<<<<<< HEAD
+	// Set the cron lock with the current unix timestamp, when the cron is being spawned.
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	$doing_wp_cron = sprintf( '%.22F', $gmt_time );
 	set_transient( 'doing_cron', $doing_wp_cron );
 
@@ -306,11 +340,16 @@ function spawn_cron( $gmt_time = 0 ) {
  * Run scheduled callbacks or spawn cron for all scheduled events.
  *
  * @since 2.1.0
+<<<<<<< HEAD
+ */
+function wp_cron() {
+=======
  *
  * @return null When doesn't need to run Cron.
  */
 function wp_cron() {
 
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	// Prevent infinite loops caused by lack of wp-cron.php
 	if ( strpos($_SERVER['REQUEST_URI'], '/wp-cron.php') !== false || ( defined('DISABLE_WP_CRON') && DISABLE_WP_CRON ) )
 		return;
@@ -388,7 +427,11 @@ function wp_get_schedules() {
  *
  * @param string $hook Action hook to execute when cron is run.
  * @param array $args Optional. Arguments to pass to the hook's callback function.
+<<<<<<< HEAD
+ * @return string|false False, if no schedule. Schedule on success.
+=======
  * @return string|bool False, if no schedule. Schedule on success.
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  */
 function wp_get_schedule($hook, $args = array()) {
 	$crons = _get_cron_array();
@@ -412,7 +455,11 @@ function wp_get_schedule($hook, $args = array()) {
  * @since 2.1.0
  * @access private
  *
+<<<<<<< HEAD
+ * @return false|array CRON info array.
+=======
  * @return array CRON info array.
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  */
 function _get_cron_array()  {
 	$cron = get_option('cron');

@@ -109,7 +109,11 @@ include( ABSPATH . 'wp-admin/admin-header.php' );
 ?>
 
 <div class="wrap">
+<<<<<<< HEAD
+<h1><?php echo esc_html( $title ); ?></h1>
+=======
 <h2><?php echo esc_html( $title ); ?></h2>
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 
 <form method="post" action="options.php" novalidate="novalidate">
 <?php settings_fields('general'); ?>
@@ -321,6 +325,12 @@ if ( empty($tzstring) ) { // Create a UTC+- zone if no timezone string exists
 <th scope="row"><label for="start_of_week"><?php _e('Week Starts On') ?></label></th>
 <td><select name="start_of_week" id="start_of_week">
 <?php
+<<<<<<< HEAD
+/**
+ * @global WP_Locale $wp_locale
+ */
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 global $wp_locale;
 
 for ($day_index = 0; $day_index <= 6; $day_index++) :

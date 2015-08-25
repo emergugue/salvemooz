@@ -67,6 +67,11 @@ function wp_crop_image( $src, $src_x, $src_y, $src_w, $src_h, $dst_w, $dst_h, $s
  *
  * @since 2.1.0
  *
+<<<<<<< HEAD
+ * @global array $_wp_additional_image_sizes
+ *
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  * @param int $attachment_id Attachment Id to process.
  * @param string $file Filepath of the Attached image.
  * @return mixed Metadata for attachment.
@@ -190,8 +195,12 @@ function wp_generate_attachment_metadata( $attachment_id, $file ) {
 	}
 
 	// Remove the blob of binary data from the array.
+<<<<<<< HEAD
+	unset( $metadata['image']['data'] );
+=======
 	if ( isset( $metadata['image']['data'] ) )
 		unset( $metadata['image']['data'] );
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 
 	/**
 	 * Filter the generated attachment meta data.

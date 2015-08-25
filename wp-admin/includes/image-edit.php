@@ -208,7 +208,11 @@ function wp_image_editor($post_id, $msg = false) {
  * @param WP_Image_Editor $image
  * @param string $mime_type
  * @param int $post_id
+<<<<<<< HEAD
+ * @return bool
+=======
  * @return boolean
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  */
 function wp_stream_image( $image, $mime_type, $post_id ) {
 	if ( $image instanceof WP_Image_Editor ) {
@@ -264,7 +268,11 @@ function wp_stream_image( $image, $mime_type, $post_id ) {
  * @param WP_Image_Editor $image
  * @param string $mime_type
  * @param int $post_id
+<<<<<<< HEAD
+ * @return bool
+=======
  * @return boolean
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  */
 function wp_save_image_file( $filename, $image, $mime_type, $post_id ) {
 	if ( $image instanceof WP_Image_Editor ) {
@@ -552,7 +560,11 @@ function image_edit_apply_changes( $image, $changes ) {
  * in $_REQUEST['history']
  *
  * @param int $post_id
+<<<<<<< HEAD
+ * @return bool
+=======
  * @return boolean
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  */
 function stream_preview_image( $post_id ) {
 	$post = get_post( $post_id );
@@ -672,6 +684,11 @@ function wp_restore_image($post_id) {
  * Saves image to post along with enqueued changes
  * in $_REQUEST['history']
  *
+<<<<<<< HEAD
+ * @global array $_wp_additional_image_sizes
+ *
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  * @param int $post_id
  * @return \stdClass
  */

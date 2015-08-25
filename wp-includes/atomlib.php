@@ -87,7 +87,14 @@ class AtomParser {
     var $feed;
     var $current;
 
+<<<<<<< HEAD
+	/**
+	 * PHP5 constructor.
+	 */
+    function __construct() {
+=======
     function AtomParser() {
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 
         $this->feed = new AtomFeed();
         $this->current = null;
@@ -95,6 +102,16 @@ class AtomParser {
         $this->map_xmlns_func = create_function('$p,$n', '$xd = "xmlns"; if(strlen($n[0])>0) $xd .= ":{$n[0]}"; return "{$xd}=\"{$n[1]}\"";');
     }
 
+<<<<<<< HEAD
+	/**
+	 * PHP4 constructor.
+	 */
+	public function AtomParser() {
+		self::__construct();
+	}
+
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
     function _p($msg) {
         if($this->debug) {
             print str_repeat(" ", $this->depth * $this->indent) . $msg ."\n";
@@ -130,7 +147,12 @@ class AtomParser {
             if($this->debug) $this->content .= $data;
 
             if(!xml_parse($parser, $data, feof($fp))) {
+<<<<<<< HEAD
+                /* translators: 1: error message, 2: line number */
+                trigger_error(sprintf(__('XML Error: %1$s at line %2$s')."\n",
+=======
                 trigger_error(sprintf(__('XML error: %s at line %d')."\n",
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
                     xml_error_string(xml_get_error_code($parser)),
                     xml_get_current_line_number($parser)));
                 $ret = false;

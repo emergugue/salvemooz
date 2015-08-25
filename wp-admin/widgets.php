@@ -21,6 +21,14 @@ if ( isset($_GET['widgets-access']) ) {
 	set_user_setting( 'widgets_access', $widgets_access );
 }
 
+<<<<<<< HEAD
+/**
+ *
+ * @param string $classes
+ * @return string
+ */
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 function wp_widgets_access_body_class($classes) {
 	return "$classes widgets_access ";
 }
@@ -230,7 +238,11 @@ if ( isset($_GET['editwidget']) && $_GET['editwidget'] ) {
 
 	require_once( ABSPATH . 'wp-admin/admin-header.php' ); ?>
 	<div class="wrap">
+<<<<<<< HEAD
+	<h1><?php echo esc_html( $title ); ?></h1>
+=======
 	<h2><?php echo esc_html( $title ); ?></h2>
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	<div class="editwidget"<?php echo $width; ?>>
 	<h3><?php printf( __( 'Widget %s' ), $name ); ?></h3>
 
@@ -310,12 +322,20 @@ $errors = array(
 require_once( ABSPATH . 'wp-admin/admin-header.php' ); ?>
 
 <div class="wrap">
+<<<<<<< HEAD
+<h1>
+=======
 <h2>
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 <?php
 	echo esc_html( $title );
 	if ( current_user_can( 'customize' ) ) {
 		printf(
+<<<<<<< HEAD
+			' <a class="page-title-action hide-if-no-customize" href="%1$s">%2$s</a>',
+=======
 			' <a class="add-new-h2 hide-if-no-customize" href="%1$s">%2$s</a>',
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 			esc_url( add_query_arg(
 				array(
 					array( 'autofocus' => array( 'panel' => 'widgets' ) ),
@@ -327,7 +347,11 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' ); ?>
 		);
 	}
 ?>
+<<<<<<< HEAD
+</h1>
+=======
 </h2>
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 
 <?php if ( isset($_GET['message']) && isset($messages[$_GET['message']]) ) { ?>
 <div id="message" class="updated notice is-dismissible"><p><?php echo $messages[$_GET['message']]; ?></p></div>

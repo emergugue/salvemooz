@@ -232,6 +232,21 @@ textarea[readonly] {
    color: #a9a9a9;
 }
 
+<<<<<<< HEAD
+.form-invalid input, .form-invalid input:focus,
+.form-invalid select, .form-invalid select:focus {
+	border-color: #dc3232 !important;
+	-webkit-box-shadow: 0 0 2px rgba( 204, 0, 0, 0.8 );
+ 	box-shadow: 0 0 2px rgba( 204, 0, 0, 0.8 );
+}
+
+.form-table .form-required.form-invalid td:after {
+	content: '\f534';
+	font: normal 20px/1 dashicons;
+	color: #dc3232;
+	margin-left: -25px;
+	vertical-align: middle;
+=======
 .form-invalid {
 	background-color: #ffebe8 !important;
 }
@@ -239,6 +254,7 @@ textarea[readonly] {
 .form-invalid input,
 .form-invalid select {
 	border-color: #c00 !important;
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 }
 
 .form-input-tip {
@@ -352,8 +368,12 @@ textarea.large-text {
 	width: 99%;
 }
 
+<<<<<<< HEAD
+input.regular-text {
+=======
 input.regular-text,
 #adduser .form-field input {
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	width: 25em;
 }
 
@@ -401,6 +421,14 @@ input[type="number"].small-text {
 	color: #777;
 }
 
+<<<<<<< HEAD
+button.wp-hide-pw > .dashicons {
+	position: relative;
+	top: 3px;
+}
+
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 label,
 #your-profile label + a {
 	vertical-align: middle;
@@ -434,6 +462,61 @@ fieldset label,
 #pass-strength-result {
 	background-color: #eee;
 	border: 1px solid #ddd;
+<<<<<<< HEAD
+	color: #23282d;
+	margin: -2px 5px 5px 1px;
+	padding: 3px 5px;
+	text-align: center;
+	width: 25em;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	opacity: 0;
+}
+
+#pass-strength-result.short {
+	background-color: #f1adad;
+	border-color: #e35b5b;
+	opacity: 1;
+}
+
+#pass-strength-result.bad {
+	background-color: #fbc5a9;
+	border-color: #f78b53;
+	opacity: 1;
+}
+
+#pass-strength-result.good {
+	background-color: #ffe399;
+	border-color: #ffc733;
+	opacity: 1;
+}
+
+#pass-strength-result.strong {
+	background-color: #c1e1b9;
+	border-color: #83c373;
+	opacity: 1;
+}
+
+#pass1.short, #pass1-text.short {
+	border-color: #e35b5b;
+}
+
+#pass1.bad, #pass1-text.bad {
+	border-color: #f78b53;
+}
+
+#pass1.good, #pass1-text.good {
+	border-color: #ffc733;
+}
+
+#pass1.strong, #pass1-text.strong {
+	border-color: #83c373;
+}
+
+.pw-weak {
+	display:none;
+=======
 	float: left;
 	margin: 13px 5px 5px 1px;
 	padding: 3px 5px;
@@ -460,12 +543,30 @@ fieldset label,
 #pass-strength-result.strong {
 	background-color: #c3ff88;
 	border-color: #8dff1c;
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 }
 
 .indicator-hint {
 	padding-top: 8px;
 }
 
+<<<<<<< HEAD
+#pass1-text,
+.show-password #pass1 {
+	display: none;
+}
+
+.show-password #pass1-text
+{
+	display: inline-block;
+}
+
+.form-table span.description.important {
+	font-size: 12px;
+}
+
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 p.search-box {
 	float: right;
 	margin: 0;
@@ -629,6 +730,10 @@ table.form-table td .updated p {
 	width: 15em;
 }
 
+<<<<<<< HEAD
+#adduser .form-field input,
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 #createuser .form-field input {
 	width: 25em;
 }
@@ -832,6 +937,13 @@ table.form-table td .updated p {
   21.0 - Network Admin
 ------------------------------------------------------------------------------*/
 
+<<<<<<< HEAD
+.setup-php textarea {
+	max-width: 100%;
+}
+
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 .form-field #site-address {
 	max-width: 25em;
 }
@@ -852,6 +964,14 @@ table.form-table td .updated p {
 	margin-bottom: 5px;
 }
 
+<<<<<<< HEAD
+#search-users,
+#search-sites {
+	max-width: 100%;
+}
+
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 /*------------------------------------------------------------------------------
    Credentials check dialog for Install and Updates
 ------------------------------------------------------------------------------*/
@@ -862,6 +982,10 @@ table.form-table td .updated p {
 
 .request-filesystem-credentials-dialog .notification-dialog {
 	top: 15%;
+<<<<<<< HEAD
+	max-height: 85%;
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 }
 
 .request-filesystem-credentials-dialog-content {
@@ -943,16 +1067,36 @@ table.form-table td .updated p {
 		padding-top: 10px;
 	}
 
+<<<<<<< HEAD
+	input[type="checkbox"],
+	.widefat th input[type="checkbox"],
+	.widefat thead td input[type="checkbox"],
+	.widefat tfoot td input[type="checkbox"] {
+=======
 	input[type="checkbox"], .widefat th input[type="checkbox"] {
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 		-webkit-appearance: none;
 		padding: 10px;
 	}
 
+<<<<<<< HEAD
+	.widefat th input[type="checkbox"],
+	.widefat thead td input[type="checkbox"],
+	.widefat tfoot td input[type="checkbox"] {
+		margin-bottom: 8px;
+	}
+
+	input[type="checkbox"]:checked:before,
+	.widefat th input[type="checkbox"]:before,
+	.widefat thead td input[type="checkbox"]:before,
+	.widefat tfoot td input[type="checkbox"]:before {
+=======
 	.widefat th input[type="checkbox"] {
 		margin-bottom: 8px;
 	}
 
 	input[type="checkbox"]:checked:before, .widefat th input[type="checkbox"]:before {
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 		font: normal 30px/1 'Dashicons';
 		margin: -3px -5px;
 	}
@@ -990,6 +1134,10 @@ table.form-table td .updated p {
 		font-size: 14px;
 	}
 
+<<<<<<< HEAD
+	#adduser .form-field input,
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	#createuser .form-field input {
 		width: 100%;
 	}
@@ -1039,6 +1187,14 @@ table.form-table td .updated p {
 		box-sizing: border-box;
 	}
 
+<<<<<<< HEAD
+	.form-table .form-required.form-invalid td:after {
+		float: right;
+		margin: -30px 3px 0 0;
+	}
+
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	#wpbody .form-table td select {
 		height: 40px;
 	}
@@ -1087,8 +1243,15 @@ table.form-table td .updated p {
 	}
 
 	.form-table span.description {
+<<<<<<< HEAD
+		display: inline;
 		padding: 4px 0 0;
 		line-height: 1.4em;
+		font-size: 14px;
+=======
+		padding: 4px 0 0;
+		line-height: 1.4em;
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	}
 
 	.form-table th {
@@ -1098,10 +1261,29 @@ table.form-table td .updated p {
 	}
 
 	.form-table td {
+<<<<<<< HEAD
+		margin-bottom: 0;
+		padding-bottom: 6px;
+		padding-top: 4px;
+		padding-left: 0;
+	}
+
+	.form-table.permalink-structure td code {
+		margin-left: 32px;
+	}
+
+	.form-table.permalink-structure td input[type="text"] {
+		margin-left: 32px;
+		margin-top: 4px;
+		width: 96%;
+	}
+
+=======
 		padding-top: 8px;
 		padding-left: 0;
 	}
 
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	.form-table input.regular-text {
 		width: 100%;
 	}
@@ -1129,6 +1311,42 @@ table.form-table td .updated p {
 	.form-field #domain {
 		max-width: none;
 	}
+<<<<<<< HEAD
+
+	/* New Password */
+	.wp-pwd {
+		position: relative;
+	}
+
+	.wp-pwd [type="text"],
+	.wp-pwd [type="password"] {
+		padding-right: 40px;
+	}
+
+	.wp-pwd button.button {
+		background: transparent;
+		border: none;
+		-webkit-box-shadow: none;
+		box-shadow: none;
+		line-height: 2;
+		margin: 0;
+		padding: 5px 10px;
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
+
+	.wp-pwd button.button:hover,
+	.wp-pwd button.button:focus,
+	.wp-pwd button.button:active {
+		background: transparent;
+	}
+
+	.wp-pwd .button .text {
+		display: none;
+	}
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 }
 
 @media only screen and (max-width: 768px) {
@@ -1149,19 +1367,32 @@ table.form-table td .updated p {
 		max-width: 400px;
 		width: auto;
 	}
+<<<<<<< HEAD
+=======
 
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 }
 
 @media only screen and (max-height: 480px) {
 	/*  Request Credentials */
+<<<<<<< HEAD
+	.request-filesystem-credentials-dialog .notification-dialog{
+		width: 100%;
+		height: 100%;
+		max-height: 100%;
+=======
 	.request-filesystem-credentials-dialog	.notification-dialog{
 		width: 100%;
 		height: 100%;
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 		position: fixed;
 		top: 0;
 		margin: 0;
 		left: 0;
+<<<<<<< HEAD
+=======
 		overflow-y: auto;
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	}
 }
 
@@ -1172,4 +1403,7 @@ table.form-table td .updated p {
 		width: 49%;
 	}
 }
+<<<<<<< HEAD
+=======
 
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28

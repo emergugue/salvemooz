@@ -195,6 +195,11 @@ class Walker_Nav_Menu extends Walker {
  *
  * @since 3.0.0
  *
+<<<<<<< HEAD
+ * @staticvar array $menu_id_slugs
+ *
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  * @param array $args {
  *     Optional. Array of nav menu arguments.
  *
@@ -219,7 +224,11 @@ class Walker_Nav_Menu extends Walker {
  *     @type string        $items_wrap      How the list items should be wrapped. Default is a ul with an id and class.
  *                                          Uses printf() format with numbered placeholders.
  * }
+<<<<<<< HEAD
+ * @return object|false|void Menu output if $echo is false, false if there are no items or no menu was found.
+=======
  * @return mixed Menu output if $echo is false, false if there are no items or no menu was found.
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  */
 function wp_nav_menu( $args = array() ) {
 	static $menu_id_slugs = array();
@@ -284,6 +293,13 @@ function wp_nav_menu( $args = array() ) {
 		}
 	}
 
+<<<<<<< HEAD
+	if ( empty( $args->menu ) ) {
+		$args->menu = $menu;
+	}
+
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	// If the menu exists, get its items.
 	if ( $menu && ! is_wp_error($menu) && !isset($menu_items) )
 		$menu_items = wp_get_nav_menu_items( $menu->term_id, array( 'update_post_term_cache' => false ) );
@@ -297,7 +313,11 @@ function wp_nav_menu( $args = array() ) {
 	 *  - Otherwise, bail.
 	 */
 	if ( ( !$menu || is_wp_error($menu) || ( isset($menu_items) && empty($menu_items) && !$args->theme_location ) )
+<<<<<<< HEAD
+		&& isset( $args->fallback_cb ) && $args->fallback_cb && is_callable( $args->fallback_cb ) )
+=======
 		&& $args->fallback_cb && is_callable( $args->fallback_cb ) )
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 			return call_user_func( $args->fallback_cb, (array) $args );
 
 	if ( ! $menu || is_wp_error( $menu ) )
@@ -430,6 +450,12 @@ function wp_nav_menu( $args = array() ) {
  * @access private
  * @since 3.0.0
  *
+<<<<<<< HEAD
+ * @global WP_Query   $wp_query
+ * @global WP_Rewrite $wp_rewrite
+ *
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  * @param array $menu_items The current menu item objects to which to add the class property information.
  */
 function _wp_menu_item_classes_by_context( &$menu_items ) {
@@ -548,7 +574,11 @@ function _wp_menu_item_classes_by_context( &$menu_items ) {
 			$_root_relative_current = untrailingslashit( $_SERVER['REQUEST_URI'] );
 			$current_url = set_url_scheme( 'http://' . $_SERVER['HTTP_HOST'] . $_root_relative_current );
 			$raw_item_url = strpos( $menu_item->url, '#' ) ? substr( $menu_item->url, 0, strpos( $menu_item->url, '#' ) ) : $menu_item->url;
+<<<<<<< HEAD
+			$item_url = set_url_scheme( untrailingslashit( $raw_item_url ) );
+=======
 			$item_url = untrailingslashit( $raw_item_url );
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 			$_indexless_current = untrailingslashit( preg_replace( '/' . preg_quote( $wp_rewrite->index, '/' ) . '$/', '', $current_url ) );
 
 			if ( $raw_item_url && in_array( $item_url, array( $current_url, $_indexless_current, $_root_relative_current ) ) ) {
@@ -651,13 +681,25 @@ function _wp_menu_item_classes_by_context( &$menu_items ) {
  *
  * @uses Walker_Nav_Menu to create HTML list content.
  * @since 3.0.0
+<<<<<<< HEAD
+ *
+ * @param array  $items
+ * @param int    $depth
+ * @param object $r
+ * @return string
+=======
  * @see Walker::walk() for parameters and return description.
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  */
 function walk_nav_menu_tree( $items, $depth, $r ) {
 	$walker = ( empty($r->walker) ) ? new Walker_Nav_Menu : $r->walker;
 	$args = array( $items, $depth, $r );
 
+<<<<<<< HEAD
+	return call_user_func_array( array( $walker, 'walk' ), $args );
+=======
 	return call_user_func_array( array($walker, 'walk'), $args );
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 }
 
 /**
@@ -665,11 +707,25 @@ function walk_nav_menu_tree( $items, $depth, $r ) {
  *
  * @since 3.0.1
  * @access private
+<<<<<<< HEAD
+ *
+ * @staticvar array $used_ids
+ * @param string $id
+ * @param object $item
+ * @return string
+ */
+function _nav_menu_item_id_use_once( $id, $item ) {
+	static $_used_ids = array();
+	if ( in_array( $item->ID, $_used_ids ) ) {
+		return '';
+	}
+=======
  */
 function _nav_menu_item_id_use_once( $id, $item ) {
 	static $_used_ids = array();
 	if ( in_array( $item->ID, $_used_ids ) )
 		return '';
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	$_used_ids[] = $item->ID;
 	return $id;
 }

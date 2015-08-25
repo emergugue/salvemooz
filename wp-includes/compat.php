@@ -20,6 +20,11 @@ if ( !function_exists('_') ) {
  * @since 4.2.2
  * @access private
  *
+<<<<<<< HEAD
+ * @staticvar string $utf8_pcre
+ *
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  * @param bool $set - Used for testing only
  *             null   : default - get PCRE/u capability
  *             false  : Used for testing - return false for future calls to this function
@@ -193,6 +198,15 @@ if ( !function_exists('json_encode') ) {
 }
 
 if ( !function_exists('json_decode') ) {
+<<<<<<< HEAD
+	/**
+	 * @global Services_JSON $wp_json
+	 * @param string $string
+	 * @param bool   $assoc_array
+	 * @return object|array
+	 */
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	function json_decode( $string, $assoc_array = false ) {
 		global $wp_json;
 
@@ -206,6 +220,14 @@ if ( !function_exists('json_decode') ) {
 			$res = _json_decode_object_helper( $res );
 		return $res;
 	}
+<<<<<<< HEAD
+
+	/**
+	 * @param object $data
+	 * @return array
+	 */
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	function _json_decode_object_helper($data) {
 		if ( is_object($data) )
 			$data = get_object_vars($data);

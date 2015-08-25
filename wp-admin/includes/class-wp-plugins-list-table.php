@@ -17,6 +17,12 @@ class WP_Plugins_List_Table extends WP_List_Table {
 	 *
 	 * @see WP_List_Table::__construct() for more information on default arguments.
 	 *
+<<<<<<< HEAD
+	 * @global string $status
+	 * @global int    $page
+	 *
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	 * @param array $args An associative array of arguments.
 	 */
 	public function __construct( $args = array() ) {
@@ -37,14 +43,39 @@ class WP_Plugins_List_Table extends WP_List_Table {
 		$page = $this->get_pagenum();
 	}
 
+<<<<<<< HEAD
+	/**
+	 * @return array
+	 */
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	protected function get_table_classes() {
 		return array( 'widefat', $this->_args['plural'] );
 	}
 
+<<<<<<< HEAD
+	/**
+	 * @return bool
+	 */
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	public function ajax_user_can() {
 		return current_user_can('activate_plugins');
 	}
 
+<<<<<<< HEAD
+	/**
+	 *
+	 * @global string $status
+	 * @global type   $plugins
+	 * @global array  $totals
+	 * @global int    $page
+	 * @global string $orderby
+	 * @global string $order
+	 * @global string $s
+	 */
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	public function prepare_items() {
 		global $status, $plugins, $totals, $page, $orderby, $order, $s;
 
@@ -180,12 +211,24 @@ class WP_Plugins_List_Table extends WP_List_Table {
 
 		$total_this_page = $totals[ $status ];
 
+<<<<<<< HEAD
+		if ( ! $orderby ) {
+			$orderby = 'Name';
+		} else {
+			$orderby = ucfirst( $orderby );
+		}
+
+		$order = strtoupper( $order );
+
+		uasort( $this->items, array( $this, '_order_callback' ) );
+=======
 		if ( $orderby ) {
 			$orderby = ucfirst( $orderby );
 			$order = strtoupper( $order );
 
 			uasort( $this->items, array( $this, '_order_callback' ) );
 		}
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 
 		$plugins_per_page = $this->get_items_per_page( str_replace( '-', '_', $screen->id . '_per_page' ), 999 );
 
@@ -203,10 +246,17 @@ class WP_Plugins_List_Table extends WP_List_Table {
 	/**
 	 * @staticvar string $term
 	 * @param array $plugin
+<<<<<<< HEAD
+	 * @return bool
+	 */
+	public function _search_callback( $plugin ) {
+		static $term = null;
+=======
 	 * @return boolean
 	 */
 	public function _search_callback( $plugin ) {
 		static $term;
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 		if ( is_null( $term ) )
 			$term = wp_unslash( $_REQUEST['s'] );
 
@@ -235,12 +285,26 @@ class WP_Plugins_List_Table extends WP_List_Table {
 		if ( $a == $b )
 			return 0;
 
+<<<<<<< HEAD
+		if ( 'DESC' == $order ) {
+			return strcasecmp( $b, $a );
+		} else {
+			return strcasecmp( $a, $b );
+		}
+	}
+
+	/**
+	 *
+	 * @global array $plugins
+	 */
+=======
 		if ( 'DESC' == $order )
 			return ( $a < $b ) ? 1 : -1;
 		else
 			return ( $a < $b ) ? -1 : 1;
 	}
 
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	public function no_items() {
 		global $plugins;
 
@@ -250,6 +314,14 @@ class WP_Plugins_List_Table extends WP_List_Table {
 			_e( 'You do not appear to have any plugins available at this time.' );
 	}
 
+<<<<<<< HEAD
+	/**
+	 *
+	 * @global string $status
+	 * @return array
+	 */
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	public function get_columns() {
 		global $status;
 
@@ -260,10 +332,25 @@ class WP_Plugins_List_Table extends WP_List_Table {
 		);
 	}
 
+<<<<<<< HEAD
+	/**
+	 * @return array
+	 */
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	protected function get_sortable_columns() {
 		return array();
 	}
 
+<<<<<<< HEAD
+	/**
+	 *
+	 * @global array $totals
+	 * @global string $status
+	 * @return array
+	 */
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	protected function get_views() {
 		global $totals, $status;
 
@@ -308,6 +395,14 @@ class WP_Plugins_List_Table extends WP_List_Table {
 		return $status_links;
 	}
 
+<<<<<<< HEAD
+	/**
+	 *
+	 * @global string $status
+	 * @return array
+	 */
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	protected function get_bulk_actions() {
 		global $status;
 
@@ -332,7 +427,10 @@ class WP_Plugins_List_Table extends WP_List_Table {
 	/**
 	 * @global string $status
 	 * @param string $which
+<<<<<<< HEAD
+=======
 	 * @return null
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	 */
 	public function bulk_actions( $which = '' ) {
 		global $status;
@@ -346,7 +444,10 @@ class WP_Plugins_List_Table extends WP_List_Table {
 	/**
 	 * @global string $status
 	 * @param string $which
+<<<<<<< HEAD
+=======
 	 * @return null
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	 */
 	protected function extra_tablenav( $which ) {
 		global $status;
@@ -366,6 +467,12 @@ class WP_Plugins_List_Table extends WP_List_Table {
 		echo '</div>';
 	}
 
+<<<<<<< HEAD
+	/**
+	 * @return string
+	 */
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	public function current_action() {
 		if ( isset($_POST['clear-recent-list']) )
 			return 'clear-recent-list';
@@ -373,6 +480,13 @@ class WP_Plugins_List_Table extends WP_List_Table {
 		return parent::current_action();
 	}
 
+<<<<<<< HEAD
+	/**
+	 *
+	 * @global string $status
+	 */
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	public function display_rows() {
 		global $status;
 
@@ -388,6 +502,10 @@ class WP_Plugins_List_Table extends WP_List_Table {
 	 * @global int $page
 	 * @global string $s
 	 * @global array $totals
+<<<<<<< HEAD
+	 *
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	 * @param array $item
 	 */
 	public function single_row( $item ) {
@@ -421,7 +539,11 @@ class WP_Plugins_List_Table extends WP_List_Table {
 				$description = '<p><strong>' . $dropins[ $plugin_file ][0] . '</strong></p>';
 			} else {
 				$is_active = false;
+<<<<<<< HEAD
+				$description = '<p><strong>' . $dropins[ $plugin_file ][0] . ' <span class="error-message">' . __('Inactive:') . '</span></strong> ' . sprintf( __( 'Requires <code>%s</code> in <code>wp-config.php</code>.' ), "define('" . $dropins[ $plugin_file ][1] . "', true);" ) . '</p>';
+=======
 				$description = '<p><strong>' . $dropins[ $plugin_file ][0] . ' <span class="attention">' . __('Inactive:') . '</span></strong> ' . sprintf( __( 'Requires <code>%s</code> in <code>wp-config.php</code>.' ), "define('" . $dropins[ $plugin_file ][1] . "', true);" ) . '</p>';
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 			}
 			if ( $plugin_data['Description'] )
 				$description .= '<p>' . $plugin_data['Description'] . '</p>';
@@ -433,6 +555,34 @@ class WP_Plugins_List_Table extends WP_List_Table {
 
 			if ( $screen->in_admin( 'network' ) ) {
 				if ( $is_active ) {
+<<<<<<< HEAD
+					if ( current_user_can( 'manage_network_plugins' ) ) {
+						/* translators: %s: plugin name */
+						$actions['deactivate'] = '<a href="' . wp_nonce_url( 'plugins.php?action=deactivate&amp;plugin=' . $plugin_file . '&amp;plugin_status=' . $context . '&amp;paged=' . $page . '&amp;s=' . $s, 'deactivate-plugin_' . $plugin_file ) . '" aria-label="' . esc_attr( sprintf( __( 'Network deactivate %s' ), $plugin_data['Name'] ) ) . '">' . __( 'Network Deactivate' ) . '</a>';
+						}
+				} else {
+					if ( current_user_can( 'manage_network_plugins' ) ) {
+						/* translators: %s: plugin name */
+						$actions['activate'] = '<a href="' . wp_nonce_url( 'plugins.php?action=activate&amp;plugin=' . $plugin_file . '&amp;plugin_status=' . $context . '&amp;paged=' . $page . '&amp;s=' . $s, 'activate-plugin_' . $plugin_file ) . '" class="edit" aria-label="' . esc_attr( sprintf( __( 'Network Activate %s' ), $plugin_data['Name'] ) ) . '">' . __( 'Network Activate' ) . '</a>';
+					}
+					if ( current_user_can( 'delete_plugins' ) && ! is_plugin_active( $plugin_file ) ) {
+						/* translators: %s: plugin name */
+						$actions['delete'] = '<a href="' . wp_nonce_url( 'plugins.php?action=delete-selected&amp;checked[]=' . $plugin_file . '&amp;plugin_status=' . $context . '&amp;paged=' . $page . '&amp;s=' . $s, 'bulk-plugins' ) . '" class="delete" aria-label="' . esc_attr( sprintf( __( 'Delete %s' ), $plugin_data['Name'] ) ) . '">' . __( 'Delete' ) . '</a>';
+					}
+				}
+			} else {
+				if ( $is_active ) {
+					/* translators: %s: plugin name */
+					$actions['deactivate'] = '<a href="' . wp_nonce_url( 'plugins.php?action=deactivate&amp;plugin=' . $plugin_file . '&amp;plugin_status=' . $context . '&amp;paged=' . $page . '&amp;s=' . $s, 'deactivate-plugin_' . $plugin_file ) . '" aria-label="' . esc_attr( sprintf( __( 'Deactivate %s' ), $plugin_data['Name'] ) ) . '">' . __( 'Deactivate' ) . '</a>';
+				} else {
+					/* translators: %s: plugin name */
+					$actions['activate'] = '<a href="' . wp_nonce_url( 'plugins.php?action=activate&amp;plugin=' . $plugin_file . '&amp;plugin_status=' . $context . '&amp;paged=' . $page . '&amp;s=' . $s, 'activate-plugin_' . $plugin_file ) . '" class="edit" aria-label="' . esc_attr( sprintf( __( 'Activate %s' ), $plugin_data['Name'] ) ) . '">' . __( 'Activate' ) . '</a>';
+
+					if ( ! is_multisite() && current_user_can( 'delete_plugins' ) ) {
+						/* translators: %s: plugin name */
+						$actions['delete'] = '<a href="' . wp_nonce_url( 'plugins.php?action=delete-selected&amp;checked[]=' . $plugin_file . '&amp;plugin_status=' . $context . '&amp;paged=' . $page . '&amp;s=' . $s, 'bulk-plugins' ) . '" class="delete" aria-label="' . esc_attr( sprintf( __( 'Delete %s' ), $plugin_data['Name'] ) ) . '">' . __( 'Delete' ) . '</a>';
+					}
+=======
 					if ( current_user_can( 'manage_network_plugins' ) )
 						$actions['deactivate'] = '<a href="' . wp_nonce_url('plugins.php?action=deactivate&amp;plugin=' . $plugin_file . '&amp;plugin_status=' . $context . '&amp;paged=' . $page . '&amp;s=' . $s, 'deactivate-plugin_' . $plugin_file) . '" title="' . esc_attr__('Deactivate this plugin') . '">' . __('Network Deactivate') . '</a>';
 				} else {
@@ -449,12 +599,20 @@ class WP_Plugins_List_Table extends WP_List_Table {
 
 					if ( ! is_multisite() && current_user_can('delete_plugins') )
 						$actions['delete'] = '<a href="' . wp_nonce_url('plugins.php?action=delete-selected&amp;checked[]=' . $plugin_file . '&amp;plugin_status=' . $context . '&amp;paged=' . $page . '&amp;s=' . $s, 'bulk-plugins') . '" title="' . esc_attr__('Delete this plugin') . '" class="delete">' . __('Delete') . '</a>';
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 				} // end if $is_active
 
 			 } // end if $screen->in_admin( 'network' )
 
+<<<<<<< HEAD
+			if ( ( ! is_multisite() || $screen->in_admin( 'network' ) ) && current_user_can( 'edit_plugins' ) && is_writable( WP_PLUGIN_DIR . '/' . $plugin_file ) ) {
+				/* translators: %s: plugin name */
+				$actions['edit'] = '<a href="plugin-editor.php?file=' . $plugin_file . '" class="edit" aria-label="' . esc_attr( sprintf( __( 'Edit %s' ), $plugin_data['Name'] ) ) . '">' . __( 'Edit' ) . '</a>';
+			}
+=======
 			if ( ( ! is_multisite() || $screen->in_admin( 'network' ) ) && current_user_can('edit_plugins') && is_writable(WP_PLUGIN_DIR . '/' . $plugin_file) )
 				$actions['edit'] = '<a href="plugin-editor.php?file=' . $plugin_file . '" title="' . esc_attr__('Open this file in the Plugin Editor') . '" class="edit">' . __('Edit') . '</a>';
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 		} // end if $context
 
 		$prefix = $screen->in_admin( 'network' ) ? 'network_admin_' : '';
@@ -531,24 +689,44 @@ class WP_Plugins_List_Table extends WP_List_Table {
 			$plugin_slug
 		);
 
+<<<<<<< HEAD
+		list( $columns, $hidden, $sortable, $primary ) = $this->get_column_info();
+
+		foreach ( $columns as $column_name => $column_display_name ) {
+			$extra_classes = '';
+			if ( in_array( $column_name, $hidden ) ) {
+				$extra_classes = ' hidden';
+			}
+=======
 		list( $columns, $hidden ) = $this->get_column_info();
 
 		foreach ( $columns as $column_name => $column_display_name ) {
 			$style = '';
 			if ( in_array( $column_name, $hidden ) )
 				$style = ' style="display:none;"';
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 
 			switch ( $column_name ) {
 				case 'cb':
 					echo "<th scope='row' class='check-column'>$checkbox</th>";
 					break;
 				case 'name':
+<<<<<<< HEAD
+					echo "<td class='plugin-title column-primary'><strong>$plugin_name</strong>";
+=======
 					echo "<td class='plugin-title'$style><strong>$plugin_name</strong>";
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 					echo $this->row_actions( $actions, true );
 					echo "</td>";
 					break;
 				case 'description':
+<<<<<<< HEAD
+					$classes = 'column-description desc';
+
+					echo "<td class='$classes{$extra_classes}'>
+=======
 					echo "<td class='column-description desc'$style>
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 						<div class='plugin-description'>$description</div>
 						<div class='$class second plugin-version-author-uri'>";
 
@@ -598,7 +776,13 @@ class WP_Plugins_List_Table extends WP_List_Table {
 					echo "</div></td>";
 					break;
 				default:
+<<<<<<< HEAD
+					$classes = "$column_name column-$column_name$class";
+
+					echo "<td class='$classes{$extra_classes}'>";
+=======
 					echo "<td class='$column_name column-$column_name'$style>";
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 
 					/**
 					 * Fires inside each custom column of the Plugins list table.
@@ -610,6 +794,10 @@ class WP_Plugins_List_Table extends WP_List_Table {
 					 * @param array  $plugin_data An array of plugin data.
 					 */
 					do_action( 'manage_plugins_custom_column', $column_name, $plugin_file, $plugin_data );
+<<<<<<< HEAD
+
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 					echo "</td>";
 			}
 		}
@@ -645,4 +833,19 @@ class WP_Plugins_List_Table extends WP_List_Table {
 		 */
 		do_action( "after_plugin_row_$plugin_file", $plugin_file, $plugin_data, $status );
 	}
+<<<<<<< HEAD
+
+	/**
+	 * Gets the name of the primary column for this specific list table.
+	 *
+	 * @since 4.3.0
+	 * @access protected
+	 *
+	 * @return string Unalterable name for the primary column, in this case, 'name'.
+	 */
+	protected function get_primary_column_name() {
+		return 'name';
+	}
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 }

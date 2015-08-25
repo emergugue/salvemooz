@@ -10,4 +10,8 @@
 @import url(about.css);
 @import url(nav-menus.css);
 @import url(widgets.css);
+<<<<<<< HEAD
+@import url(site-icon.css);
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 @import url(l10n.css);

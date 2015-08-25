@@ -74,7 +74,11 @@ default :
 
 	$post_edit_link = get_edit_post_link();
 	$post_title     = '<a href="' . $post_edit_link . '">' . _draft_or_post_title() . '</a>';
+<<<<<<< HEAD
+	$h1             = sprintf( __( 'Compare Revisions of &#8220;%1$s&#8221;' ), $post_title );
+=======
 	$h2             = sprintf( __( 'Compare Revisions of &#8220;%1$s&#8221;' ), $post_title );
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	$return_to_post = '<a href="' . $post_edit_link . '">' . __( '&larr; Return to post editor' ) . '</a>';
 	$title          = __( 'Revisions' );
 
@@ -126,7 +130,11 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' );
 ?>
 
 <div class="wrap">
+<<<<<<< HEAD
+	<h1 class="long-header"><?php echo $h1; ?></h1>
+=======
 	<h2 class="long-header"><?php echo $h2; ?></h2>
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	<?php echo $return_to_post; ?>
 </div>
 <?php

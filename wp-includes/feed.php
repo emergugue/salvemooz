@@ -545,7 +545,11 @@ function prep_atom_text_construct($data) {
 		}
 	}
 
+<<<<<<< HEAD
+	if (strpos($data, ']]>') === false) {
+=======
 	if (strpos($data, ']]>') == false) {
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 		return array('html', "<![CDATA[$data]]>");
 	} else {
 		return array('html', htmlspecialchars($data));
@@ -553,6 +557,47 @@ function prep_atom_text_construct($data) {
 }
 
 /**
+<<<<<<< HEAD
+ * Displays Site Icon in atom feeds.
+ *
+ * @since 4.3.0
+ *
+ * @see get_site_icon_url()
+ */
+function atom_site_icon() {
+	$url = get_site_icon_url( 32 );
+	if ( $url ) {
+		echo "<icon>$url</icon>\n";
+	}
+}
+
+/**
+ * Displays Site Icon in RSS2.
+ *
+ * @since 4.3.0
+ */
+function rss2_site_icon() {
+	$rss_title = get_wp_title_rss();
+	if ( empty( $rss_title ) ) {
+		$rss_title = get_bloginfo_rss( 'name' );
+	}
+
+	$url = get_site_icon_url( 32 );
+	if ( $url ) {
+		echo '
+<image>
+	<url>' . convert_chars( $url ) . '</url>
+	<title>' . $rss_title . '</title>
+	<link>' . get_bloginfo_rss( 'url' ) . '</link>
+	<width>32</width>
+	<height>32</height>
+</image> ' . "\n";
+	}
+}
+
+/**
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
  * Display the link for the currently displayed feed in a XSS safe way.
  *
  * Generate a correct link for the atom:self element.
@@ -642,6 +687,10 @@ function fetch_feed( $url ) {
 	 */
 	do_action_ref_array( 'wp_feed_options', array( &$feed, $url ) );
 	$feed->init();
+<<<<<<< HEAD
+	$feed->set_output_encoding( get_option( 'blog_charset' ) );
+=======
+>>>>>>> 46e01415ad7554b3dbaa18b33e8007de720c8b28
 	$feed->handle_content_type();
 
 	if ( $feed->error() )
